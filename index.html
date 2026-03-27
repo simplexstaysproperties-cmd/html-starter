@@ -3,32 +3,38 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Simplex Stays Ltd | Corporate & Luxury London Stays</title>
-  <meta name="description" content="Simplex Stays Ltd provides modern, corporate-ready furnished accommodation in London for short, medium and extended stays." />
+  <title>Simplex Stays Ltd | Premium Corporate & Luxury London Stays</title>
+  <meta name="description" content="Simplex Stays Ltd offers premium furnished accommodation in London for corporate stays, relocations, contractors, families and longer bookings." />
   <style>
     :root {
-      --bg: #f8fafc;
+      --bg: #f5f7fb;
       --surface: #ffffff;
-      --surface-soft: #f1f5f9;
-      --text: #0f172a;
-      --muted: #475569;
-      --border: #dbe4ee;
-      --dark: #0b1635;
-      --dark-2: #111827;
-      --accent: #0f172a;
-      --shadow: 0 18px 50px rgba(15, 23, 42, 0.08);
-      --shadow-soft: 0 8px 24px rgba(15, 23, 42, 0.06);
+      --surface-soft: #eef3f8;
+      --text: #0c1730;
+      --muted: #5a6980;
+      --border: #d9e2ec;
+      --dark: #071738;
+      --dark-2: #0d2149;
+      --dark-3: #132c5e;
+      --accent: #c7a96b;
+      --accent-soft: #f3e7cd;
+      --whatsapp: #25D366;
+      --shadow: 0 24px 80px rgba(7, 23, 56, 0.12);
+      --shadow-soft: 0 12px 34px rgba(7, 23, 56, 0.08);
       --radius: 24px;
-      --radius-lg: 32px;
+      --radius-lg: 34px;
       --max: 1180px;
     }
 
     * { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
+
     body {
       margin: 0;
       font-family: Arial, Helvetica, sans-serif;
-      background: var(--bg);
+      background:
+        radial-gradient(circle at top left, rgba(199,169,107,0.09) 0%, rgba(199,169,107,0) 28%),
+        linear-gradient(180deg, #f9fbfd 0%, #f2f6fa 100%);
       color: var(--text);
       line-height: 1.6;
     }
@@ -43,10 +49,10 @@
     .topbar {
       position: sticky;
       top: 0;
-      z-index: 20;
-      backdrop-filter: blur(12px);
-      background: rgba(248, 250, 252, 0.86);
-      border-bottom: 1px solid rgba(219, 228, 238, 0.9);
+      z-index: 30;
+      backdrop-filter: blur(14px);
+      background: rgba(255, 255, 255, 0.8);
+      border-bottom: 1px solid rgba(217, 226, 236, 0.95);
     }
 
     .nav {
@@ -60,7 +66,7 @@
     .brand {
       font-weight: 800;
       font-size: 20px;
-      letter-spacing: -0.02em;
+      letter-spacing: -0.03em;
     }
 
     .nav-links {
@@ -69,15 +75,36 @@
       gap: 20px;
       flex-wrap: wrap;
       color: var(--muted);
-      font-size: 14px;
+      font-size: 15px;
     }
 
-    .nav-links a:hover { color: var(--text); }
+    .nav-links a {
+      transition: 0.22s ease;
+    }
+
+    .nav-links a:hover {
+      color: var(--text);
+      transform: translateY(-1px);
+    }
 
     .hero {
-      padding: 72px 0 68px;
-      background: linear-gradient(135deg, #f8fafc 0%, #ffffff 58%, #edf2f8 100%);
-      border-bottom: 1px solid var(--border);
+      position: relative;
+      overflow: hidden;
+      padding: 84px 0 76px;
+      background:
+        linear-gradient(135deg, rgba(7,23,56,0.98) 0%, rgba(14,33,73,0.96) 52%, rgba(10,26,58,0.96) 100%);
+      color: white;
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .hero::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(circle at 18% 18%, rgba(199,169,107,0.16) 0%, rgba(199,169,107,0) 28%),
+        radial-gradient(circle at 80% 10%, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0) 24%);
+      pointer-events: none;
     }
 
     .hero-grid,
@@ -105,25 +132,27 @@
       display: inline-block;
       padding: 10px 16px;
       border-radius: 999px;
-      border: 1px solid var(--border);
-      background: rgba(255,255,255,0.9);
+      border: 1px solid rgba(255,255,255,0.18);
+      background: rgba(255,255,255,0.08);
       box-shadow: var(--shadow-soft);
       font-size: 14px;
       margin-bottom: 18px;
+      color: #edf2f7;
     }
 
     h1, h2, h3, p { margin-top: 0; }
+
     h1 {
-      font-size: clamp(42px, 6vw, 68px);
-      line-height: 1.02;
-      letter-spacing: -0.035em;
+      font-size: clamp(46px, 6vw, 76px);
+      line-height: 0.98;
+      letter-spacing: -0.045em;
       margin-bottom: 18px;
     }
 
     h2 {
-      font-size: clamp(30px, 4vw, 44px);
-      line-height: 1.1;
-      letter-spacing: -0.02em;
+      font-size: clamp(32px, 4vw, 48px);
+      line-height: 1.05;
+      letter-spacing: -0.03em;
       margin-bottom: 18px;
     }
 
@@ -138,20 +167,30 @@
       max-width: 780px;
     }
 
+    .hero .lead {
+      color: rgba(235, 241, 248, 0.88);
+      max-width: 720px;
+    }
+
     .label {
       text-transform: uppercase;
       letter-spacing: 0.18em;
       font-size: 12px;
       font-weight: 700;
-      color: #64748b;
+      color: #6f8099;
       margin-bottom: 14px;
+    }
+
+    .hero .label,
+    .hero .hero-stats .label {
+      color: rgba(230, 237, 245, 0.76);
     }
 
     .cta-row {
       display: flex;
       flex-wrap: wrap;
       gap: 14px;
-      margin: 28px 0 30px;
+      margin: 30px 0 30px;
     }
 
     .btn {
@@ -160,25 +199,49 @@
       border-radius: 16px;
       font-weight: 700;
       font-size: 15px;
-      transition: 0.2s ease;
+      transition: 0.22s ease;
       border: 1px solid var(--border);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .btn:hover {
+      transform: translateY(-2px);
     }
 
     .btn-primary {
-      background: var(--dark);
-      color: white;
-      border-color: var(--dark);
+      background: linear-gradient(135deg, var(--accent) 0%, #e7d3a6 100%);
+      color: #1a1a1a;
+      border-color: rgba(199,169,107,0.65);
     }
 
-    .btn-primary:hover { opacity: 0.92; }
-    .btn-secondary:hover { background: #f8fafc; }
-    .btn-whatsapp { background: #25D366; color: white; border-color: #25D366; }
+    .btn-secondary {
+      background: rgba(255,255,255,0.1);
+      color: white;
+      border-color: rgba(255,255,255,0.18);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255,255,255,0.16);
+    }
+
+    .btn-light {
+      background: white;
+      color: var(--dark);
+      border-color: white;
+    }
+
+    .btn-whatsapp {
+      background: var(--whatsapp);
+      color: white;
+      border-color: var(--whatsapp);
+    }
 
     .feature-grid,
     .highlights-grid,
     .audience-grid,
     .mini-grid,
-    .gallery-grid {
+    .gallery-grid,
+    .hero-stats {
       display: grid;
       gap: 16px;
     }
@@ -188,10 +251,14 @@
     .audience-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
     .mini-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     .gallery-grid { grid-template-columns: 1.2fr 0.8fr; align-items: stretch; }
+    .hero-stats { grid-template-columns: repeat(3, minmax(0, 1fr)); margin-top: 18px; }
 
-    .section { padding: 84px 0; }
+    .section {
+      padding: 88px 0;
+    }
+
     .section-soft {
-      background: #f9fafb;
+      background: linear-gradient(180deg, #f8fafc 0%, #f1f5f9 100%);
       border-top: 1px solid var(--border);
       border-bottom: 1px solid var(--border);
     }
@@ -202,53 +269,121 @@
       border-radius: var(--radius);
       padding: 24px;
       box-shadow: var(--shadow-soft);
+      transition: 0.22s ease;
+    }
+
+    .card:hover,
+    .metric:hover,
+    .faq-item:hover,
+    .testimonial:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 18px 40px rgba(7,23,56,0.10);
     }
 
     .card-xl {
-      background: var(--surface);
-      border: 1px solid var(--border);
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.12);
       border-radius: var(--radius-lg);
-      padding: 26px;
+      padding: 24px;
       box-shadow: var(--shadow);
+      backdrop-filter: blur(6px);
     }
 
     .hero-shell {
+      position: relative;
+      z-index: 1;
       border-radius: 34px;
-      background: rgba(255,255,255,0.7);
-      border: 1px solid rgba(255,255,255,0.95);
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.1);
       box-shadow: var(--shadow);
-      padding: 26px;
+      padding: 30px;
+      backdrop-filter: blur(4px);
+    }
+
+    .hero-feature {
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.12);
+      color: white;
+      border-radius: 20px;
+      padding: 20px;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .hero-feature strong {
+      display: block;
+      font-size: 15px;
+      margin-bottom: 6px;
+      color: #fff;
+    }
+
+    .hero-feature span {
+      color: rgba(232,239,246,0.82);
+      font-size: 14px;
+    }
+
+    .hero-stat {
+      padding: 18px;
+      border-radius: 22px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.12);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .hero-stat-number {
+      display: block;
+      font-size: 28px;
+      font-weight: 800;
+      letter-spacing: -0.04em;
+      margin-bottom: 6px;
+      color: white;
+    }
+
+    .hero-stat-text {
+      font-size: 14px;
+      color: rgba(235, 241, 248, 0.84);
     }
 
     .mock-visual {
-      min-height: 430px;
+      min-height: 540px;
       border-radius: 28px;
       padding: 22px;
       position: relative;
       overflow: hidden;
       background-image:
-        linear-gradient(180deg, rgba(15,23,42,0.18) 0%, rgba(15,23,42,0.38) 100%),
+        linear-gradient(180deg, rgba(7,23,56,0.12) 0%, rgba(7,23,56,0.40) 100%),
         url('https://raw.githubusercontent.com/simplexstaysproperties-cmd/html-starter/main/hero-bedroom-pink.jpg');
       background-size: cover;
       background-position: center;
       box-shadow: var(--shadow-soft);
     }
 
+    .mock-visual::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at 70% 30%, rgba(255,255,255,0.12) 0%, rgba(255,255,255,0) 28%);
+      pointer-events: none;
+    }
+
     .mock-inner {
       height: 100%;
       border-radius: 22px;
-      background: linear-gradient(180deg, rgba(255,255,255,0.78) 0%, rgba(255,255,255,0.90) 100%);
-      border: 1px solid rgba(255,255,255,0.9);
+      background: linear-gradient(180deg, rgba(255,255,255,0.82) 0%, rgba(255,255,255,0.92) 100%);
+      border: 1px solid rgba(255,255,255,0.94);
       padding: 24px;
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      backdrop-filter: blur(6px);
+      backdrop-filter: blur(8px);
+      position: relative;
+      z-index: 1;
+      max-width: 88%;
+      box-shadow: 0 18px 50px rgba(7,23,56,0.14);
     }
 
     .mock-panel {
       border-radius: 18px;
-      background: rgba(255,255,255,0.92);
+      background: rgba(255,255,255,0.98);
       border: 1px solid var(--border);
       padding: 14px;
       font-size: 14px;
@@ -273,18 +408,19 @@
       content: "";
       position: absolute;
       inset: 0;
-      background: linear-gradient(180deg, rgba(15,23,42,0) 0%, rgba(15,23,42,0.15) 100%);
+      background: linear-gradient(180deg, rgba(15,23,42,0.02) 0%, rgba(15,23,42,0.22) 100%);
     }
 
     .photo-caption {
       position: relative;
       z-index: 1;
-      background: rgba(255,255,255,0.9);
+      background: rgba(255,255,255,0.92);
       border: 1px solid rgba(255,255,255,0.98);
       border-radius: 16px;
       padding: 12px 14px;
       box-shadow: var(--shadow-soft);
       width: fit-content;
+      max-width: 88%;
     }
 
     .photo-stack {
@@ -298,24 +434,46 @@
       color: var(--muted);
     }
 
+    .bullet-list li { margin-bottom: 6px; }
+
     .host-band {
-      background: var(--dark);
+      background:
+        linear-gradient(135deg, rgba(7,23,56,1) 0%, rgba(12,33,77,0.98) 58%, rgba(15,42,97,0.96) 100%);
       color: white;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .host-band::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at top right, rgba(199,169,107,0.16) 0%, rgba(199,169,107,0) 28%);
+      pointer-events: none;
     }
 
     .host-band .lead,
-    .host-band .label { color: #cbd5e1; }
+    .host-band .label { color: #d5ddec; }
 
     .glass {
       border-radius: 28px;
       padding: 28px;
-      background: rgba(255,255,255,0.08);
-      border: 1px solid rgba(255,255,255,0.12);
-      backdrop-filter: blur(6px);
+      background: rgba(255,255,255,0.10);
+      border: 1px solid rgba(255,255,255,0.14);
+      backdrop-filter: blur(8px);
+      box-shadow: var(--shadow);
     }
 
+    .glass p {
+      margin: 0 0 16px;
+      font-size: 18px;
+      color: #f5f7fb;
+    }
+
+    .glass p:last-child { margin-bottom: 0; }
+
     .contact-shell {
-      background: #f8fafc;
+      background: linear-gradient(180deg, #f8fafc 0%, #f3f7fb 100%);
       border: 1px solid var(--border);
       border-radius: 30px;
       padding: 34px;
@@ -337,6 +495,7 @@
       border-radius: 22px;
       padding: 22px;
       box-shadow: var(--shadow-soft);
+      transition: 0.22s ease;
     }
 
     .metric-number {
@@ -344,6 +503,7 @@
       font-weight: 800;
       letter-spacing: -0.03em;
       margin-bottom: 8px;
+      color: var(--dark);
     }
 
     .faq-item,
@@ -353,9 +513,16 @@
       border-radius: 24px;
       padding: 26px;
       box-shadow: var(--shadow-soft);
+      transition: 0.22s ease;
     }
 
-    .testimonial small { color: var(--muted); display: block; margin-top: 10px; }
+    .testimonial small {
+      color: var(--muted);
+      display: block;
+      margin-top: 10px;
+      font-size: 15px;
+      line-height: 1.5;
+    }
 
     .disclaimer {
       margin-top: 18px;
@@ -380,9 +547,11 @@
       .footer-grid,
       .stats-grid,
       .faq-grid,
-      .testimonial-grid { grid-template-columns: 1fr; }
+      .testimonial-grid,
+      .hero-stats { grid-template-columns: 1fr; }
       .highlights-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
       .audience-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .mock-inner { max-width: 100%; }
     }
 
     @media (max-width: 720px) {
@@ -396,7 +565,8 @@
       .triple-grid,
       .stats-grid,
       .faq-grid,
-      .testimonial-grid { grid-template-columns: 1fr; }
+      .testimonial-grid,
+      .hero-stats { grid-template-columns: 1fr; }
       .card,
       .card-xl,
       .contact-shell,
@@ -407,6 +577,8 @@
       .cta-row { flex-direction: column; }
       .btn { text-align: center; }
       .nav-links { gap: 12px; }
+      h1 { font-size: clamp(40px, 12vw, 58px); }
+      .mock-inner { max-width: 100%; }
     }
   </style>
 </head>
@@ -427,23 +599,37 @@
   <section class="hero">
     <div class="container hero-grid">
       <div class="hero-shell">
-        <div class="eyebrow">Simplex Stays Ltd • Modern serviced accommodation in London</div>
-        <h1>Luxury-standard comfort for short, medium and extended London stays</h1>
-        <p class="lead">Simplex Stays provides clean, modern and corporate-ready furnished accommodation designed for comfort, privacy and practical everyday living. Ideal for company lets, relocation stays, contractors, professional groups and families.</p>
+        <div class="eyebrow">Premium serviced accommodation in London</div>
+        <h1>Luxury-standard comfort for corporate, family and longer London stays</h1>
+        <p class="lead">Simplex Stays delivers polished, corporate-ready accommodation designed for privacy, comfort and practical everyday living. Ideal for company lets, relocation stays, contractors, professional groups and families who want more than a standard hotel stay.</p>
 
         <div class="cta-row">
+          <a class="btn btn-primary" href="#contact">Book Direct & Save</a>
+          <a class="btn btn-light" href="#property">View Apartment</a>
           <a class="btn btn-secondary" href="https://www.airbnb.co.uk/rooms/1645094170229913919">Book on Airbnb</a>
-          <a class="btn btn-primary" href="#property">View Property</a>
-          <a class="btn btn-secondary" href="#contact">Enquire Now</a>
-          <a class="btn btn-whatsapp" href="https://wa.me/447908389184">Message on WhatsApp</a>
-          <a class="btn btn-secondary" href="https://www.vrbo.com/en-gb/p12076179?chkin=2026-04-20&chkout=2026-04-21&d1=2026-04-20&d2=2026-04-21&startDate=2026-04-20&endDate=2026-04-21&x_pwa=1&rfrr=HSR&pwa_ts=1774567474148&referrerUrl=aHR0cHM6Ly93d3cudnJiby5jb20vSG90ZWwtU2VhcmNo&useRewards=false&adults=2&destination=London+NW10+1DT%2C+UK&destType=ADDRESS&neighborhoodId=553248635976383097&latLong=51.5537196%2C-0.2447262&property_type_group=apartment_or_condo&safety_group=carbon_monoxide_detector&bedroom_count_gt=3&searchId=069899dd-be32-4eff-9cb5-5396684bed59&sort=RECOMMENDED&top_dp=341&top_cur=GBP&userIntent=&selectedRoomType=127412498&selectedRatePlan=0001dd35bd8de24b4a06b4fcc8dec71231ad&expediaPropertyId=127412498">View on VRBO</a>
+          <a class="btn btn-whatsapp" href="https://wa.me/447908389184">WhatsApp Us</a>
         </div>
 
         <div class="feature-grid">
-          <div class="card">Fully furnished, corporate-ready accommodation</div>
-          <div class="card">Ideal for relocation, contractor and family stays</div>
-          <div class="card">Modern comfort with privacy-focused layouts</div>
-          <div class="card">Longer stays welcome across London properties</div>
+          <div class="hero-feature"><strong>Professionally presented</strong><span>Modern accommodation prepared for comfort, convenience and trust.</span></div>
+          <div class="hero-feature"><strong>Flexible stay lengths</strong><span>Suitable for short bookings, relocations and extended stays in London.</span></div>
+          <div class="hero-feature"><strong>Corporate-ready finish</strong><span>Ideal for business travellers, contractor teams and professional guests.</span></div>
+          <div class="hero-feature"><strong>Direct booking value</strong><span>Enquire directly for the best available rates and longer-stay savings.</span></div>
+        </div>
+
+        <div class="hero-stats">
+          <div class="hero-stat">
+            <span class="hero-stat-number">3 Bed</span>
+            <span class="hero-stat-text">Comfortable layout for groups, families and working professionals.</span>
+          </div>
+          <div class="hero-stat">
+            <span class="hero-stat-number">2 Bath</span>
+            <span class="hero-stat-text">Extra convenience and privacy for longer stays and shared bookings.</span>
+          </div>
+          <div class="hero-stat">
+            <span class="hero-stat-number">7th Floor</span>
+            <span class="hero-stat-text">Bright modern setting with lift access in a well-presented development.</span>
+          </div>
         </div>
       </div>
 
@@ -453,8 +639,8 @@
             <div class="mock-inner">
               <div>
                 <div class="label" style="margin-bottom:8px; color:#64748b;">Featured Property</div>
-                <h3 style="margin-bottom:8px;">Featured 3-Bedroom Apartment</h3>
-                <p style="color:#475569; margin-bottom:0;">Dollis Hill, North West London</p>
+                <h3 style="margin-bottom:8px; font-size:28px;">Featured 3-Bedroom Apartment</h3>
+                <p style="color:#475569; margin-bottom:0; font-size:18px;">Dollis Hill, North West London</p>
               </div>
 
               <div class="mini-grid">
@@ -465,7 +651,7 @@
               </div>
             </div>
           </div>
-          <p style="color:#475569; margin:18px 0 0;">A modern 7th-floor apartment in a new-build development, designed to combine comfort, privacy and practical luxury for professional and family stays.</p>
+          <p style="color:rgba(255,255,255,0.82); margin:18px 0 0; font-size:16px;">A modern 7th-floor apartment with premium comfort, privacy-focused layout and longer-stay practicality for professional and family bookings.</p>
         </div>
       </div>
     </div>
@@ -476,11 +662,11 @@
       <div>
         <div class="label">About Simplex Stays</div>
         <h2>A dependable stay experience built around comfort, trust and quality</h2>
-        <p class="lead">Simplex Stays Ltd was created to provide high-standard accommodation that feels both polished and practical. The focus is on spaces that are clean, well-prepared and genuinely comfortable to live in — whether a guest is staying for work, relocation, family travel or a longer visit to London.</p>
-        <p class="lead" style="font-size:18px;">Every stay is shaped around modern convenience, privacy and clear communication, helping guests feel settled from arrival to departure.</p>
+        <p class="lead">Simplex Stays Ltd was created to provide high-standard accommodation that feels polished, practical and genuinely comfortable to live in. Whether a guest is staying for work, relocation, family travel or a longer London visit, the focus is always on comfort, privacy and a well-prepared environment.</p>
+        <p class="lead" style="font-size:18px;">Every stay is designed to feel smooth from arrival to departure, with clear communication, useful amenities and a premium-standard finish throughout.</p>
       </div>
 
-      <div class="card" style="background:#f8fafc; padding:30px;">
+      <div class="card" style="background:linear-gradient(180deg,#f8fafc 0%, #f2f6fb 100%); padding:30px;">
         <div class="label">Why guests choose us</div>
         <div style="display:grid; gap:14px; margin-top:18px;">
           <div class="card">Professionally presented accommodation</div>
@@ -517,24 +703,24 @@
 
   <section class="section section-soft" id="property">
     <div class="container">
-      <div style="max-width:800px; margin-bottom:28px;">
+      <div style="max-width:830px; margin-bottom:28px;">
         <div class="label">Featured Property</div>
         <h2>Modern 3-bedroom apartment in Dollis Hill</h2>
-        <p class="lead">Located in Dollis Hill, this fully furnished apartment offers a rare combination of space, flexibility and premium comfort in North West London. Ideal for company lets, relocation stays, contractors, professional groups and families.</p>
+        <p class="lead">Located in Dollis Hill, this fully furnished apartment offers a strong combination of space, flexibility and premium comfort in North West London. Ideal for company lets, relocation stays, contractor teams, professional groups and families.</p>
       </div>
 
       <div class="gallery-grid" style="margin-bottom:24px;">
-        <div class="photo-card" style="background-image:url('https://raw.githubusercontent.com/simplexstaysproperties-cmd/html-starter/main/hero-bedroom-pink.jpg'); background-size:cover; background-position:center;">
+        <div class="photo-card" style="background-image:url('https://raw.githubusercontent.com/simplexstaysproperties-cmd/html-starter/main/hero-bedroom-pink.jpg'); background-size:cover; background-position:center; min-height:360px;">
           <div class="photo-caption">
             <strong>Bright, spacious and guest-ready</strong><br />
             A premium 3-bedroom setup designed for comfort and longer stays.
           </div>
         </div>
         <div class="photo-stack">
-          <div class="photo-card" style="min-height:122px; background-image:url('https://raw.githubusercontent.com/simplexstaysproperties-cmd/html-starter/main/living-room-wide.jpg'); background-size:cover; background-position:center;">
+          <div class="photo-card" style="min-height:172px; background-image:url('https://raw.githubusercontent.com/simplexstaysproperties-cmd/html-starter/main/living-room-wide.jpg'); background-size:cover; background-position:center;">
             <div class="photo-caption"><strong>Modern living space</strong></div>
           </div>
-          <div class="photo-card" style="min-height:122px; background-image:url('https://raw.githubusercontent.com/simplexstaysproperties-cmd/html-starter/main/kitchen-wide.jpg'); background-size:cover; background-position:center;">
+          <div class="photo-card" style="min-height:172px; background-image:url('https://raw.githubusercontent.com/simplexstaysproperties-cmd/html-starter/main/kitchen-wide.jpg'); background-size:cover; background-position:center;">
             <div class="photo-caption"><strong>Fully equipped kitchen</strong></div>
           </div>
         </div>
@@ -635,7 +821,7 @@
         </div>
         <div class="faq-item">
           <h3>How do guests enquire or book?</h3>
-          <p style="color:#475569; margin-bottom:0;">Guests can enquire directly by email or via your booking platform links once they are added to the website.</p>
+          <p style="color:#475569; margin-bottom:0;">Guests can enquire directly by email, WhatsApp or via the booking platform links on the website.</p>
         </div>
       </div>
     </div>
@@ -645,8 +831,8 @@
     <div class="container split-grid">
       <div>
         <div class="label">Host story</div>
-        <h2>Built with care by a new London accommodation brand</h2>
-        <p class="lead">Simplex Stays was founded by Maybel Houston with a clear goal: to provide guests with accommodation that feels modern, reliable and thoughtfully prepared. The business is built around good standards, clear communication and creating spaces that guests feel comfortable returning to.</p>
+        <h2>Built with care by a premium London accommodation brand</h2>
+        <p class="lead">Simplex Stays was founded by Maybel Houston with a clear goal: to provide guests with accommodation that feels modern, reliable and thoughtfully prepared. The business is built around strong standards, clear communication and spaces guests feel comfortable returning to.</p>
       </div>
 
       <div class="glass">
@@ -666,20 +852,20 @@
       </div>
 
       <div class="testimonial-grid">
-        <div class="testimonial" style="background-image:url('https://raw.githubusercontent.com/simplexstaysproperties-cmd/html-starter/main/building-front.jpg'); background-size:cover; background-position:center; min-height:260px; display:flex; align-items:end;">
-          <div style="background:rgba(255,255,255,0.92); padding:14px 16px; border-radius:16px; border:1px solid var(--border); max-width:280px;">
+        <div class="testimonial" style="background-image:url('https://raw.githubusercontent.com/simplexstaysproperties-cmd/html-starter/main/building-front.jpg'); background-size:cover; background-position:center; min-height:320px; display:flex; align-items:end;">
+          <div style="background:rgba(255,255,255,0.92); padding:14px 16px; border-radius:16px; border:1px solid var(--border); max-width:300px;">
             <strong>Modern development</strong>
             <small>Strong first impression and professionally presented exterior.</small>
           </div>
         </div>
-        <div class="testimonial" style="background-image:url('https://raw.githubusercontent.com/simplexstaysproperties-cmd/html-starter/main/gym-wide.jpg'); background-size:cover; background-position:center; min-height:260px; display:flex; align-items:end;">
-          <div style="background:rgba(255,255,255,0.92); padding:14px 16px; border-radius:16px; border:1px solid var(--border); max-width:280px;">
+        <div class="testimonial" style="background-image:url('https://raw.githubusercontent.com/simplexstaysproperties-cmd/html-starter/main/gym-wide.jpg'); background-size:cover; background-position:center; min-height:320px; display:flex; align-items:end;">
+          <div style="background:rgba(255,255,255,0.92); padding:14px 16px; border-radius:16px; border:1px solid var(--border); max-width:300px;">
             <strong>On-site gym access</strong>
             <small>A valuable extra for longer stays and business travellers.</small>
           </div>
         </div>
-        <div class="testimonial" style="background-image:url('https://raw.githubusercontent.com/simplexstaysproperties-cmd/html-starter/main/building-approach.jpg'); background-size:cover; background-position:center; min-height:260px; display:flex; align-items:end;">
-          <div style="background:rgba(255,255,255,0.92); padding:14px 16px; border-radius:16px; border:1px solid var(--border); max-width:280px;">
+        <div class="testimonial" style="background-image:url('https://raw.githubusercontent.com/simplexstaysproperties-cmd/html-starter/main/building-approach.jpg'); background-size:cover; background-position:center; min-height:320px; display:flex; align-items:end;">
+          <div style="background:rgba(255,255,255,0.92); padding:14px 16px; border-radius:16px; border:1px solid var(--border); max-width:300px;">
             <strong>Well-connected setting</strong>
             <small>Modern surroundings in Dollis Hill, North West London.</small>
           </div>
@@ -700,7 +886,7 @@
               <p style="color:#475569; margin-bottom:0;">Contact Simplex Stays directly for the best available rates, longer-stay discounts and direct booking enquiries.</p>
             </div>
             <p class="lead">Get in touch for corporate stays, relocation bookings, contractor accommodation or longer furnished stays in London. Full check-in and address details are provided after booking confirmation for guest security and privacy.</p>
-            <p class="disclaimer">Direct email, WhatsApp, Airbnb and VRBO links are now live. Booking.com is being re-added and can be linked once active again.</p>
+            <p class="disclaimer">Direct email, WhatsApp, Airbnb and VRBO links are live. Booking.com can be added once active again.</p>
           </div>
 
           <div class="card" style="padding:30px; background:white;">
@@ -715,8 +901,8 @@
             <div class="cta-row" style="margin:0;">
               <a href="mailto:simplexstaysproperties@gmail.com" class="btn btn-primary">Email Enquiry</a>
               <a href="https://wa.me/447908389184" class="btn btn-whatsapp">Message on WhatsApp</a>
-              <a href="https://www.airbnb.co.uk/rooms/1645094170229913919" class="btn btn-secondary">Book on Airbnb</a>
-              <a href="https://www.vrbo.com/en-gb/p12076179?chkin=2026-04-20&chkout=2026-04-21&d1=2026-04-20&d2=2026-04-21&startDate=2026-04-20&endDate=2026-04-21&x_pwa=1&rfrr=HSR&pwa_ts=1774567474148&referrerUrl=aHR0cHM6Ly93d3cudnJiby5jb20vSG90ZWwtU2VhcmNo&useRewards=false&adults=2&destination=London+NW10+1DT%2C+UK&destType=ADDRESS&neighborhoodId=553248635976383097&latLong=51.5537196%2C-0.2447262&property_type_group=apartment_or_condo&safety_group=carbon_monoxide_detector&bedroom_count_gt=3&searchId=069899dd-be32-4eff-9cb5-5396684bed59&sort=RECOMMENDED&top_dp=341&top_cur=GBP&userIntent=&selectedRoomType=127412498&selectedRatePlan=0001dd35bd8de24b4a06b4fcc8dec71231ad&expediaPropertyId=127412498" class="btn btn-secondary">View on VRBO</a>
+              <a href="https://www.airbnb.co.uk/rooms/1645094170229913919" class="btn btn-light">Book on Airbnb</a>
+              <a href="https://www.vrbo.com/en-gb/p12076179?chkin=2026-04-20&chkout=2026-04-21&d1=2026-04-20&d2=2026-04-21&startDate=2026-04-20&endDate=2026-04-21&x_pwa=1&rfrr=HSR&pwa_ts=1774567474148&referrerUrl=aHR0cHM6Ly93d3cudnJiby5jb20vSG90ZWwtU2VhcmNo&useRewards=false&adults=2&destination=London+NW10+1DT%2C+UK&destType=ADDRESS&neighborhoodId=553248635976383097&latLong=51.5537196%2C-0.2447262&property_type_group=apartment_or_condo&safety_group=carbon_monoxide_detector&bedroom_count_gt=3&searchId=069899dd-be32-4eff-9cb5-5396684bed59&sort=RECOMMENDED&top_dp=341&top_cur=GBP&userIntent=&selectedRoomType=127412498&selectedRatePlan=0001dd35bd8de24b4a06b4fcc8dec71231ad&expediaPropertyId=127412498" class="btn btn-light">View on VRBO</a>
             </div>
           </div>
         </div>
@@ -727,7 +913,7 @@
   <footer>
     <div class="container footer-grid">
       <div>© 2026 Simplex Stays Ltd. All rights reserved.</div>
-      <div>Modern furnished accommodation in London for comfortable, flexible stays.</div>
+      <div>Premium furnished accommodation in London for comfortable, flexible stays.</div>
     </div>
   </footer>
 </body>
