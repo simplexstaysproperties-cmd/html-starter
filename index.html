@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Simplex Stays Ltd | Corporate & Luxury London Stays</title>
   <meta name="description" content="Simplex Stays Ltd provides modern, corporate-ready furnished accommodation in London for short, medium and extended stays." />
+  <!-- canvas update check: image links fixed to raw.githubusercontent.com -->
   <style>
     :root {
       --bg: #f8fafc;
@@ -223,13 +224,36 @@
     .mock-visual {
       min-height: 430px;
       border-radius: 28px;
-      background: linear-gradient(180deg, #dfe7ef 0%, #eef3f8 100%);
+      background:
+        linear-gradient(180deg, rgba(15, 23, 42, 0.18) 0%, rgba(15, 23, 42, 0.35) 100%),
+        url('https://raw.githubusercontent.com/simplexstaysproperties-cmd/html-starter/main/hero-bedroom-pink.jpg') center/cover no-repeat;
       padding: 22px;
       position: relative;
       overflow: hidden;
+      box-shadow: inset 0 0 0 1px rgba(255,255,255,0.14);
+    }
+
+    .mock-visual::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(255,255,255,0.06) 0%, rgba(255,255,255,0) 60%);
+      pointer-events: none;
     }
 
     .mock-inner {
+      height: 100%;
+      border-radius: 22px;
+      background: rgba(255,255,255,0.86);
+      border: 1px solid rgba(255,255,255,0.96);
+      padding: 24px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      backdrop-filter: blur(7px);
+      position: relative;
+      z-index: 1;
+    }
       height: 100%;
       border-radius: 22px;
       background: rgba(255,255,255,0.78);
@@ -439,6 +463,15 @@
           <div class="card">Modern comfort with privacy-focused layouts</div>
           <div class="card">Longer stays welcome across London properties</div>
         </div>
+
+        <div class="photo-stack" style="grid-template-columns:repeat(2,minmax(0,1fr)); margin-top:16px;">
+          <div class="photo-card" style="min-height:150px; background-image:url('https://raw.githubusercontent.com/simplexstaysproperties-cmd/html-starter/main/living-room-wide.jpg'); background-size:cover; background-position:center;">
+            <div class="photo-caption"><strong>Stylish living area</strong></div>
+          </div>
+          <div class="photo-card" style="min-height:150px; background-image:url('https://raw.githubusercontent.com/simplexstaysproperties-cmd/html-starter/main/kitchen-wide.jpg'); background-size:cover; background-position:center;">
+            <div class="photo-caption"><strong>Modern kitchen finish</strong></div>
+          </div>
+        </div>
       </div>
 
       <div>
@@ -460,6 +493,10 @@
             </div>
           </div>
           <p style="color:#475569; margin:18px 0 0;">A modern 7th-floor apartment in a new-build development, designed to combine comfort, privacy and practical luxury for professional and family stays.</p>
+          <div class="mini-grid" style="margin-top:16px;">
+            <div class="mock-panel" style="background:white;">Heated flooring</div>
+            <div class="mock-panel" style="background:white;">Air conditioning</div>
+          </div>
         </div>
       </div>
     </div>
@@ -518,17 +555,17 @@
       </div>
 
       <div class="gallery-grid" style="margin-bottom:24px;">
-        <div class="photo-card" style="background-image:url('https://cdn.jsdelivr.net/gh/simplexstaysproperties-cmd/html-starter@main/hero-bedroom-pink.jpg'); background-size:cover; background-position:center;">
+        <div class="photo-card" style="background-image:url('https://raw.githubusercontent.com/simplexstaysproperties-cmd/html-starter/main/hero-bedroom-pink.jpg'); background-size:cover; background-position:center;">
           <div class="photo-caption">
             <strong>Bright, spacious and guest-ready</strong><br />
             A premium 3-bedroom setup designed for comfort and longer stays.
           </div>
         </div>
         <div class="photo-stack">
-          <div class="photo-card" style="min-height:122px; background-image:url('https://cdn.jsdelivr.net/gh/simplexstaysproperties-cmd/html-starter@main/living-room-wide.jpg'); background-size:cover; background-position:center;">
+          <div class="photo-card" style="min-height:122px; background-image:url('https://raw.githubusercontent.com/simplexstaysproperties-cmd/html-starter/main/living-room-wide.jpg'); background-size:cover; background-position:center;">
             <div class="photo-caption"><strong>Modern living space</strong></div>
           </div>
-          <div class="photo-card" style="min-height:122px; background-image:url('https://cdn.jsdelivr.net/gh/simplexstaysproperties-cmd/html-starter@main/kitchen-wide.jpg'); background-size:cover; background-position:center;">
+          <div class="photo-card" style="min-height:122px; background-image:url('https://raw.githubusercontent.com/simplexstaysproperties-cmd/html-starter/main/kitchen-wide.jpg'); background-size:cover; background-position:center;">
             <div class="photo-caption"><strong>Fully equipped kitchen</strong></div>
           </div>
         </div>
@@ -660,19 +697,19 @@
       </div>
 
       <div class="testimonial-grid">
-        <div class="testimonial" style="background-image:url('https://cdn.jsdelivr.net/gh/simplexstaysproperties-cmd/html-starter@main/building-front.jpg'); background-size:cover; background-position:center; min-height:260px; display:flex; align-items:end;">
+        <div class="testimonial" style="background-image:url('https://raw.githubusercontent.com/simplexstaysproperties-cmd/html-starter/main/building-front.jpg'); background-size:cover; background-position:center; min-height:260px; display:flex; align-items:end;">
           <div style="background:rgba(255,255,255,0.92); padding:14px 16px; border-radius:16px; border:1px solid var(--border); max-width:280px;">
             <strong>Modern development</strong>
             <small>Strong first impression and professionally presented exterior.</small>
           </div>
         </div>
-        <div class="testimonial" style="background-image:url('https://cdn.jsdelivr.net/gh/simplexstaysproperties-cmd/html-starter@main/gym-wide.jpg'); background-size:cover; background-position:center; min-height:260px; display:flex; align-items:end;">
+        <div class="testimonial" style="background-image:url('https://raw.githubusercontent.com/simplexstaysproperties-cmd/html-starter/main/gym-wide.jpg'); background-size:cover; background-position:center; min-height:260px; display:flex; align-items:end;">
           <div style="background:rgba(255,255,255,0.92); padding:14px 16px; border-radius:16px; border:1px solid var(--border); max-width:280px;">
             <strong>On-site gym access</strong>
             <small>A valuable extra for longer stays and business travellers.</small>
           </div>
         </div>
-        <div class="testimonial" style="background-image:url('https://cdn.jsdelivr.net/gh/simplexstaysproperties-cmd/html-starter@main/building-approach.jpg'); background-size:cover; background-position:center; min-height:260px; display:flex; align-items:end;">
+        <div class="testimonial" style="background-image:url('https://raw.githubusercontent.com/simplexstaysproperties-cmd/html-starter/main/building-approach.jpg'); background-size:cover; background-position:center; min-height:260px; display:flex; align-items:end;">
           <div style="background:rgba(255,255,255,0.92); padding:14px 16px; border-radius:16px; border:1px solid var(--border); max-width:280px;">
             <strong>Well-connected setting</strong>
             <small>Modern surroundings in Dollis Hill, North West London.</small>
