@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Simplex Stays Ltd | Premium Corporate & Luxury London Stays</title>
-  <meta name="description" content="Simplex Stays Ltd offers premium furnished accommodation in London for corporate stays, relocations, contractors, families and longer bookings." />
+  <title>Simplex Stays Ltd | Dollis Hill Serviced Accommodation & Romford Rooms</title>
+  <meta name="description" content="Simplex Stays Ltd offers premium serviced accommodation in Dollis Hill and long-term room rentals in Romford RM6 for professionals and tenants seeking clean, well-presented accommodation." />
   <style>
     :root {
       --bg: #f5f7fb;
@@ -51,7 +51,7 @@
       top: 0;
       z-index: 30;
       backdrop-filter: blur(14px);
-      background: rgba(255, 255, 255, 0.8);
+      background: rgba(255, 255, 255, 0.84);
       border-bottom: 1px solid rgba(217, 226, 236, 0.95);
     }
 
@@ -60,36 +60,60 @@
       align-items: center;
       justify-content: space-between;
       gap: 20px;
-      padding: 16px 0;
+      padding: 14px 0;
     }
 
     .brand {
       display: inline-flex;
       align-items: center;
-      gap: 10px;
-      font-weight: 800;
-      font-size: 20px;
-      letter-spacing: -0.03em;
-      padding: 8px 14px;
+      gap: 14px;
+      padding: 10px 18px 10px 12px;
       border-radius: 999px;
-      background: linear-gradient(135deg, rgba(255,255,255,0.92) 0%, rgba(245,248,252,0.96) 100%);
-      border: 1px solid rgba(199,169,107,0.28);
-      box-shadow: 0 10px 24px rgba(7,23,56,0.06);
+      background: linear-gradient(135deg, rgba(255,255,255,0.98) 0%, rgba(247,250,253,1) 100%);
+      border: 1px solid rgba(199,169,107,0.34);
+      box-shadow: 0 14px 32px rgba(7,23,56,0.08);
     }
 
-    .brand::before {
-      content: "SS";
+    .brand-logo-wrap {
+      width: 56px;
+      height: 56px;
+      border-radius: 50%;
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      width: 34px;
-      height: 34px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, var(--dark) 0%, var(--dark-3) 100%);
-      color: white;
-      font-size: 12px;
-      letter-spacing: 0.08em;
-      box-shadow: var(--shadow-soft);
+      background: linear-gradient(135deg, #ffffff 0%, #eef3f8 100%);
+      border: 1px solid rgba(61,42,132,0.12);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.9), 0 10px 24px rgba(7,23,56,0.08);
+      overflow: hidden;
+      flex-shrink: 0;
+    }
+
+    .brand-logo-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .brand-copy {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.02;
+    }
+
+    .brand-copy strong {
+      font-size: 24px;
+      font-weight: 800;
+      letter-spacing: -0.05em;
+      color: var(--dark);
+    }
+
+    .brand-copy small {
+      font-size: 11px;
+      text-transform: uppercase;
+      letter-spacing: 0.16em;
+      color: #6f8099;
+      margin-top: 5px;
     }
 
     .nav-links {
@@ -137,19 +161,25 @@
     .footer-grid,
     .stats-grid,
     .faq-grid,
-    .testimonial-grid {
+    .testimonial-grid,
+    .dual-grid,
+    .gallery-grid,
+    .room-gallery {
       display: grid;
       gap: 28px;
     }
 
     .hero-grid,
     .split-grid,
-    .contact-grid { grid-template-columns: 1.08fr 0.92fr; }
+    .contact-grid,
+    .dual-grid { grid-template-columns: 1.08fr 0.92fr; }
     .triple-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
     .stats-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
     .testimonial-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
     .faq-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     .footer-grid { grid-template-columns: 1fr auto; align-items: center; }
+    .gallery-grid { grid-template-columns: 1.2fr 0.8fr; align-items: stretch; }
+    .room-gallery { grid-template-columns: repeat(3, minmax(0, 1fr)); }
 
     .eyebrow {
       display: inline-block;
@@ -204,10 +234,7 @@
       margin-bottom: 14px;
     }
 
-    .hero .label,
-    .hero .hero-stats .label {
-      color: rgba(230, 237, 245, 0.76);
-    }
+    .hero .label { color: rgba(230, 237, 245, 0.76); }
 
     .cta-row {
       display: flex;
@@ -227,9 +254,7 @@
       box-shadow: var(--shadow-soft);
     }
 
-    .btn:hover {
-      transform: translateY(-2px);
-    }
+    .btn:hover { transform: translateY(-2px); }
 
     .btn-primary {
       background: linear-gradient(135deg, var(--accent) 0%, #e7d3a6 100%);
@@ -243,9 +268,7 @@
       border-color: rgba(255,255,255,0.18);
     }
 
-    .btn-secondary:hover {
-      background: rgba(255,255,255,0.16);
-    }
+    .btn-secondary:hover { background: rgba(255,255,255,0.16); }
 
     .btn-light {
       background: white;
@@ -263,8 +286,9 @@
     .highlights-grid,
     .audience-grid,
     .mini-grid,
-    .gallery-grid,
-    .hero-stats {
+    .hero-stats,
+    .review-grid,
+    .brand-points {
       display: grid;
       gap: 16px;
     }
@@ -273,12 +297,11 @@
     .highlights-grid { grid-template-columns: repeat(5, minmax(0, 1fr)); }
     .audience-grid { grid-template-columns: repeat(4, minmax(0, 1fr)); }
     .mini-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
-    .gallery-grid { grid-template-columns: 1.2fr 0.8fr; align-items: stretch; }
     .hero-stats { grid-template-columns: repeat(3, minmax(0, 1fr)); margin-top: 18px; }
+    .review-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .brand-points { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 
-    .section {
-      padding: 88px 0;
-    }
+    .section { padding: 88px 0; }
 
     .section-soft {
       background: linear-gradient(180deg, #f8fafc 0%, #f1f5f9 100%);
@@ -298,10 +321,8 @@
     .card:hover,
     .metric:hover,
     .faq-item:hover,
-    .testimonial:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 18px 40px rgba(7,23,56,0.10);
-    }
+    .testimonial:hover,
+    .room-tile:hover { transform: translateY(-3px); box-shadow: 0 18px 40px rgba(7,23,56,0.10); }
 
     .card-xl {
       background: rgba(255,255,255,0.08);
@@ -323,7 +344,8 @@
       backdrop-filter: blur(4px);
     }
 
-    .hero-feature {
+    .hero-feature,
+    .hero-stat {
       background: rgba(255,255,255,0.08);
       border: 1px solid rgba(255,255,255,0.12);
       color: white;
@@ -332,39 +354,17 @@
       box-shadow: var(--shadow-soft);
     }
 
-    .hero-feature strong {
-      display: block;
-      font-size: 15px;
-      margin-bottom: 6px;
-      color: #fff;
-    }
-
-    .hero-feature span {
-      color: rgba(232,239,246,0.82);
-      font-size: 14px;
-    }
-
-    .hero-stat {
-      padding: 18px;
-      border-radius: 22px;
-      background: rgba(255,255,255,0.08);
-      border: 1px solid rgba(255,255,255,0.12);
-      box-shadow: var(--shadow-soft);
-    }
-
+    .hero-feature strong,
     .hero-stat-number {
       display: block;
-      font-size: 28px;
       font-weight: 800;
-      letter-spacing: -0.04em;
-      margin-bottom: 6px;
       color: white;
     }
 
-    .hero-stat-text {
-      font-size: 14px;
-      color: rgba(235, 241, 248, 0.84);
-    }
+    .hero-feature strong { font-size: 15px; margin-bottom: 6px; }
+    .hero-feature span,
+    .hero-stat-text { color: rgba(232,239,246,0.82); font-size: 14px; }
+    .hero-stat-number { font-size: 28px; letter-spacing: -0.04em; margin-bottom: 6px; }
 
     .mock-visual {
       min-height: 540px;
@@ -414,8 +414,8 @@
       box-shadow: var(--shadow-soft);
     }
 
-    .photo-card {
-      min-height: 260px;
+    .photo-card,
+    .room-tile {
       border-radius: 28px;
       border: 1px solid var(--border);
       background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
@@ -425,9 +425,12 @@
       align-items: end;
       position: relative;
       overflow: hidden;
+      min-height: 260px;
+      transition: 0.22s ease;
     }
 
-    .photo-card::before {
+    .photo-card::before,
+    .room-tile::before {
       content: "";
       position: absolute;
       inset: 0;
@@ -460,8 +463,7 @@
     .bullet-list li { margin-bottom: 6px; }
 
     .host-band {
-      background:
-        linear-gradient(135deg, rgba(7,23,56,1) 0%, rgba(12,33,77,0.98) 58%, rgba(15,42,97,0.96) 100%);
+      background: linear-gradient(135deg, rgba(7,23,56,1) 0%, rgba(12,33,77,0.98) 58%, rgba(15,42,97,0.96) 100%);
       color: white;
       position: relative;
       overflow: hidden;
@@ -503,22 +505,23 @@
       box-shadow: var(--shadow-soft);
     }
 
+    .stat,
+    .metric,
+    .faq-item,
+    .testimonial {
+      background: white;
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 24px;
+      box-shadow: var(--shadow-soft);
+      transition: 0.22s ease;
+    }
+
     .stat {
       font-size: 14px;
       color: var(--muted);
-      border: 1px solid var(--border);
       border-radius: 16px;
-      background: white;
       padding: 14px;
-    }
-
-    .metric {
-      background: white;
-      border: 1px solid var(--border);
-      border-radius: 22px;
-      padding: 22px;
-      box-shadow: var(--shadow-soft);
-      transition: 0.22s ease;
     }
 
     .metric-number {
@@ -529,29 +532,14 @@
       color: var(--dark);
     }
 
-    .faq-item,
-    .testimonial {
-      background: white;
-      border: 1px solid var(--border);
-      border-radius: 24px;
-      padding: 26px;
-      box-shadow: var(--shadow-soft);
-      transition: 0.22s ease;
-    }
-
-    .testimonial small {
-      color: var(--muted);
-      display: block;
-      margin-top: 10px;
-      font-size: 15px;
-      line-height: 1.5;
-    }
-
     .disclaimer {
       margin-top: 18px;
       font-size: 13px;
       color: var(--muted);
     }
+
+    .room-tile.large { min-height: 340px; }
+    .room-tile.small { min-height: 220px; }
 
     footer {
       padding: 24px 0 34px;
@@ -571,9 +559,14 @@
       .stats-grid,
       .faq-grid,
       .testimonial-grid,
-      .hero-stats { grid-template-columns: 1fr; }
+      .dual-grid,
+      .room-gallery,
+      .review-grid,
+      .hero-stats,
+      .brand-points { grid-template-columns: 1fr; }
       .highlights-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
       .audience-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+      .feature-grid { grid-template-columns: 1fr; }
       .mock-inner { max-width: 100%; }
     }
 
@@ -589,30 +582,42 @@
       .stats-grid,
       .faq-grid,
       .testimonial-grid,
-      .hero-stats { grid-template-columns: 1fr; }
+      .dual-grid,
+      .room-gallery,
+      .review-grid,
+      .hero-stats,
+      .brand-points { grid-template-columns: 1fr; }
       .card,
       .card-xl,
       .contact-shell,
       .glass,
       .hero-shell { border-radius: 22px; }
       .mock-visual,
-      .photo-card { min-height: 220px; }
+      .photo-card,
+      .room-tile { min-height: 220px; }
       .cta-row { flex-direction: column; }
       .btn { text-align: center; }
       .nav-links { gap: 12px; }
       h1 { font-size: clamp(40px, 12vw, 58px); }
-      .mock-inner { max-width: 100%; }
     }
   </style>
 </head>
 <body>
   <div class="topbar">
     <div class="container nav">
-      <div class="brand">Simplex Stays Ltd</div>
+      <div class="brand">
+        <span class="brand-logo-wrap">
+          <img src="simplex-logo.png" alt="Simplex Stays logo" />
+        </span>
+        <span class="brand-copy">
+          <strong>Simplex Stays Ltd</strong>
+          <small>Premium stays & room rentals</small>
+        </span>
+      </div>
       <div class="nav-links">
         <a href="#about">About</a>
-        <a href="#property">Property</a>
-        <a href="#stays">Stay Types</a>
+        <a href="#property">Dollis Hill</a>
+        <a href="#rooms">Romford Rooms</a>
         <a href="#reviews">Reviews</a>
         <a href="#faq">FAQ</a>
         <a href="#contact">Contact</a>
@@ -623,36 +628,36 @@
   <section class="hero">
     <div class="container hero-grid">
       <div class="hero-shell">
-        <div class="eyebrow">Premium serviced accommodation in London</div>
-        <h1>Luxury-standard comfort for corporate, family and longer London stays</h1>
-        <p class="lead">Simplex Stays delivers polished, corporate-ready accommodation designed for privacy, comfort and practical everyday living. Ideal for company lets, relocation stays, contractors, professional groups and families who want more than a standard hotel stay.</p>
+        <div class="eyebrow">Premium serviced accommodation and long-term room rentals in London</div>
+        <h1>Beautifully presented stays for guests, professionals and long-term tenants</h1>
+        <p class="lead">Simplex Stays Ltd is a new and growing small family business focused on clean presentation, honest communication and accommodation that feels comfortable from day one. Our main featured property is in Dollis Hill, with additional long-term double rooms now available in Romford RM6.</p>
 
         <div class="cta-row">
-          <a class="btn btn-primary" href="#contact">Book Direct & Save</a>
-          <a class="btn btn-light" href="#property">View Apartment</a>
-          <a class="btn btn-secondary" href="https://www.airbnb.co.uk/rooms/1645094170229913919">Book on Airbnb</a>
+          <a class="btn btn-primary" href="#contact">Enquire Direct</a>
+          <a class="btn btn-light" href="#property">View Dollis Hill</a>
+          <a class="btn btn-secondary" href="#rooms">View Romford Rooms</a>
           <a class="btn btn-whatsapp" href="https://wa.me/447908389184">WhatsApp Us</a>
         </div>
 
         <div class="feature-grid">
-          <div class="hero-feature"><strong>Professionally presented</strong><span>Modern accommodation prepared for comfort, convenience and trust.</span></div>
-          <div class="hero-feature"><strong>Flexible stay lengths</strong><span>Suitable for short bookings, relocations and extended stays in London.</span></div>
-          <div class="hero-feature"><strong>Corporate-ready finish</strong><span>Ideal for business travellers, contractor teams and professional guests.</span></div>
-          <div class="hero-feature"><strong>Direct booking value</strong><span>Enquire directly for the best available rates and longer-stay savings.</span></div>
+          <div class="hero-feature"><strong>Family-run and growing</strong><span>A small business with a strong focus on trust, presentation and guest care.</span></div>
+          <div class="hero-feature"><strong>Two accommodation options</strong><span>Dollis Hill serviced accommodation plus long-term room rentals in Romford.</span></div>
+          <div class="hero-feature"><strong>Direct booking value</strong><span>Enquire directly for availability, better rates and room-rental details.</span></div>
+          <div class="hero-feature"><strong>Professional and practical</strong><span>Well suited to relocations, contractors, families and working tenants.</span></div>
         </div>
 
         <div class="hero-stats">
           <div class="hero-stat">
-            <span class="hero-stat-number">3 Bed</span>
-            <span class="hero-stat-text">Comfortable layout for groups, families and working professionals.</span>
+            <span class="hero-stat-number">5.0★</span>
+            <span class="hero-stat-text">Seven 5-star Google reviews building trust for new guests.</span>
           </div>
           <div class="hero-stat">
-            <span class="hero-stat-number">2 Bath</span>
-            <span class="hero-stat-text">Extra convenience and privacy for longer stays and shared bookings.</span>
+            <span class="hero-stat-number">3 Rooms</span>
+            <span class="hero-stat-text">Long-term room availability now advertised separately in Romford RM6.</span>
           </div>
           <div class="hero-stat">
-            <span class="hero-stat-number">7th Floor</span>
-            <span class="hero-stat-text">Bright modern setting with lift access in a well-presented development.</span>
+            <span class="hero-stat-number">Direct</span>
+            <span class="hero-stat-text">Website, WhatsApp, Airbnb and VRBO all support enquiry and booking.</span>
           </div>
         </div>
       </div>
@@ -662,9 +667,9 @@
           <div class="mock-visual">
             <div class="mock-inner">
               <div>
-                <div class="label" style="margin-bottom:8px; color:#64748b;">Featured Property</div>
-                <h3 style="margin-bottom:8px; font-size:28px;">Featured 3-Bedroom Apartment</h3>
-                <p style="color:#475569; margin-bottom:0; font-size:18px;">Dollis Hill, North West London</p>
+                <div class="label" style="margin-bottom:8px; color:#64748b;">Featured property</div>
+                <h3 style="margin-bottom:8px; font-size:28px;">Dollis Hill 3-Bed Apartment</h3>
+                <p style="color:#475569; margin-bottom:0; font-size:18px;">Premium short and extended stays in North West London</p>
               </div>
 
               <div class="mini-grid">
@@ -675,51 +680,28 @@
               </div>
             </div>
           </div>
-          <p style="color:rgba(255,255,255,0.82); margin:18px 0 0; font-size:16px;">A modern 7th-floor apartment with premium comfort, privacy-focused layout and longer-stay practicality for professional and family bookings.</p>
+          <p style="color:rgba(255,255,255,0.82); margin:18px 0 0; font-size:16px;">Main featured accommodation for families, relocation stays, professionals and company bookings.</p>
         </div>
       </div>
     </div>
   </section>
 
   <section class="section" id="about">
-    <div class="container split-grid">
+    <div class="container dual-grid" style="align-items:start;">
       <div>
         <div class="label">About Simplex Stays</div>
-        <h2>A dependable stay experience built around comfort, trust and quality</h2>
-        <p class="lead">Simplex Stays Ltd was created to provide high-standard accommodation that feels polished, practical and genuinely comfortable to live in. Whether a guest is staying for work, relocation, family travel or a longer London visit, the focus is always on comfort, privacy and a well-prepared environment.</p>
-        <p class="lead" style="font-size:18px;">Every stay is designed to feel smooth from arrival to departure, with clear communication, useful amenities and a premium-standard finish throughout.</p>
+        <h2>A growing family business built around comfort, trust and presentation</h2>
+        <p class="lead">Simplex Stays Ltd is a new and growing small family business focused on providing clean, reliable and attractive accommodation across different stay types. The website is mainly centred around the Dollis Hill serviced apartment, while also helping advertise available long-term rooms in Romford RM6.</p>
+        <p class="lead" style="font-size:18px;">That gives visitors two clear options: a higher-end serviced stay in Dollis Hill or room-rental availability for longer-term tenants in Romford.</p>
       </div>
 
-      <div class="card" style="background:linear-gradient(180deg,#f8fafc 0%, #f2f6fb 100%); padding:30px;">
-        <div class="label">Why guests choose us</div>
-        <div style="display:grid; gap:14px; margin-top:18px;">
+      <div class="card" style="padding:30px; background:linear-gradient(180deg,#f8fafc 0%, #f2f6fb 100%);">
+        <div class="label">Why people choose us</div>
+        <div class="brand-points" style="margin-top:18px;">
           <div class="card">Professionally presented accommodation</div>
-          <div class="card">Designed for both short and extended stays</div>
-          <div class="card">Suitable for corporate, contractor and family bookings</div>
-          <div class="card">Thoughtful amenities that support everyday living</div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="container">
-      <div class="stats-grid">
-        <div class="metric">
-          <div class="metric-number">3 Bed</div>
-          <div>Flexible layout for families, groups and professional stays.</div>
-        </div>
-        <div class="metric">
-          <div class="metric-number">2 Bath</div>
-          <div>Added comfort and convenience for longer bookings.</div>
-        </div>
-        <div class="metric">
-          <div class="metric-number">7th Floor</div>
-          <div>Lift access and a bright elevated setting in a modern development.</div>
-        </div>
-        <div class="metric">
-          <div class="metric-number">Long Stays</div>
-          <div>Designed to support relocation, contractor and company bookings.</div>
+          <div class="card">Clear communication and direct contact</div>
+          <div class="card">Serviced apartment and room-rental options</div>
+          <div class="card">A more personal family-run experience</div>
         </div>
       </div>
     </div>
@@ -728,9 +710,9 @@
   <section class="section section-soft" id="property">
     <div class="container">
       <div style="max-width:830px; margin-bottom:28px;">
-        <div class="label">Featured Property</div>
-        <h2>Modern 3-bedroom apartment in Dollis Hill</h2>
-        <p class="lead">Located in Dollis Hill, this fully furnished apartment offers a strong combination of space, flexibility and premium comfort in North West London. Ideal for company lets, relocation stays, contractor teams, professional groups and families.</p>
+        <div class="label">Featured serviced accommodation</div>
+        <h2>Dollis Hill apartment</h2>
+        <p class="lead">This remains the main focus of the website: a polished 3-bedroom apartment designed for short, medium and extended stays, especially for relocation bookings, contractor teams, corporate guests, families and group stays.</p>
       </div>
 
       <div class="gallery-grid" style="margin-bottom:24px;">
@@ -762,81 +744,86 @@
         <div class="card">Integrated bathroom audio systems</div>
         <div class="card">Corporate, family & group friendly</div>
       </div>
+    </div>
+  </section>
+
+  <section class="section" id="rooms">
+    <div class="container">
+      <div style="max-width:900px; margin-bottom:28px;">
+        <div class="label">Long-term room rentals</div>
+        <h2>3 double rooms available in Romford RM6</h2>
+        <p class="lead">This is separate from Dollis Hill. The Romford property is a HMO for long-term room rental, not a short-stay serviced apartment. It is ideal for tenants looking for a clean, well-kept room in a multi-floor house with shared facilities and practical everyday living.</p>
+      </div>
+
+      <div class="dual-grid" style="align-items:start; margin-bottom:28px;">
+        <div class="card" style="padding:30px;">
+          <h3 style="margin-bottom:10px;">Availability at a glance</h3>
+          <div style="display:grid; gap:14px;">
+            <div class="stat"><strong>Location:</strong> Romford RM6</div>
+            <div class="stat"><strong>Rooms available now:</strong> 3 double rooms</div>
+            <div class="stat"><strong>Price:</strong> £1,000 per month per person</div>
+            <div class="stat"><strong>Property type:</strong> HMO for long-term rental</div>
+            <div class="stat"><strong>Floors:</strong> 3 floors</div>
+          </div>
+          <p style="color:#475569; margin:18px 0 0;">Bathroom setup includes a ground floor shower room, first floor bathroom with bath and shower, and second floor shower room. This should be shown clearly so visitors understand the Romford offer is room rental, not a nightly stay.</p>
+        </div>
+
+        <div class="card" style="padding:30px; background:linear-gradient(180deg,#ffffff 0%, #f7fafc 100%);">
+          <h3 style="margin-bottom:10px;">Why these rooms will appeal</h3>
+          <ul class="bullet-list">
+            <li>Double rooms suited to individual tenants</li>
+            <li>Large shared kitchen and dining space</li>
+            <li>Shared communal areas across a practical 3-floor layout</li>
+            <li>Bathroom access on every floor</li>
+            <li>Presented by a growing family-run business</li>
+            <li>Good for working tenants looking for ready-to-move accommodation</li>
+          </ul>
+          <p style="color:#475569; margin:18px 0 0;">This section helps the website convert visitors who are not looking for a short stay but do want a longer-term room in a well-kept house.</p>
+        </div>
+      </div>
+
+      <div class="room-gallery" style="margin-bottom:28px;">
+        <div class="room-tile large" style="background-image:url('romford-front.jpg'); background-size:cover; background-position:center;">
+          <div class="photo-caption"><strong>Romford house exterior</strong><br />Professionally presented home with driveway approach.</div>
+        </div>
+        <div class="room-tile large" style="background-image:url('romford-room-gold-1.jpg'); background-size:cover; background-position:center;">
+          <div class="photo-caption"><strong>Available furnished room</strong><br />Bright double room with warm styling and storage.</div>
+        </div>
+        <div class="room-tile large" style="background-image:url('romford-room-pink-1.jpg'); background-size:cover; background-position:center;">
+          <div class="photo-caption"><strong>Second available room</strong><br />Another clean, furnished double room ready for long-term rental.</div>
+        </div>
+        <div class="room-tile small" style="background-image:url('romford-hallway-1.jpg'); background-size:cover; background-position:center;"></div>
+        <div class="room-tile small" style="background-image:url('romford-kitchen-1.jpg'); background-size:cover; background-position:center;"></div>
+        <div class="room-tile small" style="background-image:url('romford-dining-1.jpg'); background-size:cover; background-position:center;"></div>
+      </div>
 
       <div class="triple-grid">
         <div class="card" style="padding:30px;">
-          <h3>Sleeping Layout</h3>
+          <h3>Shared house features</h3>
           <ul class="bullet-list">
-            <li>Master bedroom with double bed and en-suite</li>
-            <li>Second bedroom with double bed</li>
-            <li>Third bedroom with single bed</li>
-            <li>Two sofa beds in the living room</li>
+            <li>Large kitchen and dining area</li>
+            <li>Communal living space</li>
+            <li>Garden and outdoor space</li>
+            <li>Furnished rooms with storage</li>
           </ul>
         </div>
         <div class="card" style="padding:30px;">
-          <h3>Kitchen & Living</h3>
+          <h3>Bathroom setup</h3>
           <ul class="bullet-list">
-            <li>Fully equipped kitchen with oven, microwave and fridge freezer</li>
-            <li>Washer-dryer for everyday convenience</li>
-            <li>Filtered boiling and chilled water tap</li>
-            <li>Bright, practical living space for longer stays</li>
+            <li>Ground floor shower room</li>
+            <li>First floor bath and shower</li>
+            <li>Second floor shower room</li>
+            <li>Practical access across all floors</li>
           </ul>
         </div>
         <div class="card" style="padding:30px;">
-          <h3>Location Benefits</h3>
+          <h3>Best suited for</h3>
           <ul class="bullet-list">
-            <li>Short walk to Dollis Hill and Neasden stations</li>
-            <li>Easy access to Central London via the Jubilee Line</li>
-            <li>Good road access via the A406 and A5</li>
-            <li>Calmer residential setting with local amenities nearby</li>
+            <li>Long-term tenants</li>
+            <li>Working professionals</li>
+            <li>People needing a furnished room quickly</li>
+            <li>Tenants who value a clean, managed property</li>
           </ul>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section" id="stays">
-    <div class="container">
-      <div style="max-width:760px; margin-bottom:28px;">
-        <div class="label">Who we host</div>
-        <h2>Accommodation designed for different stay types</h2>
-      </div>
-
-      <div class="audience-grid">
-        <div class="card" style="padding:28px;">
-          <h3>Corporate Stays</h3>
-          <p style="color:#475569; margin-bottom:0;">Comfortable, well-presented accommodation for professionals, project teams and business travel in London.</p>
-        </div>
-        <div class="card" style="padding:28px;">
-          <h3>Relocation Bookings</h3>
-          <p style="color:#475569; margin-bottom:0;">A practical and welcoming base for guests moving to London who need flexibility, comfort and reliability.</p>
-        </div>
-        <div class="card" style="padding:28px;">
-          <h3>Contractor Accommodation</h3>
-          <p style="color:#475569; margin-bottom:0;">Spacious layouts, useful amenities and longer-stay suitability for teams working away from home.</p>
-        </div>
-        <div class="card" style="padding:28px;">
-          <h3>Family Visits</h3>
-          <p style="color:#475569; margin-bottom:0;">Well-equipped spaces that offer privacy, convenience and a more relaxed alternative to standard hotel stays.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="container">
-      <div class="card-xl" style="background:linear-gradient(135deg,#ffffff 0%, #f8fafc 100%); border:1px solid var(--border); color:var(--text);">
-        <div class="split-grid" style="align-items:start;">
-          <div>
-            <div class="label">Why guests feel confident booking</div>
-            <h2 style="margin-bottom:14px;">Clear booking, practical luxury and a stay designed for real comfort</h2>
-            <p class="lead" style="max-width:700px;">Simplex Stays is positioned for guests who want more than a basic short-let. The focus is on clean presentation, direct communication, flexible stay lengths and a setup that works for corporate bookings, relocation stays, contractors and families.</p>
-          </div>
-          <div style="display:grid; gap:14px;">
-            <div class="card"><strong>Direct booking available</strong><br><span style="color:var(--muted);">Guests can enquire by email or WhatsApp for availability and longer-stay pricing.</span></div>
-            <div class="card"><strong>Strong practical setup</strong><br><span style="color:var(--muted);">Lift access, multiple beds, two bathrooms, air conditioning and everyday amenities support longer stays.</span></div>
-            <div class="card"><strong>Professional positioning</strong><br><span style="color:var(--muted);">Suitable for company lets, relocation bookings, contractor teams and family visits in North West London.</span></div>
-          </div>
         </div>
       </div>
     </div>
@@ -847,59 +834,19 @@
       <div style="max-width:820px; margin-bottom:28px;">
         <div class="label">Guest reviews</div>
         <h2>Trusted by guests with 7 verified 5-star Google reviews</h2>
-        <p class="lead">Recent guest feedback consistently highlights cleanliness, comfort, spacious rooms, responsive communication and a smooth booking experience. That combination helps position Simplex Stays as a stronger option for direct bookings, relocation stays and longer corporate-friendly visits.</p>
+        <p class="lead">Recent guest feedback consistently highlights cleanliness, comfort, spacious rooms, responsive communication and a smooth experience. This is important social proof for both your serviced accommodation and your wider brand.</p>
       </div>
 
-      <div class="stats-grid" style="margin-bottom:28px; grid-template-columns: 0.8fr 1.2fr 1fr 1fr;">
-        <div class="metric" style="background:linear-gradient(135deg,#ffffff 0%, #f8fafc 100%);">
-          <div class="metric-number">5.0★</div>
-          <div>Average Google rating from 7 guest reviews.</div>
-        </div>
-        <div class="metric">
-          <div style="font-weight:800; margin-bottom:8px; color:var(--dark);">What guests mention most</div>
-          <div style="color:var(--muted);">Cleanliness, comfortable beds, spacious layout, easy communication, balcony views and a smooth overall experience.</div>
-        </div>
-        <div class="metric">
-          <div style="font-weight:800; margin-bottom:8px; color:var(--dark);">Best for</div>
-          <div style="color:var(--muted);">Families, groups, business travellers, contractors and relocation bookings.</div>
-        </div>
-        <div class="metric">
-          <div style="font-weight:800; margin-bottom:8px; color:var(--dark);">Booking signal</div>
-          <div style="color:var(--muted);">Strong social proof for direct website enquiries.</div>
-        </div>
+      <div class="review-grid" style="margin-bottom:28px;">
+        <div class="metric"><div class="metric-number">5.0★</div><div>Average Google rating from 7 guest reviews.</div></div>
+        <div class="metric"><div style="font-weight:800; margin-bottom:8px; color:var(--dark);">What guests mention most</div><div style="color:var(--muted);">Cleanliness, comfortable beds, spacious layout, easy communication and a smooth overall stay.</div></div>
+        <div class="metric"><div style="font-weight:800; margin-bottom:8px; color:var(--dark);">Why it matters</div><div style="color:var(--muted);">Strong social proof helps convert website visitors who do not know your brand yet.</div></div>
       </div>
 
       <div class="testimonial-grid">
-        <div class="testimonial">
-          <h3 style="margin-bottom:8px;">Lucy Beacham</h3>
-          <div style="font-weight:700; color:var(--accent); margin-bottom:10px;">★★★★★</div>
-          <small>Stayed with a group and praised the host for being accommodating from start to finish, highlighting the ample space, comfortable beds and lovely views.</small>
-        </div>
-        <div class="testimonial">
-          <h3 style="margin-bottom:8px;">Naquita</h3>
-          <div style="font-weight:700; color:var(--accent); margin-bottom:10px;">★★★★★</div>
-          <small>Described the flat as spotless on arrival, with an especially clean kitchen, sparkling bathroom and neatly prepared bedrooms.</small>
-        </div>
-        <div class="testimonial">
-          <h3 style="margin-bottom:8px;">Cacharel Houston</h3>
-          <div style="font-weight:700; color:var(--accent); margin-bottom:10px;">★★★★★</div>
-          <small>Said the full process felt smooth from start to finish, with clear communication, accurate listing details and a very comfortable stay.</small>
-        </div>
-        <div class="testimonial">
-          <h3 style="margin-bottom:8px;">Sara Emma</h3>
-          <div style="font-weight:700; color:var(--accent); margin-bottom:10px;">★★★★★</div>
-          <small>Highlighted amazing cleanliness, spacious rooms and a balcony view that made the overall stay especially enjoyable.</small>
-        </div>
-        <div class="testimonial">
-          <h3 style="margin-bottom:8px;">Christina Monji</h3>
-          <div style="font-weight:700; color:var(--accent); margin-bottom:10px;">★★★★★</div>
-          <small>Praised the apartment for its space, comfortable beds, cleanliness and accessibility, and said she would recommend it to friends and family.</small>
-        </div>
-        <div class="testimonial">
-          <h3 style="margin-bottom:8px;">More guest feedback</h3>
-          <div style="font-weight:700; color:var(--accent); margin-bottom:10px;">★★★★★</div>
-          <small>Other recent reviews describe the apartment as very nice, super clean and easy to recommend, reinforcing the quality and consistency of the guest experience.</small>
-        </div>
+        <div class="testimonial"><h3 style="margin-bottom:8px;">Lucy Beacham</h3><div style="font-weight:700; color:var(--accent); margin-bottom:10px;">★★★★★</div><p style="margin-bottom:0; color:var(--muted);">Praised the host for being accommodating from start to finish and highlighted the space, comfort and overall experience for a group stay.</p></div>
+        <div class="testimonial"><h3 style="margin-bottom:8px;">Naquita</h3><div style="font-weight:700; color:var(--accent); margin-bottom:10px;">★★★★★</div><p style="margin-bottom:0; color:var(--muted);">Described the flat as spotless on arrival, especially the kitchen, bathroom and bedrooms.</p></div>
+        <div class="testimonial"><h3 style="margin-bottom:8px;">Cacharel Houston</h3><div style="font-weight:700; color:var(--accent); margin-bottom:10px;">★★★★★</div><p style="margin-bottom:0; color:var(--muted);">Said the full process felt smooth from start to finish, with clear communication and a comfortable stay.</p></div>
       </div>
     </div>
   </section>
@@ -913,20 +860,20 @@
 
       <div class="faq-grid">
         <div class="faq-item">
-          <h3>Do you share the full property address online?</h3>
-          <p style="color:#475569; margin-bottom:0;">For guest security and privacy, full check-in details and the exact address are provided after booking confirmation.</p>
+          <h3>Is Dollis Hill the same as the Romford property?</h3>
+          <p style="color:#475569; margin-bottom:0;">No. Dollis Hill is the main serviced accommodation listing for short and longer stays, while Romford RM6 is a separate HMO with long-term double rooms available to rent.</p>
         </div>
         <div class="faq-item">
-          <h3>What types of bookings are suitable?</h3>
-          <p style="color:#475569; margin-bottom:0;">The property is especially well suited to corporate stays, relocation bookings, contractor accommodation, professional groups and family visits.</p>
+          <h3>How much are the Romford rooms?</h3>
+          <p style="color:#475569; margin-bottom:0;">The available Romford rooms are £1,000 per month per person.</p>
         </div>
         <div class="faq-item">
-          <h3>Are longer stays welcome?</h3>
-          <p style="color:#475569; margin-bottom:0;">Yes. The apartment is designed with practical amenities and flexible living in mind, making it suitable for extended stays.</p>
+          <h3>Do you still need Airbnb and VRBO links on the website?</h3>
+          <p style="color:#475569; margin-bottom:0;">Yes. Those links are useful for the Dollis Hill serviced accommodation because they give guests booking options and build trust. They are not necessary for the Romford room-rental section.</p>
         </div>
         <div class="faq-item">
-          <h3>How do guests enquire or book?</h3>
-          <p style="color:#475569; margin-bottom:0;">Guests can enquire directly by email, WhatsApp or via the booking platform links on the website.</p>
+          <h3>How do people enquire?</h3>
+          <p style="color:#475569; margin-bottom:0;">Visitors can enquire directly by email or WhatsApp for both the Dollis Hill apartment and the Romford rooms.</p>
         </div>
       </div>
     </div>
@@ -935,46 +882,16 @@
   <section class="section host-band">
     <div class="container split-grid">
       <div>
-        <div class="label">Host story</div>
-        <h2>Built with care by a premium London accommodation brand</h2>
-        <p class="lead">Simplex Stays was founded by Maybel Houston with a clear goal: to provide guests with accommodation that feels modern, reliable and thoughtfully prepared. The business is built around strong standards, clear communication and spaces guests feel comfortable returning to.</p>
+        <div class="label">Our story</div>
+        <h2>Built with care by a new and growing family business</h2>
+        <p class="lead">Simplex Stays is being built carefully, with a strong focus on presentation, comfort and communication. That family-business feel is one of the best trust signals you can use because it gives the website a more personal and genuine edge than a bland corporate short-let brand.</p>
       </div>
 
       <div class="glass">
-        <p>✓ Clear, professional communication</p>
-        <p>✓ Well-prepared spaces for comfortable stays</p>
-        <p>✓ Practical luxury with a corporate-ready finish</p>
-        <p>✓ A growing brand focused on trust and guest experience</p>
-      </div>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="container">
-      <div style="max-width:760px; margin-bottom:28px;">
-        <div class="label">Guest confidence</div>
-        <h2>Why this setup works for professional and longer stays</h2>
-      </div>
-
-      <div class="testimonial-grid">
-        <div class="testimonial" style="background-image:url('https://raw.githubusercontent.com/simplexstaysproperties-cmd/html-starter/main/building-front.jpg'); background-size:cover; background-position:center; min-height:320px; display:flex; align-items:end;">
-          <div style="background:rgba(255,255,255,0.92); padding:14px 16px; border-radius:16px; border:1px solid var(--border); max-width:300px;">
-            <strong>Modern development</strong>
-            <small>Strong first impression and professionally presented exterior.</small>
-          </div>
-        </div>
-        <div class="testimonial" style="background-image:url('https://raw.githubusercontent.com/simplexstaysproperties-cmd/html-starter/main/gym-wide.jpg'); background-size:cover; background-position:center; min-height:320px; display:flex; align-items:end;">
-          <div style="background:rgba(255,255,255,0.92); padding:14px 16px; border-radius:16px; border:1px solid var(--border); max-width:300px;">
-            <strong>On-site gym access</strong>
-            <small>A valuable extra for longer stays and business travellers.</small>
-          </div>
-        </div>
-        <div class="testimonial" style="background-image:url('https://raw.githubusercontent.com/simplexstaysproperties-cmd/html-starter/main/building-approach.jpg'); background-size:cover; background-position:center; min-height:320px; display:flex; align-items:end;">
-          <div style="background:rgba(255,255,255,0.92); padding:14px 16px; border-radius:16px; border:1px solid var(--border); max-width:300px;">
-            <strong>Well-connected setting</strong>
-            <small>Modern surroundings in Dollis Hill, North West London.</small>
-          </div>
-        </div>
+        <p>✓ New and growing small family business</p>
+        <p>✓ Clean, reliable and well-prepared accommodation</p>
+        <p>✓ Direct communication and practical support</p>
+        <p>✓ Two clear offers: Dollis Hill stays and Romford room rental</p>
       </div>
     </div>
   </section>
@@ -985,23 +902,23 @@
         <div class="contact-grid">
           <div>
             <div class="label">Enquiries</div>
-            <h2>Looking for your next London stay?</h2>
+            <h2>Speak to Simplex Stays directly</h2>
             <div class="card" style="margin:18px 0 22px; background:white;">
-              <h3 style="margin-bottom:8px;">Book Direct & Save</h3>
-              <p style="color:#475569; margin-bottom:0;">Contact Simplex Stays directly for the best available rates, longer-stay discounts and direct booking enquiries.</p>
+              <h3 style="margin-bottom:8px;">Direct contact works best</h3>
+              <p style="color:#475569; margin-bottom:0;">Use direct enquiry for Dollis Hill availability, Romford room-rental interest, longer-stay pricing and quick answers.</p>
             </div>
-            <p class="lead">Get in touch for corporate stays, relocation bookings, contractor accommodation or longer furnished stays in London. Full check-in and address details are provided after booking confirmation for guest security and privacy.</p>
-            <p class="disclaimer">Direct email, WhatsApp, Airbnb and VRBO links are live. Booking.com can be added once active again.</p>
+            <p class="lead">Contact us for serviced accommodation in Dollis Hill or for long-term room rental in Romford RM6. Full booking or viewing details can be shared directly once we know what you are looking for.</p>
+            <p class="disclaimer">Airbnb and VRBO remain useful for the Dollis Hill apartment because they support trust and additional booking options. The Romford HMO section is better handled through direct enquiry.</p>
           </div>
 
           <div class="card" style="padding:30px; background:white;">
             <div style="display:grid; gap:14px; margin-bottom:20px;">
               <div class="stat"><strong>Business:</strong> Simplex Stays Ltd</div>
               <div class="stat"><strong>Email:</strong> simplexstaysproperties@gmail.com</div>
-              <div class="stat"><strong>Location:</strong> London</div>
-              <div class="stat"><strong>Area:</strong> Dollis Hill, North West London</div>
-              <div class="stat"><strong>Bookings:</strong> Corporate, relocation, contractor and family stays</div>
               <div class="stat"><strong>Phone:</strong> 07946 649402</div>
+              <div class="stat"><strong>Main stay:</strong> Dollis Hill, North West London</div>
+              <div class="stat"><strong>Room rentals:</strong> Romford RM6</div>
+              <div class="stat"><strong>Current Romford availability:</strong> 3 double rooms at £1,000 pcm per person</div>
             </div>
 
             <div class="cta-row" style="margin:0;">
@@ -1019,7 +936,7 @@
   <footer>
     <div class="container footer-grid">
       <div>© 2026 Simplex Stays Ltd. All rights reserved.</div>
-      <div>Premium furnished accommodation in London for comfortable, flexible stays.</div>
+      <div>Serviced accommodation in Dollis Hill and long-term room rentals in Romford RM6.</div>
     </div>
   </footer>
 </body>
