@@ -1287,5 +1287,53 @@
       <div>Serviced accommodation in Dollis Hill and long-term room rentals in Romford RM6.</div>
     </div>
   </footer>
+  <!-- LIGHTBOX OVERLAY -->
+  <div id="lightbox" style="position:fixed; inset:0; background:rgba(0,0,0,0.92); display:none; align-items:center; justify-content:center; z-index:9999; cursor:zoom-out;">
+    <img id="lightbox-img" src="" style="max-width:90%; max-height:90%; border-radius:12px; box-shadow:0 20px 60px rgba(0,0,0,0.5);" />
+  </div>
+
+  <!-- LIGHTBOX SCRIPT -->
+  <script>
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+
+    function getBgImage(el) {
+      const style = window.getComputedStyle(el);
+      const bg = style.backgroundImage;
+      if (!bg || bg === 'none') return null;
+      return bg.slice(5, -2); // remove url("...")
+    }
+
+    function attachLightbox(selector) {
+      document.querySelectorAll(selector).forEach(el => {
+        el.style.cursor = 'zoom-in';
+        el.addEventListener('click', () => {
+          const img = getBgImage(el);
+          if (!img) return;
+          lightboxImg.src = img;
+          lightbox.style.display = 'flex';
+        });
+      });
+    }
+
+    // Apply to all image cards
+    attachLightbox('.gallery-photo');
+    attachLightbox('.photo-card');
+    attachLightbox('.room-tile');
+
+    // Close on click
+    lightbox.addEventListener('click', () => {
+      lightbox.style.display = 'none';
+      lightboxImg.src = '';
+    });
+
+    // Close on ESC
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        lightbox.style.display = 'none';
+        lightboxImg.src = '';
+      }
+    });
+  </script>
 </body>
 </html>
