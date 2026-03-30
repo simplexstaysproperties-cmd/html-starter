@@ -741,6 +741,7 @@
       display: flex;
       align-items: end;
       padding: 18px;
+      cursor: zoom-in;
     }
 
     .gallery-photo::before {
@@ -760,6 +761,18 @@
       color: var(--navy);
       font-weight: 800;
       box-shadow: var(--shadow-soft);
+    }
+
+    .section-soft .heading-panel,
+    .section-soft .fancy-box,
+    .section-soft .faq-item,
+    .section-soft .metric,
+    .section-soft .testimonial {
+      background: linear-gradient(180deg, #ffffff 0%, #f4f8fd 100%);
+    }
+
+    .soft-accent {
+      background: linear-gradient(135deg, rgba(31,75,143,0.05) 0%, rgba(204,176,111,0.10) 100%);
     }
 
     footer {
@@ -846,7 +859,7 @@
   </div>
 
   <div class="gold-banner">
-    <a href="#rooms">Looking for a room in Romford RM6? View available long-term double rooms here while Dollis Hill remains our main featured serviced stay.</a>
+    <a href="#rooms">Looking for a room in Romford RM6? View available long-term double rooms here.</a>
   </div>
 
   <section class="hero">
@@ -862,7 +875,7 @@
           <a class="btn btn-light" href="#contact">Enquire Direct</a>
           <a class="btn btn-secondary" href="#dollis-gallery">View Dollis Hill Gallery</a>
           <a class="btn btn-secondary" href="#rooms">View Romford Rooms</a>
-          <a class="btn btn-whatsapp" href="https://wa.me/447908389184">WhatsApp Us</a>
+          <a class="btn btn-whatsapp" href="whatsapp.html">WhatsApp Us</a>
           <a class="btn btn-light" href="https://www.airbnb.co.uk/rooms/1645094170229913919">Airbnb Listing</a>
           <a class="btn btn-light" href="https://www.vrbo.com/en-gb/p12076179?chkin=2026-04-20&chkout=2026-04-21&d1=2026-04-20&d2=2026-04-21&startDate=2026-04-20&endDate=2026-04-21&x_pwa=1&rfrr=HSR&pwa_ts=1774567474148&referrerUrl=aHR0cHM6Ly93d3cudnJiby5jb20vSG90ZWwtU2VhcmNo&useRewards=false&adults=2&destination=London+NW10+1DT%2C+UK&destType=ADDRESS&neighborhoodId=553248635976383097&latLong=51.5537196%2C-0.2447262&property_type_group=apartment_or_condo&safety_group=carbon_monoxide_detector&bedroom_count_gt=3&searchId=069899dd-be32-4eff-9cb5-5396684bed59&sort=RECOMMENDED&top_dp=341&top_cur=GBP&userIntent=&selectedRoomType=127412498&selectedRatePlan=0001dd35bd8de24b4a06b4fcc8dec71231ad&expediaPropertyId=127412498">VRBO Listing</a>
         </div>
@@ -1052,19 +1065,51 @@
 
   <section class="section" id="dollis-gallery">
     <div class="container">
-      <div class="heading-panel">
+      <div class="heading-panel soft-accent">
         <div class="section-kicker">Dollis Hill gallery</div>
         <h2>Browse more Dollis Hill apartment photos before you book</h2>
-        <p class="lead">This gallery-style section gives visitors an easy way to look through more of your Dollis Hill apartment in one place, helping the page feel more premium and increasing booking confidence.</p>
+        <p class="lead">This gallery section lets visitors explore more of your Dollis Hill apartment in one place. Click any image to open it larger.</p>
       </div>
 
       <div class="dollis-gallery-grid">
-        <div class="gallery-photo" style="background-image:url('https://raw.githubusercontent.com/simplexstaysproperties-cmd/html-starter/main/hero-bedroom-pink.jpg');"><span>Bedroom setup</span></div>
-        <div class="gallery-photo" style="background-image:url('https://raw.githubusercontent.com/simplexstaysproperties-cmd/html-starter/main/living-room-wide.jpg');"><span>Living area</span></div>
-        <div class="gallery-photo" style="background-image:url('https://raw.githubusercontent.com/simplexstaysproperties-cmd/html-starter/main/kitchen-wide.jpg');"><span>Kitchen</span></div>
-        <div class="gallery-photo" style="background-image:url('https://raw.githubusercontent.com/simplexstaysproperties-cmd/html-starter/main/building-front.jpg');"><span>Building exterior</span></div>
-        <div class="gallery-photo" style="background-image:url('https://raw.githubusercontent.com/simplexstaysproperties-cmd/html-starter/main/building-approach.jpg');"><span>Arrival view</span></div>
-        <div class="gallery-photo" style="background-image:url('https://raw.githubusercontent.com/simplexstaysproperties-cmd/html-starter/main/bedroom-green-wide.jpg');"><span>Additional bedroom view</span></div>
+        <div class="gallery-photo" data-full="https://raw.githubusercontent.com/simplexstaysproperties-cmd/html-starter/main/hero-bedroom-pink.jpg" style="background-image:url('https://raw.githubusercontent.com/simplexstaysproperties-cmd/html-starter/main/hero-bedroom-pink.jpg');"><span>Bedroom 1</span></div>
+        <div class="gallery-photo" data-full="https://raw.githubusercontent.com/simplexstaysproperties-cmd/html-starter/main/bedroom-green-wide.jpg" style="background-image:url('https://raw.githubusercontent.com/simplexstaysproperties-cmd/html-starter/main/bedroom-green-wide.jpg');"><span>Bedroom 2</span></div>
+        <div class="gallery-photo" data-full="https://raw.githubusercontent.com/simplexstaysproperties-cmd/html-starter/main/bedroom-neutral-wide.jpg" style="background-image:url('https://raw.githubusercontent.com/simplexstaysproperties-cmd/html-starter/main/bedroom-neutral-wide.jpg');"><span>Bedroom 3</span></div>
+        <div class="gallery-photo" data-full="https://raw.githubusercontent.com/simplexstaysproperties-cmd/html-starter/main/living-room-wide.jpg" style="background-image:url('https://raw.githubusercontent.com/simplexstaysproperties-cmd/html-starter/main/living-room-wide.jpg');"><span>Living area</span></div>
+        <div class="gallery-photo" data-full="https://raw.githubusercontent.com/simplexstaysproperties-cmd/html-starter/main/kitchen-wide.jpg" style="background-image:url('https://raw.githubusercontent.com/simplexstaysproperties-cmd/html-starter/main/kitchen-wide.jpg');"><span>Kitchen</span></div>
+        <div class="gallery-photo" data-full="https://raw.githubusercontent.com/simplexstaysproperties-cmd/html-starter/main/building-front.jpg" style="background-image:url('https://raw.githubusercontent.com/simplexstaysproperties-cmd/html-starter/main/building-front.jpg');"><span>Outside property</span></div>
+        <div class="gallery-photo" data-full="https://raw.githubusercontent.com/simplexstaysproperties-cmd/html-starter/main/building-approach.jpg" style="background-image:url('https://raw.githubusercontent.com/simplexstaysproperties-cmd/html-starter/main/building-approach.jpg');"><span>Entrance</span></div>
+        <div class="gallery-photo" data-full="https://raw.githubusercontent.com/simplexstaysproperties-cmd/html-starter/main/balcony-view.jpg" style="background-image:url('https://raw.githubusercontent.com/simplexstaysproperties-cmd/html-starter/main/balcony-view.jpg');"><span>Balcony / view</span></div>
+        <div class="gallery-photo" data-full="https://raw.githubusercontent.com/simplexstaysproperties-cmd/html-starter/main/hallway-main.jpg" style="background-image:url('https://raw.githubusercontent.com/simplexstaysproperties-cmd/html-starter/main/hallway-main.jpg');"><span>Hallway</span></div>
+        <div class="gallery-photo" data-full="https://raw.githubusercontent.com/simplexstaysproperties-cmd/html-starter/main/ensuite-shower.jpg" style="background-image:url('https://raw.githubusercontent.com/simplexstaysproperties-cmd/html-starter/main/ensuite-shower.jpg');"><span>En-suite shower & toilet</span></div>
+        <div class="gallery-photo" data-full="https://raw.githubusercontent.com/simplexstaysproperties-cmd/html-starter/main/shared-bathroom.jpg" style="background-image:url('https://raw.githubusercontent.com/simplexstaysproperties-cmd/html-starter/main/shared-bathroom.jpg');"><span>Shared bathroom</span></div>
+        <div class="gallery-photo" data-full="https://raw.githubusercontent.com/simplexstaysproperties-cmd/html-starter/main/view-city.jpg" style="background-image:url('https://raw.githubusercontent.com/simplexstaysproperties-cmd/html-starter/main/view-city.jpg');"><span>Additional view</span></div>
+      </div>
+
+      <div class="gallery-link-panel soft-accent" style="margin-top:28px; color:var(--text); background:linear-gradient(135deg, rgba(31,75,143,0.08) 0%, rgba(204,176,111,0.14) 100%); border:1px solid var(--border);">
+        <div>
+          <div class="section-kicker">Add more Dollis Hill photos</div>
+          <h3 style="font-size:28px; margin-bottom:8px; color:var(--navy);">Code slots ready for more images</h3>
+          <p style="color:var(--muted);">Add one more picture for each room, hallway, entrance, en-suite and shared bathroom by replacing the file names below after uploading them to GitHub.</p>
+        </div>
+      </div>
+
+      <div class="fancy-box soft-accent" style="margin-top:24px;">
+        <pre style="white-space:pre-wrap; margin:0; font-family:Arial, Helvetica, sans-serif; color:var(--navy); line-height:1.8; font-size:15px;">Extra Dollis Hill gallery file names to upload and use:
+
+bedroom-1-extra.jpg
+bedroom-2-extra.jpg
+bedroom-3-extra.jpg
+hallway-extra.jpg
+entrance-extra.jpg
+ensuite-extra.jpg
+shared-bathroom-extra.jpg
+balcony-extra.jpg
+view-extra.jpg
+
+To add one more image card, copy this block and change the file name + label:
+
+<div class="gallery-photo" data-full="https://raw.githubusercontent.com/simplexstaysproperties-cmd/html-starter/main/bedroom-1-extra.jpg" style="background-image:url('https://raw.githubusercontent.com/simplexstaysproperties-cmd/html-starter/main/bedroom-1-extra.jpg');"><span>Bedroom 1 extra</span></div></pre>
       </div>
     </div>
   </section>
@@ -1231,11 +1276,11 @@
           </div>
           <div class="contact-block">
             <div class="contact-label">WhatsApp</div>
-            <div class="contact-value">07908 389184</div>
+            <div class="contact-value"><a href="whatsapp.html" style="color:white; text-decoration:underline;">07908 389184</a></div>
           </div>
           <div class="contact-block">
             <div class="contact-label">Call</div>
-            <div class="contact-value">07946 649402</div>
+            <div class="contact-value"><a href="tel:+447946649402" style="color:white; text-decoration:underline;">07946 649402</a></div>
           </div>
         </div>
       </div>
@@ -1269,9 +1314,9 @@
               <div class="stat"><strong>Romford viewings:</strong> Arrange directly by email or WhatsApp</div>
             </div>
             <div class="cta-row" style="margin:0;">
-              <a href="mailto:simplexstaysproperties@gmail.com" class="btn btn-primary">Send an Enquiry</a>
-              <a href="https://wa.me/447908389184" class="btn btn-whatsapp">Message on WhatsApp</a>
-              <a href="tel:+447946649402" class="btn btn-light">Call Now</a>
+              <a href="mailto:simplexstaysproperties@gmail.com?subject=Simplex%20Stays%20Enquiry" class="btn btn-primary">Send an Enquiry</a>
+              <a href="whatsapp.html" class="btn btn-whatsapp">Message on WhatsApp</a>
+              <div style="display:flex; flex-direction:column; gap:8px; min-width:180px;"><a href="tel:+447946649402" class="btn btn-light">Call Now</a><div style="font-size:14px; color:var(--muted); text-align:center;">07946 649402</div></div>
               <a href="https://www.airbnb.co.uk/rooms/1645094170229913919" class="btn btn-light">Book on Airbnb</a>
               <a href="https://www.vrbo.com/en-gb/p12076179?chkin=2026-04-20&chkout=2026-04-21&d1=2026-04-20&d2=2026-04-21&startDate=2026-04-20&endDate=2026-04-21&x_pwa=1&rfrr=HSR&pwa_ts=1774567474148&referrerUrl=aHR0cHM6Ly93d3cudnJiby5jb20vSG90ZWwtU2VhcmNo&useRewards=false&adults=2&destination=London+NW10+1DT%2C+UK&destType=ADDRESS&neighborhoodId=553248635976383097&latLong=51.5537196%2C-0.2447262&property_type_group=apartment_or_condo&safety_group=carbon_monoxide_detector&bedroom_count_gt=3&searchId=069899dd-be32-4eff-9cb5-5396684bed59&sort=RECOMMENDED&top_dp=341&top_cur=GBP&userIntent=&selectedRoomType=127412498&selectedRatePlan=0001dd35bd8de24b4a06b4fcc8dec71231ad&expediaPropertyId=127412498" class="btn btn-light">View on VRBO</a>
             </div>
@@ -1328,6 +1373,53 @@
     });
 
     // Close on ESC
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape') {
+        lightbox.style.display = 'none';
+        lightboxImg.src = '';
+      }
+    });
+  </script>
+  <!-- LIGHTBOX OVERLAY -->
+  <div id="lightbox" style="position:fixed; inset:0; background:rgba(0,0,0,0.92); display:none; align-items:center; justify-content:center; z-index:9999; cursor:zoom-out;">
+    <img id="lightbox-img" src="" style="max-width:90%; max-height:90%; border-radius:12px; box-shadow:0 20px 60px rgba(0,0,0,0.5);" />
+  </div>
+
+  <!-- LIGHTBOX SCRIPT -->
+  <script>
+    const lightbox = document.getElementById('lightbox');
+    const lightboxImg = document.getElementById('lightbox-img');
+
+    function getBgImage(el) {
+      const direct = el.getAttribute('data-full');
+      if (direct) return direct;
+      const style = window.getComputedStyle(el);
+      const bg = style.backgroundImage;
+      if (!bg || bg === 'none') return null;
+      return bg.slice(5, -2);
+    }
+
+    function attachLightbox(selector) {
+      document.querySelectorAll(selector).forEach(el => {
+        el.style.cursor = 'zoom-in';
+        el.addEventListener('click', () => {
+          const img = getBgImage(el);
+          if (!img) return;
+          lightboxImg.src = img;
+          lightbox.style.display = 'flex';
+        });
+      });
+    }
+
+    attachLightbox('.gallery-photo');
+    attachLightbox('.photo-card');
+    attachLightbox('.room-tile');
+
+    lightbox.addEventListener('click', () => {
+      lightbox.style.display = 'none';
+      lightboxImg.src = '';
+    });
+
     document.addEventListener('keydown', (e) => {
       if (e.key === 'Escape') {
         lightbox.style.display = 'none';
