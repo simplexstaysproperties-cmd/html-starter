@@ -134,26 +134,36 @@
       background: rgba(255,255,255,0.16);
     }
 
-    .gold-banner {
+    .top-banner{
       position: sticky;
       top: 88px;
-      z-index: 45;
-      background: linear-gradient(90deg, #d4bb7f 0%, #ead7aa 52%, #d8bf82 100%);
-      border-bottom: 1px solid rgba(12,24,51,0.08);
-      box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+      z-index: 49;
+      width: 100%;
+      background: linear-gradient(180deg, #e6cf94 0%, #d9bc73 100%);
+      box-shadow: 0 8px 18px rgba(0,0,0,0.10);
+      border-top: 1px solid rgba(255,255,255,0.35);
+      border-bottom: 1px solid rgba(0,0,0,0.08);
     }
 
-    .gold-banner a {
+    .banner-link{
       display: block;
-      text-align: center;
-      padding: 13px 20px;
-      color: #1f1a12;
-      font-weight: 800;
-      font-size: 15px;
-      line-height: 1.35;
-      letter-spacing: 0.01em;
-      max-width: 1100px;
+      width: 100%;
+      text-decoration: none;
+      color: #1a1a1a;
+    }
+
+    .banner-link:hover{
+      background: rgba(255,255,255,0.08);
+    }
+
+    .banner-inner{
+      max-width: 1200px;
       margin: 0 auto;
+      text-align: center;
+      font-weight: 700;
+      font-size: 18px;
+      line-height: 1.35;
+      padding: 16px 24px;
     }
 
     .hero {
@@ -374,6 +384,21 @@
       margin: 30px 0 28px;
     }
 
+    .lux-urgency{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      margin:10px 0 20px;
+      padding:10px 16px;
+      background:rgba(204,176,111,0.14);
+      color:#f2dfb0;
+      border:1px solid rgba(204,176,111,0.34);
+      border-radius:999px;
+      font-size:14px;
+      font-weight:700;
+      letter-spacing:0.02em;
+    }
+
     .btn {
       display: inline-flex;
       align-items: center;
@@ -409,9 +434,21 @@
     }
 
     .btn-whatsapp {
-      background: var(--green);
-      color: white;
-      border-color: var(--green);
+      background: linear-gradient(135deg, #25D366 0%, #1ebe5b 100%);
+      color: #ffffff;
+      border: 1px solid rgba(37, 211, 102, 0.35);
+      box-shadow: 0 10px 24px rgba(37, 211, 102, 0.22);
+    }
+
+    .btn-whatsapp:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 16px 30px rgba(37, 211, 102, 0.28);
+      filter: brightness(1.03);
+      color: #ffffff;
+    }
+
+    .btn-whatsapp:active {
+      transform: translateY(0);
     }
 
     .mock-visual {
@@ -472,10 +509,12 @@
       display: flex;
       align-items: end;
       padding: 24px;
+      cursor: zoom-in;
     }
 
     .photo-card::before,
-    .room-tile::before {
+    .room-tile::before,
+    .gallery-photo::before {
       content: "";
       position: absolute;
       inset: 0;
@@ -744,13 +783,6 @@
       cursor: zoom-in;
     }
 
-    .gallery-photo::before {
-      content: "";
-      position: absolute;
-      inset: 0;
-      background: linear-gradient(180deg, rgba(7,23,56,0.03) 0%, rgba(7,23,56,0.30) 100%);
-    }
-
     .gallery-photo span {
       position: relative;
       z-index: 1;
@@ -773,6 +805,29 @@
 
     .soft-accent {
       background: linear-gradient(135deg, rgba(31,75,143,0.05) 0%, rgba(204,176,111,0.10) 100%);
+    }
+
+    .floating-whatsapp{
+      position: fixed;
+      right: 22px;
+      bottom: 22px;
+      z-index: 9999;
+      background: linear-gradient(135deg, #25D366, #1ebe5d);
+      color: #ffffff;
+      text-decoration: none;
+      font-weight: 800;
+      font-size: 16px;
+      padding: 16px 22px;
+      border-radius: 999px;
+      box-shadow: 0 18px 40px rgba(37,211,102,0.28);
+      border: 2px solid rgba(255,255,255,0.18);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .floating-whatsapp:hover{
+      transform: translateY(-2px);
+      box-shadow: 0 22px 46px rgba(37,211,102,0.34);
+      color: #ffffff;
     }
 
     footer {
@@ -802,6 +857,17 @@
       .dollis-gallery-grid { grid-template-columns: 1fr; }
       .mock-inner { max-width: 100%; }
       .gallery-link-panel { align-items: flex-start; }
+      h2 { max-width: 100%; }
+    }
+
+    @media (max-width: 768px){
+      .top-banner{
+        top: 126px;
+      }
+      .banner-inner{
+        font-size: 15px;
+        padding: 12px 16px;
+      }
     }
 
     @media (max-width: 760px) {
@@ -814,7 +880,7 @@
       .btn { width: 100%; }
       .brand-copy strong { font-size: 22px; }
       h1 { font-size: clamp(42px, 12vw, 58px); }
-      h2 { font-size: clamp(34px, 10vw, 46px); max-width: 100%; }
+      h2 { font-size: clamp(34px, 10vw, 46px); }
       .hero-shell,
       .contact-shell,
       .contact-banner,
@@ -829,8 +895,12 @@
       .stat,
       .heading-panel,
       .gallery-link-panel { padding: 24px; }
-      .gold-banner { top: 126px; }
-      .gold-banner a { font-size: 14px; padding: 12px 16px; }
+      .floating-whatsapp{
+        right: 14px;
+        bottom: 14px;
+        padding: 14px 18px;
+        font-size: 15px;
+      }
     }
   </style>
 </head>
@@ -858,8 +928,12 @@
     </div>
   </div>
 
-  <div class="gold-banner">
-    <a href="#rooms">Looking for a room in Romford RM6? View available long-term double rooms here.</a>
+  <div class="top-banner">
+    <a class="banner-link" href="#rooms">
+      <div class="banner-inner">
+        Looking for a room in Romford RM6? View available long-term double rooms here.
+      </div>
+    </a>
   </div>
 
   <section class="hero">
@@ -870,12 +944,14 @@
         <div class="eyebrow" style="margin-top:8px; margin-bottom:18px;">7 verified 5-star Google reviews • Concierge Monday to Friday, 7am to 7pm</div>
         <p class="lead">Simplex Stays Ltd is a growing family-run business with a strong focus on presentation, comfort and direct communication. Our Dollis Hill apartment is designed for professionals, company lets, corporate stays, relocation bookings, holiday accommodation and families who want more privacy, space and flexibility than a standard hotel.</p>
 
+        <div class="lux-urgency">Popular with company lets, relocation stays and longer London bookings</div>
+
         <div class="cta-row">
           <a class="btn btn-primary" href="#property">Explore Dollis Hill</a>
           <a class="btn btn-light" href="#contact">Enquire Direct</a>
           <a class="btn btn-secondary" href="#dollis-gallery">View Dollis Hill Gallery</a>
           <a class="btn btn-secondary" href="#rooms">View Romford Rooms</a>
-         <a class="btn btn-whatsapp" href="https://wa.me/447908389184?text=Hello,%20I%20am%20interested%20in%20your%20rooms.%20Please%20let%20me%20know%20availability.">WhatsApp Us</a>
+          <a class="btn btn-whatsapp" href="https://wa.me/447908389184?text=Hello,%20I%20am%20interested%20in%20checking%20availability%20for%20your%20Dollis%20Hill%20apartment%20or%20Romford%20rooms.%20Please%20could%20you%20let%20me%20know%20the%20next%20steps?" target="_blank" rel="noopener noreferrer">Check availability on WhatsApp</a>
           <a class="btn btn-light" href="https://www.airbnb.co.uk/rooms/1645094170229913919">Airbnb Listing</a>
           <a class="btn btn-light" href="https://www.vrbo.com/en-gb/p12076179?chkin=2026-04-20&chkout=2026-04-21&d1=2026-04-20&d2=2026-04-21&startDate=2026-04-20&endDate=2026-04-21&x_pwa=1&rfrr=HSR&pwa_ts=1774567474148&referrerUrl=aHR0cHM6Ly93d3cudnJiby5jb20vSG90ZWwtU2VhcmNo&useRewards=false&adults=2&destination=London+NW10+1DT%2C+UK&destType=ADDRESS&neighborhoodId=553248635976383097&latLong=51.5537196%2C-0.2447262&property_type_group=apartment_or_condo&safety_group=carbon_monoxide_detector&bedroom_count_gt=3&searchId=069899dd-be32-4eff-9cb5-5396684bed59&sort=RECOMMENDED&top_dp=341&top_cur=GBP&userIntent=&selectedRoomType=127412498&selectedRatePlan=0001dd35bd8de24b4a06b4fcc8dec71231ad&expediaPropertyId=127412498">VRBO Listing</a>
         </div>
@@ -990,26 +1066,26 @@
       </div>
 
       <div class="gallery-grid" style="margin-bottom:24px;">
-        <div class="photo-card" style="background-image:url('https://raw.githubusercontent.com/simplexstaysproperties-cmd/html-starter/main/hero-bedroom-pink.jpg'); background-size:cover; background-position:center; min-height:380px;">
+        <div class="photo-card" data-full="https://raw.githubusercontent.com/simplexstaysproperties-cmd/html-starter/main/hero-bedroom-pink.jpg" style="background-image:url('https://raw.githubusercontent.com/simplexstaysproperties-cmd/html-starter/main/hero-bedroom-pink.jpg'); background-size:cover; background-position:center; min-height:380px;">
           <div class="photo-caption">
             <strong>Bright, spacious and guest-ready</strong><br />A premium 3-bedroom setup designed for comfort and longer stays.
           </div>
         </div>
         <div class="photo-stack">
-          <div class="photo-card" style="min-height:180px; background-image:url('https://raw.githubusercontent.com/simplexstaysproperties-cmd/html-starter/main/living-room-wide.jpg'); background-size:cover; background-position:center;">
+          <div class="photo-card" data-full="https://raw.githubusercontent.com/simplexstaysproperties-cmd/html-starter/main/living-room-wide.jpg" style="min-height:180px; background-image:url('https://raw.githubusercontent.com/simplexstaysproperties-cmd/html-starter/main/living-room-wide.jpg'); background-size:cover; background-position:center;">
             <div class="photo-caption"><strong>Modern living space</strong></div>
           </div>
-          <div class="photo-card" style="min-height:180px; background-image:url('https://raw.githubusercontent.com/simplexstaysproperties-cmd/html-starter/main/kitchen-wide.jpg'); background-size:cover; background-position:center;">
+          <div class="photo-card" data-full="https://raw.githubusercontent.com/simplexstaysproperties-cmd/html-starter/main/kitchen-wide.jpg" style="min-height:180px; background-image:url('https://raw.githubusercontent.com/simplexstaysproperties-cmd/html-starter/main/kitchen-wide.jpg'); background-size:cover; background-position:center;">
             <div class="photo-caption"><strong>Fully equipped kitchen</strong></div>
           </div>
         </div>
       </div>
 
-      <div class="gallery-link-panel">
+      <div class="gallery-link-panel soft-accent" style="color:var(--text); background:linear-gradient(135deg, rgba(31,75,143,0.08) 0%, rgba(204,176,111,0.14) 100%); border:1px solid var(--border);">
         <div>
-          <div class="section-kicker" style="background:rgba(255,255,255,0.10); color:#dce6f3; border:none;">Dollis Hill picture page</div>
-          <h3 style="font-size:30px; margin-bottom:8px; color:white;">Want to see more of Dollis Hill?</h3>
-          <p>Use the dedicated gallery section below to browse more of the apartment before you enquire or book.</p>
+          <div class="section-kicker">Dollis Hill picture page</div>
+          <h3 style="font-size:30px; margin-bottom:8px; color:var(--navy);">Want to see more of Dollis Hill?</h3>
+          <p style="color:var(--muted);">Use the dedicated gallery section below to browse more of the apartment before you enquire or book.</p>
         </div>
         <a class="btn btn-primary" href="#dollis-gallery">Open Dollis Hill Gallery</a>
       </div>
@@ -1150,18 +1226,18 @@ To add one more image card, copy this block and change the file name + label:
       </div>
 
       <div class="room-gallery" style="margin-bottom:28px;">
-        <div class="room-tile large" style="background-image:url('romford-front.jpg'); background-size:cover; background-position:center;"><div class="photo-caption"><strong>Romford house exterior</strong><br />Professionally presented home with driveway approach.</div></div>
-        <div class="room-tile large" style="background-image:url('romford-room-gold-1.jpg'); background-size:cover; background-position:center;"><div class="photo-caption"><strong>Gold room</strong><br />Bright furnished double room with warm styling and practical storage.</div></div>
-        <div class="room-tile large" style="background-image:url('romford-room-pink-1.jpg'); background-size:cover; background-position:center;"><div class="photo-caption"><strong>Pink room</strong><br />A second furnished double room presented for comfortable long-term living.</div></div>
-        <div class="room-tile small" style="background-image:url('romford-room-blue-1.jpg'); background-size:cover; background-position:center;"><div class="photo-caption"><strong>Blue room</strong></div></div>
-        <div class="room-tile small" style="background-image:url('romford-hallway-1.jpg'); background-size:cover; background-position:center;"><div class="photo-caption"><strong>Main hallway</strong></div></div>
-        <div class="room-tile small" style="background-image:url('romford-kitchen-1.jpg'); background-size:cover; background-position:center;"><div class="photo-caption"><strong>Shared kitchen</strong></div></div>
-        <div class="room-tile small" style="background-image:url('romford-dining-1.jpg'); background-size:cover; background-position:center;"><div class="photo-caption"><strong>Dining area</strong></div></div>
-        <div class="room-tile small" style="background-image:url('romford-living-room-1.jpg'); background-size:cover; background-position:center;"><div class="photo-caption"><strong>Shared living room</strong></div></div>
-        <div class="room-tile small" style="background-image:url('romford-garden-1.jpg'); background-size:cover; background-position:center;"><div class="photo-caption"><strong>Garden space</strong></div></div>
-        <div class="room-tile small" style="background-image:url('romford-bathroom-main-1.jpg'); background-size:cover; background-position:center;"><div class="photo-caption"><strong>Main bathroom</strong></div></div>
-        <div class="room-tile small" style="background-image:url('romford-bathroom-shower-1.jpg'); background-size:cover; background-position:center;"><div class="photo-caption"><strong>Additional shower room</strong></div></div>
-        <div class="room-tile small" style="background-image:url('romford-hallway-2.jpg'); background-size:cover; background-position:center;"><div class="photo-caption"><strong>Upper floor landing</strong></div></div>
+        <div class="room-tile large" data-full="romford-front.jpg" style="background-image:url('romford-front.jpg'); background-size:cover; background-position:center;"><div class="photo-caption"><strong>Romford house exterior</strong><br />Professionally presented home with driveway approach.</div></div>
+        <div class="room-tile large" data-full="romford-room-gold-1.jpg" style="background-image:url('romford-room-gold-1.jpg'); background-size:cover; background-position:center;"><div class="photo-caption"><strong>Gold room</strong><br />Bright furnished double room with warm styling and practical storage.</div></div>
+        <div class="room-tile large" data-full="romford-room-pink-1.jpg" style="background-image:url('romford-room-pink-1.jpg'); background-size:cover; background-position:center;"><div class="photo-caption"><strong>Pink room</strong><br />A second furnished double room presented for comfortable long-term living.</div></div>
+        <div class="room-tile small" data-full="romford-room-blue-1.jpg" style="background-image:url('romford-room-blue-1.jpg'); background-size:cover; background-position:center;"><div class="photo-caption"><strong>Blue room</strong></div></div>
+        <div class="room-tile small" data-full="romford-hallway-1.jpg" style="background-image:url('romford-hallway-1.jpg'); background-size:cover; background-position:center;"><div class="photo-caption"><strong>Main hallway</strong></div></div>
+        <div class="room-tile small" data-full="romford-kitchen-1.jpg" style="background-image:url('romford-kitchen-1.jpg'); background-size:cover; background-position:center;"><div class="photo-caption"><strong>Shared kitchen</strong></div></div>
+        <div class="room-tile small" data-full="romford-dining-1.jpg" style="background-image:url('romford-dining-1.jpg'); background-size:cover; background-position:center;"><div class="photo-caption"><strong>Dining area</strong></div></div>
+        <div class="room-tile small" data-full="romford-living-room-1.jpg" style="background-image:url('romford-living-room-1.jpg'); background-size:cover; background-position:center;"><div class="photo-caption"><strong>Shared living room</strong></div></div>
+        <div class="room-tile small" data-full="romford-garden-1.jpg" style="background-image:url('romford-garden-1.jpg'); background-size:cover; background-position:center;"><div class="photo-caption"><strong>Garden space</strong></div></div>
+        <div class="room-tile small" data-full="romford-bathroom-main-1.jpg" style="background-image:url('romford-bathroom-main-1.jpg'); background-size:cover; background-position:center;"><div class="photo-caption"><strong>Main bathroom</strong></div></div>
+        <div class="room-tile small" data-full="romford-bathroom-shower-1.jpg" style="background-image:url('romford-bathroom-shower-1.jpg'); background-size:cover; background-position:center;"><div class="photo-caption"><strong>Additional shower room</strong></div></div>
+        <div class="room-tile small" data-full="romford-hallway-2.jpg" style="background-image:url('romford-hallway-2.jpg'); background-size:cover; background-position:center;"><div class="photo-caption"><strong>Upper floor landing</strong></div></div>
       </div>
 
       <div class="triple-grid">
@@ -1276,7 +1352,7 @@ To add one more image card, copy this block and change the file name + label:
           </div>
           <div class="contact-block">
             <div class="contact-label">WhatsApp</div>
-            <a href="https://wa.me/447908389184?text=Hello,%20I%20am%20interested%20in%20checking%20availability%20for%20your%20Dollis%20Hill%20apartment%20/%20Romford%20rooms.%20Please%20could%20you%20let%20me%20know%20the%20next%20steps?" target="_blank" rel="noopener noreferrer" style="color:white; text-decoration:underline;">07908 389184</a>
+            <div class="contact-value"><a href="https://wa.me/447908389184?text=Hello,%20I%20am%20interested%20in%20checking%20availability%20for%20your%20Dollis%20Hill%20apartment%20or%20Romford%20rooms.%20Please%20could%20you%20let%20me%20know%20the%20next%20steps?" target="_blank" rel="noopener noreferrer" style="color:white; text-decoration:underline;">07908 389184</a></div>
           </div>
           <div class="contact-block">
             <div class="contact-label">Call</div>
@@ -1315,7 +1391,7 @@ To add one more image card, copy this block and change the file name + label:
             </div>
             <div class="cta-row" style="margin:0;">
               <a href="mailto:simplexstaysproperties@gmail.com?subject=Simplex%20Stays%20Enquiry" class="btn btn-primary">Send an Enquiry</a>
-              <a href="https://wa.me/447908389184?text=Hi%20I%20am%20interested%20in%20your%20rooms" class="btn btn-whatsapp">Message on WhatsApp 📲</a>
+              <a href="https://wa.me/447908389184?text=Hello,%20I%20am%20interested%20in%20checking%20availability%20for%20your%20Dollis%20Hill%20apartment%20or%20Romford%20rooms.%20Please%20could%20you%20let%20me%20know%20the%20next%20steps?" class="btn btn-whatsapp" target="_blank" rel="noopener noreferrer">Check availability on WhatsApp</a>
               <div style="display:flex; flex-direction:column; gap:8px; min-width:180px;"><a href="tel:+447946649402" class="btn btn-light">Call Now</a><div style="font-size:14px; color:var(--muted); text-align:center;">07946 649402</div></div>
               <a href="https://www.airbnb.co.uk/rooms/1645094170229913919" class="btn btn-light">Book on Airbnb</a>
               <a href="https://www.vrbo.com/en-gb/p12076179?chkin=2026-04-20&chkout=2026-04-21&d1=2026-04-20&d2=2026-04-21&startDate=2026-04-20&endDate=2026-04-21&x_pwa=1&rfrr=HSR&pwa_ts=1774567474148&referrerUrl=aHR0cHM6Ly93d3cudnJiby5jb20vSG90ZWwtU2VhcmNo&useRewards=false&adults=2&destination=London+NW10+1DT%2C+UK&destType=ADDRESS&neighborhoodId=553248635976383097&latLong=51.5537196%2C-0.2447262&property_type_group=apartment_or_condo&safety_group=carbon_monoxide_detector&bedroom_count_gt=3&searchId=069899dd-be32-4eff-9cb5-5396684bed59&sort=RECOMMENDED&top_dp=341&top_cur=GBP&userIntent=&selectedRoomType=127412498&selectedRatePlan=0001dd35bd8de24b4a06b4fcc8dec71231ad&expediaPropertyId=127412498" class="btn btn-light">View on VRBO</a>
@@ -1332,60 +1408,13 @@ To add one more image card, copy this block and change the file name + label:
       <div>Serviced accommodation in Dollis Hill and long-term room rentals in Romford RM6.</div>
     </div>
   </footer>
-  <!-- LIGHTBOX OVERLAY -->
+
+  <a href="https://wa.me/447908389184?text=Hello,%20I%20am%20interested%20in%20checking%20availability%20for%20your%20Dollis%20Hill%20apartment%20or%20Romford%20rooms.%20Please%20could%20you%20let%20me%20know%20the%20next%20steps?" class="floating-whatsapp" target="_blank" rel="noopener noreferrer">WhatsApp Us</a>
+
   <div id="lightbox" style="position:fixed; inset:0; background:rgba(0,0,0,0.92); display:none; align-items:center; justify-content:center; z-index:9999; cursor:zoom-out;">
     <img id="lightbox-img" src="" style="max-width:90%; max-height:90%; border-radius:12px; box-shadow:0 20px 60px rgba(0,0,0,0.5);" />
   </div>
 
-  <!-- LIGHTBOX SCRIPT -->
-  <script>
-    const lightbox = document.getElementById('lightbox');
-    const lightboxImg = document.getElementById('lightbox-img');
-
-    function getBgImage(el) {
-      const style = window.getComputedStyle(el);
-      const bg = style.backgroundImage;
-      if (!bg || bg === 'none') return null;
-      return bg.slice(5, -2); // remove url("...")
-    }
-
-    function attachLightbox(selector) {
-      document.querySelectorAll(selector).forEach(el => {
-        el.style.cursor = 'zoom-in';
-        el.addEventListener('click', () => {
-          const img = getBgImage(el);
-          if (!img) return;
-          lightboxImg.src = img;
-          lightbox.style.display = 'flex';
-        });
-      });
-    }
-
-    // Apply to all image cards
-    attachLightbox('.gallery-photo');
-    attachLightbox('.photo-card');
-    attachLightbox('.room-tile');
-
-    // Close on click
-    lightbox.addEventListener('click', () => {
-      lightbox.style.display = 'none';
-      lightboxImg.src = '';
-    });
-
-    // Close on ESC
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') {
-        lightbox.style.display = 'none';
-        lightboxImg.src = '';
-      }
-    });
-  </script>
-  <!-- LIGHTBOX OVERLAY -->
-  <div id="lightbox" style="position:fixed; inset:0; background:rgba(0,0,0,0.92); display:none; align-items:center; justify-content:center; z-index:9999; cursor:zoom-out;">
-    <img id="lightbox-img" src="" style="max-width:90%; max-height:90%; border-radius:12px; box-shadow:0 20px 60px rgba(0,0,0,0.5);" />
-  </div>
-
-  <!-- LIGHTBOX SCRIPT -->
   <script>
     const lightbox = document.getElementById('lightbox');
     const lightboxImg = document.getElementById('lightbox-img');
@@ -1401,7 +1430,6 @@ To add one more image card, copy this block and change the file name + label:
 
     function attachLightbox(selector) {
       document.querySelectorAll(selector).forEach(el => {
-        el.style.cursor = 'zoom-in';
         el.addEventListener('click', () => {
           const img = getBgImage(el);
           if (!img) return;
