@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Simplex Stays Ltd | Luxury Dollis Hill Serviced Accommodation & Romford RM6 Rooms</title>
-  <meta name="description" content="Simplex Stays Ltd offers luxury-standard Dollis Hill serviced accommodation for professionals, company lets, family visits, holiday stays and short to long-term London bookings, plus long-term double rooms to rent in Romford RM6." />
+  <title>Simplex Stays Ltd | Dollis Hill Serviced Accommodation & Romford RM6 Rooms</title>
+  <meta name="description" content="Simplex Stays Ltd offers polished Dollis Hill serviced accommodation in North West London and long-term double rooms to rent in Romford RM6." />
   <style>
     :root {
       --bg: #f4f7fb;
@@ -25,6 +25,8 @@
       --radius: 24px;
       --radius-lg: 34px;
       --max: 1200px;
+      --header-height: 108px;
+      --banner-height: 66px;
     }
 
     * { box-sizing: border-box; }
@@ -43,6 +45,8 @@
     a { color: inherit; text-decoration: none; }
     img { max-width: 100%; display: block; }
 
+    section[id] { scroll-margin-top: 200px; }
+
     .container {
       width: min(var(--max), calc(100% - 32px));
       margin: 0 auto;
@@ -51,7 +55,7 @@
     .topbar {
       position: sticky;
       top: 0;
-      z-index: 50;
+      z-index: 60;
       background: linear-gradient(90deg, rgba(12,33,72,0.97) 0%, rgba(33,76,136,0.95) 100%);
       border-bottom: 1px solid rgba(255,255,255,0.08);
       box-shadow: 0 12px 28px rgba(7,23,56,0.16);
@@ -59,6 +63,7 @@
     }
 
     .nav {
+      min-height: var(--header-height);
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -134,36 +139,45 @@
       background: rgba(255,255,255,0.16);
     }
 
-    .top-banner{
+    .top-banner {
       position: sticky;
-      top: 88px;
-      z-index: 49;
+      top: var(--header-height);
+      z-index: 59;
       width: 100%;
+      min-height: var(--banner-height);
+      display: flex;
+      align-items: center;
+      justify-content: center;
       background: linear-gradient(180deg, #e6cf94 0%, #d9bc73 100%);
       box-shadow: 0 8px 18px rgba(0,0,0,0.10);
       border-top: 1px solid rgba(255,255,255,0.35);
       border-bottom: 1px solid rgba(0,0,0,0.08);
+      overflow: hidden;
     }
 
-    .banner-link{
-      display: block;
+    .banner-link {
+      display: flex;
+      align-items: center;
+      justify-content: center;
       width: 100%;
-      text-decoration: none;
+      min-height: var(--banner-height);
       color: #1a1a1a;
+      text-decoration: none;
+      transition: background 0.2s ease;
     }
 
-    .banner-link:hover{
-      background: rgba(255,255,255,0.08);
-    }
+    .banner-link:hover { background: rgba(255,255,255,0.08); }
 
-    .banner-inner{
+    .banner-inner {
       max-width: 1200px;
+      width: 100%;
       margin: 0 auto;
       text-align: center;
-      font-weight: 700;
+      font-weight: 800;
       font-size: 18px;
       line-height: 1.35;
-      padding: 16px 24px;
+      padding: 14px 24px;
+      white-space: normal;
     }
 
     .hero {
@@ -384,7 +398,7 @@
       margin: 30px 0 28px;
     }
 
-    .lux-urgency{
+    .lux-urgency {
       display:inline-flex;
       align-items:center;
       gap:8px;
@@ -447,9 +461,7 @@
       color: #ffffff;
     }
 
-    .btn-whatsapp:active {
-      transform: translateY(0);
-    }
+    .btn-whatsapp:active { transform: translateY(0); }
 
     .mock-visual {
       min-height: 560px;
@@ -459,7 +471,7 @@
       position: relative;
       background-image:
         linear-gradient(180deg, rgba(7,23,56,0.12) 0%, rgba(7,23,56,0.42) 100%),
-        url('https://raw.githubusercontent.com/simplexstaysproperties-cmd/html-starter/main/hero-bedroom-pink.jpg');
+        url('hero-bedroom-pink.jpg');
       background-size: cover;
       background-position: center;
       box-shadow: var(--shadow-soft);
@@ -807,7 +819,7 @@
       background: linear-gradient(135deg, rgba(31,75,143,0.05) 0%, rgba(204,176,111,0.10) 100%);
     }
 
-    .floating-whatsapp{
+    .floating-whatsapp {
       position: fixed;
       right: 22px;
       bottom: 22px;
@@ -824,11 +836,28 @@
       transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
 
-    .floating-whatsapp:hover{
+    .floating-whatsapp:hover {
       transform: translateY(-2px);
       box-shadow: 0 22px 46px rgba(37,211,102,0.34);
       color: #ffffff;
     }
+
+    .call-reveal-wrap {
+      display:flex;
+      flex-direction:column;
+      gap:10px;
+      min-width:180px;
+    }
+
+    .call-number {
+      display:none;
+      font-size:14px;
+      color:var(--muted);
+      text-align:center;
+      font-weight:700;
+    }
+
+    .call-number.show { display:block; }
 
     footer {
       background: white;
@@ -860,21 +889,26 @@
       h2 { max-width: 100%; }
     }
 
-    @media (max-width: 768px){
-      .top-banner{
-        top: 126px;
+    @media (max-width: 900px) {
+      :root {
+        --header-height: 128px;
+        --banner-height: 74px;
       }
-      .banner-inner{
+      .nav {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .top-banner { top: var(--header-height); }
+      .banner-inner {
         font-size: 15px;
         padding: 12px 16px;
       }
     }
 
     @media (max-width: 760px) {
-      .nav {
-        flex-direction: column;
-        align-items: flex-start;
-      }
       .hero, .section { padding: 64px 0; }
       .cta-row { flex-direction: column; }
       .btn { width: 100%; }
@@ -895,7 +929,7 @@
       .stat,
       .heading-panel,
       .gallery-link-panel { padding: 24px; }
-      .floating-whatsapp{
+      .floating-whatsapp {
         right: 14px;
         bottom: 14px;
         padding: 14px 18px;
@@ -919,7 +953,7 @@
       <div class="nav-links">
         <a href="#about">About</a>
         <a href="#property">Dollis Hill</a>
-        <a href="#dollis-gallery">Dollis Gallery</a>
+        <a href="#dollis-gallery-grid">Dollis Gallery</a>
         <a href="#rooms">Romford Rooms</a>
         <a href="#reviews">Reviews</a>
         <a href="#faq">FAQ</a>
@@ -930,16 +964,13 @@
 
   <div class="top-banner">
     <a class="banner-link" href="#rooms">
-      <div class="banner-inner">
-        Looking for a room in Romford RM6? View available long-term double rooms here.
-      </div>
+      <div class="banner-inner">Looking for a room in Romford RM6? View available long-term double rooms here.</div>
     </a>
   </div>
 
   <section class="hero">
     <div class="container hero-grid">
       <div class="hero-shell">
-        <div class="eyebrow">Main featured stay • Dollis Hill serviced accommodation in North West London</div>
         <h1>Luxury-standard Dollis Hill serviced accommodation for professionals, company lets, holidays and short to long-term London stays</h1>
         <div class="eyebrow" style="margin-top:8px; margin-bottom:18px;">7 verified 5-star Google reviews • Concierge Monday to Friday, 7am to 7pm</div>
         <p class="lead">Simplex Stays Ltd is a growing family-run business with a strong focus on presentation, comfort and direct communication. Our Dollis Hill apartment is designed for professionals, company lets, corporate stays, relocation bookings, holiday accommodation and families who want more privacy, space and flexibility than a standard hotel.</p>
@@ -949,7 +980,7 @@
         <div class="cta-row">
           <a class="btn btn-primary" href="#property">Explore Dollis Hill</a>
           <a class="btn btn-light" href="#contact">Enquire Direct</a>
-          <a class="btn btn-secondary" href="#dollis-gallery">View Dollis Hill Gallery</a>
+          <a class="btn btn-secondary" href="#dollis-gallery-grid">View Dollis Hill Gallery</a>
           <a class="btn btn-secondary" href="#rooms">View Romford Rooms</a>
           <a class="btn btn-whatsapp" href="https://wa.me/447908389184?text=Hello,%20I%20am%20interested%20in%20checking%20availability%20for%20your%20Dollis%20Hill%20apartment%20or%20Romford%20rooms.%20Please%20could%20you%20let%20me%20know%20the%20next%20steps?" target="_blank" rel="noopener noreferrer">Check availability on WhatsApp</a>
           <a class="btn btn-light" href="https://www.airbnb.co.uk/rooms/1645094170229913919">Airbnb Listing</a>
@@ -982,19 +1013,6 @@
             </div>
           </div>
         </div>
-
-        <div class="feature-grid">
-          <div class="hero-feature"><strong>Dollis Hill is the main feature</strong><span>Premium serviced accommodation for short stays, holidays, extended bookings and direct company lets.</span></div>
-          <div class="hero-feature"><strong>Family-run and growing</strong><span>A more personal business with real care for trust, communication and presentation.</span></div>
-          <div class="hero-feature"><strong>Book direct or compare platforms</strong><span>Guests can enquire here or click through to Airbnb and VRBO for extra reassurance.</span></div>
-          <div class="hero-feature"><strong>Romford shown separately</strong><span>Room rentals are clearly advertised without taking focus away from Dollis Hill.</span></div>
-        </div>
-
-        <div class="hero-stats" style="margin-top:18px;">
-          <div class="hero-stat"><strong class="big">5.0★</strong><span>Seven 5-star Google reviews help new visitors feel confident.</span></div>
-          <div class="hero-stat"><strong class="big">Jubilee Line</strong><span>Dollis Hill station gives practical links into Wembley and Central London.</span></div>
-          <div class="hero-stat"><strong class="big">Direct + Platform</strong><span>Website, WhatsApp, Airbnb and VRBO all support enquiries and bookings.</span></div>
-        </div>
       </div>
 
       <div>
@@ -1002,8 +1020,6 @@
           <div class="mock-visual">
             <div class="mock-inner">
               <div>
-                <div class="label" style="margin-bottom:8px; color:#64748b;">Featured property</div>
-                <h3 style="margin-bottom:8px; font-size:30px;">Dollis Hill 3-bed apartment</h3>
                 <p style="color:#475569; margin-bottom:0; font-size:18px;">Premium short and extended stays in North West London</p>
               </div>
               <div class="feature-grid" style="grid-template-columns:repeat(2,minmax(0,1fr));">
@@ -1029,7 +1045,6 @@
               <input type="number" min="1" value="2" style="padding:14px 16px; border-radius:14px; border:1px solid rgba(255,255,255,0.14); background:rgba(255,255,255,0.96); color:#0c1730; font:inherit;" aria-label="Number of guests" />
               <a class="btn btn-primary" href="#contact" style="width:100%;">Request Availability</a>
             </div>
-            <div style="margin-top:12px; font-size:13px; color:rgba(235,241,248,0.78);">Guests wanting platform checkout can use Airbnb or VRBO. A true synced website calendar with direct secure payment can be added later through Stripe Checkout or a booking engine.</div>
           </div>
         </div>
       </div>
@@ -1039,14 +1054,11 @@
   <section class="section" id="about">
     <div class="container dual-grid" style="align-items:start;">
       <div class="fancy-box">
-        <div class="section-kicker">About Simplex Stays</div>
         <h2>A growing family business built around comfort, trust and presentation</h2>
         <p class="lead">Simplex Stays Ltd is a growing family-run business focused on clean, reliable and attractive accommodation across different stay types. The website is centred around the Dollis Hill serviced apartment while also advertising available long-term rooms in Romford RM6.</p>
-        <p class="lead" style="font-size:18px;">That gives visitors two clear options: a higher-end serviced stay in Dollis Hill or room-rental availability for longer-term tenants in Romford.</p>
       </div>
 
       <div class="fancy-box">
-        <div class="section-kicker">Why people choose us</div>
         <div class="feature-grid" style="margin-top:18px;">
           <div class="card"><strong>Professionally presented accommodation</strong><br /><span style="color:var(--muted);">Clean, guest-ready spaces that feel polished from arrival.</span></div>
           <div class="card"><strong>Clear communication and direct contact</strong><br /><span style="color:var(--muted);">Quick answers by WhatsApp or email when guests need them.</span></div>
@@ -1060,34 +1072,32 @@
   <section class="section section-soft" id="property">
     <div class="container">
       <div class="heading-panel">
-        <div class="section-kicker">Featured serviced accommodation</div>
+        <div class="section-kicker">Dollis Hill serviced accommodation</div>
         <h2>Dollis Hill serviced apartment for professionals, company lets, family stays, holiday breaks and longer London bookings</h2>
-        <p class="lead">This is the main focus of the website: a polished 3-bedroom serviced apartment in Dollis Hill, North West London, designed for company lets, relocation bookings, contractor teams, professionals, families and holiday visitors who want comfort, privacy and more flexibility than a hotel.</p>
+        <p class="lead">Designed for company lets, relocation bookings, contractor teams, professionals, families and holiday visitors who want comfort, privacy and more flexibility than a hotel.</p>
       </div>
 
       <div class="gallery-grid" style="margin-bottom:24px;">
-        <div class="photo-card" data-full="https://raw.githubusercontent.com/simplexstaysproperties-cmd/html-starter/main/hero-bedroom-pink.jpg" style="background-image:url('https://raw.githubusercontent.com/simplexstaysproperties-cmd/html-starter/main/hero-bedroom-pink.jpg'); background-size:cover; background-position:center; min-height:380px;">
-          <div class="photo-caption">
-            <strong>Bright, spacious and guest-ready</strong><br />A premium 3-bedroom setup designed for comfort and longer stays.
-          </div>
+        <div class="photo-card" data-full="hero-bedroom-pink.jpg" style="background-image:url('hero-bedroom-pink.jpg'); background-size:cover; background-position:center; min-height:380px;">
+          <div class="photo-caption"><strong>Bright, spacious and guest-ready</strong><br />A premium 3-bedroom setup designed for comfort and longer stays.</div>
         </div>
         <div class="photo-stack">
-          <div class="photo-card" data-full="https://raw.githubusercontent.com/simplexstaysproperties-cmd/html-starter/main/living-room-wide.jpg" style="min-height:180px; background-image:url('https://raw.githubusercontent.com/simplexstaysproperties-cmd/html-starter/main/living-room-wide.jpg'); background-size:cover; background-position:center;">
+          <div class="photo-card" data-full="living-room-wide.jpg" style="min-height:180px; background-image:url('living-room-wide.jpg'); background-size:cover; background-position:center;">
             <div class="photo-caption"><strong>Modern living space</strong></div>
           </div>
-          <div class="photo-card" data-full="https://raw.githubusercontent.com/simplexstaysproperties-cmd/html-starter/main/kitchen-wide.jpg" style="min-height:180px; background-image:url('https://raw.githubusercontent.com/simplexstaysproperties-cmd/html-starter/main/kitchen-wide.jpg'); background-size:cover; background-position:center;">
+          <div class="photo-card" data-full="kitchen-wide.jpg" style="min-height:180px; background-image:url('kitchen-wide.jpg'); background-size:cover; background-position:center;">
             <div class="photo-caption"><strong>Fully equipped kitchen</strong></div>
           </div>
         </div>
       </div>
 
-      <div class="gallery-link-panel soft-accent" style="color:var(--text); background:linear-gradient(135deg, rgba(31,75,143,0.08) 0%, rgba(204,176,111,0.14) 100%); border:1px solid var(--border);">
+      <div class="gallery-link-panel" style="margin-top:28px;">
         <div>
-          <div class="section-kicker">Dollis Hill picture page</div>
-          <h3 style="font-size:30px; margin-bottom:8px; color:var(--navy);">Want to see more of Dollis Hill?</h3>
-          <p style="color:var(--muted);">Use the dedicated gallery section below to browse more of the apartment before you enquire or book.</p>
+          <div class="section-kicker" style="background:rgba(255,255,255,0.12); color:#d7e1f0; border-color:rgba(255,255,255,0.08);">Dollis Hill picture page</div>
+          <h3 style="font-size:28px; margin-bottom:8px; color:white;">Open the full Dollis Hill gallery</h3>
+          <p>Browse more of the apartment before you enquire or book.</p>
         </div>
-        <a class="btn btn-primary" href="#dollis-gallery">Open Dollis Hill Gallery</a>
+        <a class="btn btn-primary" href="#dollis-gallery-grid">Open Dollis Hill Gallery</a>
       </div>
 
       <div class="pill-grid" style="margin:30px 0;">
@@ -1107,14 +1117,10 @@
         <div class="fancy-box">
           <h3>Dollis Hill location benefits</h3>
           <ul class="bullet-list">
-            <li>1 stop (around 4 minutes) to Wembley Park for Wembley Stadium and OVO Arena</li>
-            <li>Around 10 minutes drive to Wembley Stadium and Arena</li>
-            <li>Around 30–45 minutes drive to Heathrow Airport</li>
+            <li>1 stop to Wembley Park for Wembley Stadium and OVO Arena</li>
             <li>Easy access to the A406 North Circular, ideal for drivers and contractors</li>
             <li>Around 15 minutes to Baker Street and 20 minutes to Central London via the Jubilee line</li>
-            <li>Around 10–15 minutes drive to Brent Cross Shopping Centre</li>
-            <li>Around 15–20 minutes drive to Westfield Shepherd’s Bush</li>
-            <li>Free parking available approximately 1 minute (0.2 miles) walk from the property</li>
+            <li>Free parking available approximately 1 minute walk from the property</li>
           </ul>
         </div>
         <div class="fancy-box">
@@ -1141,36 +1147,30 @@
 
   <section class="section" id="dollis-gallery">
     <div class="container">
-      <div class="heading-panel soft-accent">
+      <div class="heading-panel">
         <div class="section-kicker">Dollis Hill gallery</div>
         <h2>Browse more Dollis Hill apartment photos before you book</h2>
-        <p class="lead">This gallery section lets visitors explore more of your Dollis Hill apartment in one place. Click any image to open it larger.</p>
       </div>
 
-      <div class="dollis-gallery-grid">
-        <div class="gallery-photo" data-full="https://raw.githubusercontent.com/simplexstaysproperties-cmd/html-starter/main/hero-bedroom-pink.jpg" style="background-image:url('https://raw.githubusercontent.com/simplexstaysproperties-cmd/html-starter/main/hero-bedroom-pink.jpg');"><span>Bedroom 1</span></div>
-        <div class="gallery-photo" data-full="https://raw.githubusercontent.com/simplexstaysproperties-cmd/html-starter/main/bedroom-green-wide.jpg" style="background-image:url('https://raw.githubusercontent.com/simplexstaysproperties-cmd/html-starter/main/bedroom-green-wide.jpg');"><span>Bedroom 2</span></div>
-        <div class="gallery-photo" data-full="https://raw.githubusercontent.com/simplexstaysproperties-cmd/html-starter/main/bedroom-neutral-wide.jpg" style="background-image:url('https://raw.githubusercontent.com/simplexstaysproperties-cmd/html-starter/main/bedroom-neutral-wide.jpg');"><span>Bedroom 3</span></div>
-        <div class="gallery-photo" data-full="https://raw.githubusercontent.com/simplexstaysproperties-cmd/html-starter/main/living-room-wide.jpg" style="background-image:url('https://raw.githubusercontent.com/simplexstaysproperties-cmd/html-starter/main/living-room-wide.jpg');"><span>Living area</span></div>
-        <div class="gallery-photo" data-full="https://raw.githubusercontent.com/simplexstaysproperties-cmd/html-starter/main/kitchen-wide.jpg" style="background-image:url('https://raw.githubusercontent.com/simplexstaysproperties-cmd/html-starter/main/kitchen-wide.jpg');"><span>Kitchen</span></div>
-        <div class="gallery-photo" data-full="https://raw.githubusercontent.com/simplexstaysproperties-cmd/html-starter/main/building-front.jpg" style="background-image:url('https://raw.githubusercontent.com/simplexstaysproperties-cmd/html-starter/main/building-front.jpg');"><span>Outside property</span></div>
-        <div class="gallery-photo" data-full="https://raw.githubusercontent.com/simplexstaysproperties-cmd/html-starter/main/building-approach.jpg" style="background-image:url('https://raw.githubusercontent.com/simplexstaysproperties-cmd/html-starter/main/building-approach.jpg');"><span>Entrance</span></div>
-        <div class="gallery-photo" data-full="https://raw.githubusercontent.com/simplexstaysproperties-cmd/html-starter/main/balcony-view.jpg" style="background-image:url('https://raw.githubusercontent.com/simplexstaysproperties-cmd/html-starter/main/balcony-view.jpg');"><span>Balcony / view</span></div>
-        <div class="gallery-photo" data-full="https://raw.githubusercontent.com/simplexstaysproperties-cmd/html-starter/main/hallway-main.jpg" style="background-image:url('https://raw.githubusercontent.com/simplexstaysproperties-cmd/html-starter/main/hallway-main.jpg');"><span>Hallway</span></div>
-        <div class="gallery-photo" data-full="https://raw.githubusercontent.com/simplexstaysproperties-cmd/html-starter/main/ensuite-shower.jpg" style="background-image:url('https://raw.githubusercontent.com/simplexstaysproperties-cmd/html-starter/main/ensuite-shower.jpg');"><span>En-suite shower & toilet</span></div>
-        <div class="gallery-photo" data-full="https://raw.githubusercontent.com/simplexstaysproperties-cmd/html-starter/main/shared-bathroom.jpg" style="background-image:url('https://raw.githubusercontent.com/simplexstaysproperties-cmd/html-starter/main/shared-bathroom.jpg');"><span>Shared bathroom</span></div>
-        <div class="gallery-photo" data-full="https://raw.githubusercontent.com/simplexstaysproperties-cmd/html-starter/main/view-city.jpg" style="background-image:url('https://raw.githubusercontent.com/simplexstaysproperties-cmd/html-starter/main/view-city.jpg');"><span>Additional view</span></div>
-      </div>
-
-      <div class="gallery-link-panel soft-accent" style="margin-top:28px; color:var(--text); background:linear-gradient(135deg, rgba(31,75,143,0.08) 0%, rgba(204,176,111,0.14) 100%); border:1px solid var(--border);">
-        <div>
-          <div class="section-kicker">Add more Dollis Hill photos</div>
-          <h3 style="font-size:28px; margin-bottom:8px; color:var(--navy);">Code slots ready for more images</h3>
-          <p style="color:var(--muted);">Add one more picture for each room, hallway, entrance, en-suite and shared bathroom by replacing the file names below after uploading them to GitHub.</p>
-        </div>
+      <div class="dollis-gallery-grid" id="dollis-gallery-grid">
+        <div class="gallery-photo" data-full="hero-bedroom-pink.jpg" style="background-image:url('hero-bedroom-pink.jpg');"><span>Bedroom 1</span></div>
+        <div class="gallery-photo" data-full="bedroom-green-wide.jpg" style="background-image:url('bedroom-green-wide.jpg');"><span>Bedroom 2</span></div>
+        <div class="gallery-photo" data-full="bedroom-3.jpg" style="background-image:url('bedroom-3.jpg');"><span>Bedroom 3</span></div>
+        <div class="gallery-photo" data-full="living-room-wide.jpg" style="background-image:url('living-room-wide.jpg');"><span>Living area</span></div>
+        <div class="gallery-photo" data-full="kitchen-wide.jpg" style="background-image:url('kitchen-wide.jpg');"><span>Kitchen</span></div>
+        <div class="gallery-photo" data-full="building-front.jpg" style="background-image:url('building-front.jpg');"><span>Outside property</span></div>
+        <div class="gallery-photo" data-full="building-approach.jpg" style="background-image:url('building-approach.jpg');"><span>Entrance</span></div>
+        <div class="gallery-photo" data-full="balcony-view.jpg" style="background-image:url('balcony-view.jpg');"><span>Balcony / view</span></div>
+        <div class="gallery-photo" data-full="hallway-main.jpg" style="background-image:url('hallway-main.jpg');"><span>Hallway</span></div>
+        <div class="gallery-photo" data-full="ensuite-shower.jpg" style="background-image:url('ensuite-shower.jpg');"><span>En-suite shower & toilet</span></div>
+        <div class="gallery-photo" data-full="shared-bathroom.jpg" style="background-image:url('shared-bathroom.jpg');"><span>Shared bathroom</span></div>
+        <div class="gallery-photo" data-full="view-city.jpg" style="background-image:url('view-city.jpg');"><span>Additional view</span></div>
       </div>
 
       <div class="fancy-box soft-accent" style="margin-top:24px;">
+        <div class="section-kicker">Add more Dollis Hill photos</div>
+        <h3 style="margin-bottom:10px;">Code slots ready for more images</h3>
+        <p style="color:#475569; margin-bottom:18px;">Add one more picture for each room, hallway, entrance, en-suite and shared bathroom by replacing the file names below after uploading them to GitHub.</p>
         <pre style="white-space:pre-wrap; margin:0; font-family:Arial, Helvetica, sans-serif; color:var(--navy); line-height:1.8; font-size:15px;">Extra Dollis Hill gallery file names to upload and use:
 
 bedroom-1-extra.jpg
@@ -1181,11 +1181,7 @@ entrance-extra.jpg
 ensuite-extra.jpg
 shared-bathroom-extra.jpg
 balcony-extra.jpg
-view-extra.jpg
-
-To add one more image card, copy this block and change the file name + label:
-
-<div class="gallery-photo" data-full="https://raw.githubusercontent.com/simplexstaysproperties-cmd/html-starter/main/bedroom-1-extra.jpg" style="background-image:url('https://raw.githubusercontent.com/simplexstaysproperties-cmd/html-starter/main/bedroom-1-extra.jpg');"><span>Bedroom 1 extra</span></div></pre>
+view-extra.jpg</pre>
       </div>
     </div>
   </section>
@@ -1195,7 +1191,7 @@ To add one more image card, copy this block and change the file name + label:
       <div class="heading-panel">
         <div class="section-kicker">Long-term room rentals</div>
         <h2>Romford RM6 HMO rooms available for long-term tenants</h2>
-        <p class="lead">This section is separate from Dollis Hill. The Romford property is a HMO for long-term room rental, not a short-stay serviced apartment. It is included here to advertise the last available rooms clearly for working tenants and longer-term renters looking for a clean, managed home in Romford RM6.</p>
+        <p class="lead">Available rooms clearly advertised for working tenants and longer-term renters looking for a clean, managed home in Romford RM6.</p>
       </div>
 
       <div class="dual-grid" style="align-items:start; margin-bottom:28px;">
@@ -1208,7 +1204,6 @@ To add one more image card, copy this block and change the file name + label:
             <div class="stat"><strong>Property type:</strong> HMO for long-term rental only</div>
             <div class="stat"><strong>Floors:</strong> 3 floors</div>
           </div>
-          <p style="color:#475569; margin:18px 0 0;">Bathroom setup includes a ground floor shower room, first floor bathroom with bath and shower, and second floor shower room.</p>
         </div>
 
         <div class="fancy-box">
@@ -1221,7 +1216,6 @@ To add one more image card, copy this block and change the file name + label:
             <li>Presented by a growing family-run business</li>
             <li>Good for working tenants seeking ready-to-move accommodation</li>
           </ul>
-          <p style="color:#475569; margin:18px 0 0;">This section is designed to convert visitors who are not looking for a short stay but do want a longer-term room in a well-kept house.</p>
         </div>
       </div>
 
@@ -1239,36 +1233,6 @@ To add one more image card, copy this block and change the file name + label:
         <div class="room-tile small" data-full="romford-bathroom-shower-1.jpg" style="background-image:url('romford-bathroom-shower-1.jpg'); background-size:cover; background-position:center;"><div class="photo-caption"><strong>Additional shower room</strong></div></div>
         <div class="room-tile small" data-full="romford-hallway-2.jpg" style="background-image:url('romford-hallway-2.jpg'); background-size:cover; background-position:center;"><div class="photo-caption"><strong>Upper floor landing</strong></div></div>
       </div>
-
-      <div class="triple-grid">
-        <div class="fancy-box">
-          <h3>Shared house features</h3>
-          <ul class="bullet-list">
-            <li>Large kitchen and dining area</li>
-            <li>Shared living room and everyday communal space</li>
-            <li>Garden and outdoor area</li>
-            <li>Furnished rooms with wardrobes and practical storage</li>
-          </ul>
-        </div>
-        <div class="fancy-box">
-          <h3>Bathroom setup</h3>
-          <ul class="bullet-list">
-            <li>Ground floor shower room</li>
-            <li>First floor bathroom with bath and shower</li>
-            <li>Second floor shower room</li>
-            <li>Useful access across all 3 floors</li>
-          </ul>
-        </div>
-        <div class="fancy-box">
-          <h3>Best suited for</h3>
-          <ul class="bullet-list">
-            <li>Long-term tenants</li>
-            <li>Working professionals</li>
-            <li>People seeking a ready-to-move double room</li>
-            <li>Tenants who value a clean, managed property</li>
-          </ul>
-        </div>
-      </div>
     </div>
   </section>
 
@@ -1277,7 +1241,6 @@ To add one more image card, copy this block and change the file name + label:
       <div class="heading-panel">
         <div class="section-kicker">Guest reviews</div>
         <h2>Trusted by guests with 7 verified 5-star Google reviews</h2>
-        <p class="lead">Recent guest feedback consistently highlights cleanliness, comfort, spacious rooms, responsive communication and a smooth overall experience. This is powerful social proof for both your serviced accommodation and your wider brand.</p>
       </div>
 
       <div class="review-grid" style="margin-bottom:28px;">
@@ -1297,7 +1260,6 @@ To add one more image card, copy this block and change the file name + label:
 
       <div class="fancy-box" style="margin-top:24px;">
         <h3 style="margin-bottom:10px;">Read more on Google</h3>
-        <p style="color:#475569; margin-bottom:16px;">Visitors can also view your Google review profile for broader trust and more recent guest feedback.</p>
         <a class="btn btn-primary" href="https://www.google.com/search?sca_esv=0693a25b4e112fe7&sxsrf=ANbL-n6WmpV7Z1m5oZXJ2iuBnqo8jICGMA:1774553021448&si=AL3DRZEsmMGCryMMFSHJ3StBhOdZ2-6yYkXd_doETEE1OR-qOVNekhud2uv9140_M6phTK8zpKAGLIU1M8g5-qNBSvmu0tUO3vof8GCRitUENSKEZ4ag1GrVgztDOldQ3dikPNuMltLa&q=SimplexStaysLTD+Reviews&sa=X&ved=2ahUKEwiN1OmTpb6TAxW4X0EAHWLBJ7MQ0bkNegQIKhAF&biw=1272&bih=601&dpr=1.5">View Google Reviews</a>
       </div>
     </div>
@@ -1340,7 +1302,7 @@ To add one more image card, copy this block and change the file name + label:
   <section class="section" id="contact">
     <div class="container" style="margin-bottom:24px;">
       <div class="contact-banner">
-        <div class="contact-note">Book Dollis Hill securely through Airbnb or VRBO today, or enquire directly for availability, longer stays and tailored arrangements. A synced website calendar with direct secure payment can be added later through Stripe Checkout or a property booking system.</div>
+        <div class="contact-note">Book Dollis Hill securely through Airbnb or VRBO today, or enquire directly for availability and longer stays.</div>
         <div class="contact-row">
           <div class="contact-block">
             <div class="contact-label">Book Dollis Hill</div>
@@ -1348,7 +1310,7 @@ To add one more image card, copy this block and change the file name + label:
           </div>
           <div class="contact-block">
             <div class="contact-label">Enquire direct</div>
-            <div class="contact-value">simplexstaysproperties@gmail.com</div>
+            <div class="contact-value"><a href="mailto:simplexstaysproperties@gmail.com?subject=Simplex%20Stays%20Enquiry" style="color:white; text-decoration:underline;">simplexstaysproperties@gmail.com</a></div>
           </div>
           <div class="contact-block">
             <div class="contact-label">WhatsApp</div>
@@ -1356,7 +1318,7 @@ To add one more image card, copy this block and change the file name + label:
           </div>
           <div class="contact-block">
             <div class="contact-label">Call</div>
-            <div class="contact-value"><a href="tel:+447946649402" style="color:white; text-decoration:underline;">07946 649402</a></div>
+            <div class="contact-value"><a href="javascript:void(0)" onclick="revealTopCall()" style="color:white; text-decoration:underline;">Show number</a></div>
           </div>
         </div>
       </div>
@@ -1375,15 +1337,14 @@ To add one more image card, copy this block and change the file name + label:
               <p style="color:#475569; margin-bottom:0;">Use direct enquiry for Dollis Hill availability, Romford room-rental interest, longer-stay pricing and quick answers.</p>
             </div>
             <p class="lead">Contact us for serviced accommodation in Dollis Hill or for long-term room rental in Romford RM6. Full booking or viewing details can be shared directly once we know what you are looking for.</p>
-            <p style="font-size:14px; color:#64748b; margin-top:18px;">Airbnb and VRBO remain useful for the Dollis Hill apartment because they support trust and additional booking options. The Romford HMO section is better handled through direct enquiry.</p>
           </div>
 
           <div class="fancy-box">
             <div style="display:grid; gap:14px; margin-bottom:20px;">
               <div class="stat"><strong>Business:</strong> Simplex Stays Ltd</div>
-              <div class="stat"><strong>Email:</strong> simplexstaysproperties@gmail.com</div>
+              <div class="stat"><strong>Email:</strong> <a href="mailto:simplexstaysproperties@gmail.com?subject=Simplex%20Stays%20Enquiry">simplexstaysproperties@gmail.com</a></div>
               <div class="stat"><strong>WhatsApp:</strong> 07908 389184</div>
-              <div class="stat"><strong>Call:</strong> 07946 649402</div>
+              <div class="stat"><strong>Call:</strong> tap the call button below to show the number</div>
               <div class="stat"><strong>Main stay:</strong> Dollis Hill, North West London</div>
               <div class="stat"><strong>Room rentals:</strong> Romford RM6</div>
               <div class="stat"><strong>Current Romford availability:</strong> 3 double rooms at £1,000 pcm per person</div>
@@ -1391,8 +1352,11 @@ To add one more image card, copy this block and change the file name + label:
             </div>
             <div class="cta-row" style="margin:0;">
               <a href="mailto:simplexstaysproperties@gmail.com?subject=Simplex%20Stays%20Enquiry" class="btn btn-primary">Send an Enquiry</a>
-              <a href="https://wa.me/447908389184?text=Hello,%20I%20am%20interested%20in%20checking%20availability%20for%20your%20Dollis%20Hill%20apartment%20or%20Romford%20rooms.%20Please%20could%20you%20let%20me%20know%20the%20next%20steps?" class="btn btn-whatsapp" target="_blank" rel="noopener noreferrer">Check availability on WhatsApp</a>
-              <div style="display:flex; flex-direction:column; gap:8px; min-width:180px;"><a href="tel:+447946649402" class="btn btn-light">Call Now</a><div style="font-size:14px; color:var(--muted); text-align:center;">07946 649402</div></div>
+              <a href="https://wa.me/447908389184?text=Hello,%20I%20am%20interested%20in%20checking%20availability%20for%20your%20Dollis%20Hill%20apartment%20or%20Romford%20rooms.%20Please%20could%20you%20let%20me%20know%20the%20next%20steps?" class="btn btn-whatsapp" target="_blank" rel="noopener noreferrer">Message on WhatsApp</a>
+              <div class="call-reveal-wrap">
+                <a href="javascript:void(0)" onclick="revealBottomCall()" class="btn btn-light">Call Now</a>
+                <div id="bottomCallNumber" class="call-number">07946 649402</div>
+              </div>
               <a href="https://www.airbnb.co.uk/rooms/1645094170229913919" class="btn btn-light">Book on Airbnb</a>
               <a href="https://www.vrbo.com/en-gb/p12076179?chkin=2026-04-20&chkout=2026-04-21&d1=2026-04-20&d2=2026-04-21&startDate=2026-04-20&endDate=2026-04-21&x_pwa=1&rfrr=HSR&pwa_ts=1774567474148&referrerUrl=aHR0cHM6Ly93d3cudnJiby5jb20vSG90ZWwtU2VhcmNo&useRewards=false&adults=2&destination=London+NW10+1DT%2C+UK&destType=ADDRESS&neighborhoodId=553248635976383097&latLong=51.5537196%2C-0.2447262&property_type_group=apartment_or_condo&safety_group=carbon_monoxide_detector&bedroom_count_gt=3&searchId=069899dd-be32-4eff-9cb5-5396684bed59&sort=RECOMMENDED&top_dp=341&top_cur=GBP&userIntent=&selectedRoomType=127412498&selectedRatePlan=0001dd35bd8de24b4a06b4fcc8dec71231ad&expediaPropertyId=127412498" class="btn btn-light">View on VRBO</a>
             </div>
@@ -1454,6 +1418,15 @@ To add one more image card, copy this block and change the file name + label:
         lightboxImg.src = '';
       }
     });
+
+    function revealBottomCall() {
+      const el = document.getElementById('bottomCallNumber');
+      if (el) el.classList.add('show');
+    }
+
+    function revealTopCall() {
+      alert('07946 649402');
+    }
   </script>
 </body>
 </html>
