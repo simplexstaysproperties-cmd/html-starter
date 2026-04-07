@@ -1,252 +1,1375 @@
-<!--
-PATCH FILE FOR index.html
-This is a drop-in patch pack for the remaining fixes requested.
-It is NOT the full website file because the current full index.html was not available here.
-Paste each block into the matching section of your main index.html.
--->
-
-<!-- =========================
-1) CSS FIXES
-Paste these inside your existing <style> block.
-========================= -->
-<style>
-  /* Thinner sticky gold banner */
-  .gold-banner,
-  .room-banner,
-  .sticky-banner {
-    min-height: 42px !important;
-    padding: 8px 16px !important;
-    font-size: 14px !important;
-    line-height: 1.15 !important;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-
-  .gold-banner a,
-  .room-banner a,
-  .sticky-banner a {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-    font-weight: 700;
-  }
-
-  /* Kitchen image fully visible */
-  .kitchen-card,
-  .kitchen-photo,
-  .kitchen-panel {
-    background-size: contain !important;
-    background-repeat: no-repeat !important;
-    background-position: center center !important;
-    background-color: #eef3f9 !important;
-  }
-
-  .kitchen-card img,
-  .kitchen-photo img,
-  .kitchen-panel img {
-    object-fit: contain !important;
-    object-position: center !important;
-    width: 100%;
-    height: 100%;
-    background: #eef3f9;
-  }
-
-  /* Review card visibility */
-  .review-card h3,
-  .review-card p,
-  .review-card .stars,
-  .review-summary-card h3,
-  .review-summary-card p {
-    color: #0d1833 !important;
-    opacity: 1 !important;
-  }
-
-  /* Availability field labels */
-  .availability-field {
-    display: flex;
-    flex-direction: column;
-    gap: 8px;
-  }
-
-  .availability-field label {
-    font-size: 13px;
-    font-weight: 700;
-    color: #eef3f9;
-    letter-spacing: 0.04em;
-    text-transform: uppercase;
-  }
-
-  /* Footer contact consistency */
-  .footer-link {
-    color: #ffffff;
-    text-decoration: underline;
-    font-weight: 800;
-    font-size: 18px;
-  }
-
-  /* Hide old static number under call button when JS toggle is used */
-  .call-now-number {
-    display: none;
-    margin-top: 10px;
-    font-weight: 700;
-    color: #5b6d8f;
-  }
-
-  .call-now-number.is-open {
-    display: block;
-  }
-</style>
-
-
-<!-- =========================
-2) CHECK AVAILABILITY COPY
-Replace the current text block with this.
-========================= -->
-<div class="availability-copy">
-  <div class="section-kicker">Check availability</div>
-  <h2>Pick your dates and send a booking request</h2>
-  <p>Choose your check-in date, check-out date and guest count, then send a booking request.</p>
-</div>
-
-
-<!-- =========================
-3) CHECK AVAILABILITY FIELDS
-Replace the current date/guest inputs with this version.
-========================= -->
-<div class="availability-row">
-  <div class="availability-field">
-    <label for="checkin">Check-in</label>
-    <input id="checkin" type="date">
-  </div>
-
-  <div class="availability-field">
-    <label for="checkout">Check-out</label>
-    <input id="checkout" type="date">
-  </div>
-
-  <div class="availability-field">
-    <label for="guests">Guests</label>
-    <input id="guests" type="number" min="1" value="2">
-  </div>
-
-  <div class="availability-field" style="justify-content:end;">
-    <label style="opacity:0;">Send</label>
-    <button type="button" class="btn btn-primary">Request Availability</button>
-  </div>
-</div>
-
-
-<!-- =========================
-4) FAMILY BUSINESS SECTION
-Replace only the second sentence shown below.
-========================= -->
-<p>
-  Simplex Stays Ltd is a growing family-run business focused on clean, reliable and attractive accommodation across different stay types. Guests can book a polished 3-bedroom stay in Dollis Hill for shorter and extended visits, while tenants looking for longer-term room rental can also view current availability in Romford RM6. This gives visitors two clear options depending on whether they need flexible serviced accommodation or a settled long-term room.
-</p>
-
-
-<!-- =========================
-5) GALLERY CTA BLOCK
-Replace the current CTA wording block with this.
-========================= -->
-<div class="gallery-cta-copy">
-  <div class="section-kicker">Dollis Hill picture page</div>
-  <h2>View the full Dollis Hill gallery</h2>
-  <p>Browse more of the apartment before you enquire or book.</p>
-  <a href="#dollis-gallery-grid" class="btn btn-primary">View full Dollis Hill gallery</a>
-</div>
-
-
-<!-- =========================
-6) ROMFORD INTRO COPY
-Replace the current paragraph under the Romford heading with this.
-========================= -->
-<p>
-  Looking for a long-term room in Romford RM6? View available rooms suited to working tenants and longer-term renters seeking a clean, managed home.
-</p>
-
-
-<!-- =========================
-7) FIRST REVIEW CARD
-Replace the blank first review card with this.
-========================= -->
-<div class="review-card review-summary-card">
-  <h3>5.0★</h3>
-  <p>Average Google rating from 7 guest reviews.</p>
-</div>
-
-
-<!-- =========================
-8) FOOTER CONTACT SECTION
-Replace the WhatsApp + Call blocks with these so both are consistent.
-========================= -->
-<div>
-  <div class="footer-label">WHATSAPP</div>
-  <a href="https://wa.me/447908389184?text=Hello,%20I%20am%20interested%20in%20your%20accommodation." class="footer-link">07908 389184</a>
-</div>
-
-<div>
-  <div class="footer-label">CALL</div>
-  <a href="tel:+447946649402" class="footer-link">07946 649402</a>
-</div>
-
-
-<!-- =========================
-9) ENQUIRY SECTION EMAIL LINK
-Use this where the direct email link belongs.
-========================= -->
-<a href="mailto:simplexstaysproperties@gmail.com?subject=Simplex%20Stays%20Enquiry" class="btn btn-primary">Send an Enquiry</a>
-
-
-<!-- =========================
-10) ENQUIRY SECTION CALL BUTTON
-Option A: best clean version — direct call link
-Replace the current call button + permanent number beneath it with this.
-========================= -->
-<a href="tel:+447946649402" class="btn btn-light">Call Now</a>
-
-
-<!-- =========================
-11) ENQUIRY SECTION CALL BUTTON
-Option B: toggle show/hide number
-Use this instead of Option A only if you want the number to appear on first click and disappear on second click.
-========================= -->
-<button type="button" class="btn btn-light" id="call-now-toggle">Call Now</button>
-<div id="call-now-number" class="call-now-number">07946 649402</div>
-
-<script>
-  document.addEventListener('DOMContentLoaded', function () {
-    var toggle = document.getElementById('call-now-toggle');
-    var number = document.getElementById('call-now-number');
-
-    if (toggle && number) {
-      toggle.addEventListener('click', function () {
-        number.classList.toggle('is-open');
-      });
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Simplex Stays Ltd | Luxury Dollis Hill Serviced Accommodation & Romford RM6 Rooms</title>
+  <meta
+    name="description"
+    content="Simplex Stays Ltd offers luxury-standard Dollis Hill serviced accommodation and professionally presented Romford RM6 long-term rooms with direct enquiry, WhatsApp contact and trusted guest reviews."
+  />
+  <style>
+    :root {
+      --bg: #f4f7fb;
+      --surface: #ffffff;
+      --surface-soft: #f7f9fc;
+      --surface-tint: #eef3f9;
+      --text: #0d1833;
+      --muted: #5c6d87;
+      --border: #dbe5f0;
+      --navy: #071738;
+      --navy-2: #102856;
+      --navy-3: #1f4b8f;
+      --accent: #ccb06f;
+      --accent-2: #ead7aa;
+      --green: #25d366;
+      --shadow: 0 26px 80px rgba(7, 23, 56, 0.14);
+      --shadow-soft: 0 14px 38px rgba(7, 23, 56, 0.08);
+      --radius: 24px;
+      --radius-lg: 34px;
+      --max: 1200px;
+      --header-height: 108px;
+      --banner-height: 46px;
     }
-  });
-</script>
 
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      color: var(--text);
+      line-height: 1.6;
+      background:
+        radial-gradient(circle at top left, rgba(204,176,111,0.08) 0%, rgba(204,176,111,0) 26%),
+        linear-gradient(180deg, #fbfcfe 0%, #f2f6fb 100%);
+    }
 
-<!-- =========================
-12) REMOVE THIS OLD SENTENCE FROM THE BOOKING FOOTER
-Delete this sentence wherever it appears:
-A synced website calendar with direct secure payment can be added later through Stripe Checkout or a property booking system.
-========================= -->
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+    section[id] { scroll-margin-top: 170px; }
 
+    .container {
+      width: min(var(--max), calc(100% - 32px));
+      margin: 0 auto;
+    }
 
-<!-- =========================
-13) CALENDAR SYNC NOTE FOR YOU ONLY
-Airbnb and Vrbo do not use one shared public link generated here.
-You export/import iCal links from each host dashboard.
-Do not paste this onto the website unless you want a hidden note for yourself.
-========================= -->
-<!--
-Airbnb export/import calendar:
-Listing Calendar > Availability > Connect to another website
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 60;
+      background: linear-gradient(90deg, rgba(12,33,72,0.97) 0%, rgba(33,76,136,0.95) 100%);
+      border-bottom: 1px solid rgba(255,255,255,0.08);
+      box-shadow: 0 12px 28px rgba(7,23,56,0.16);
+      backdrop-filter: blur(12px);
+    }
 
-Vrbo export/import calendar:
-Calendar > Availability > Connect calendars
--->
+    .nav {
+      min-height: var(--header-height);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      padding: 14px 0;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 16px;
+      padding: 12px 20px 12px 12px;
+      border-radius: 999px;
+      background: linear-gradient(135deg, rgba(255,255,255,0.14) 0%, rgba(255,255,255,0.06) 100%);
+      border: 1px solid rgba(255,255,255,0.14);
+      box-shadow: 0 16px 34px rgba(7,23,56,0.16);
+    }
+
+    .brand-logo-wrap {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      overflow: hidden;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(135deg, #ffffff 0%, #eef3f8 100%);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.9), 0 10px 22px rgba(7,23,56,0.08);
+      flex-shrink: 0;
+    }
+
+    .brand-copy {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.02;
+    }
+
+    .brand-copy strong {
+      color: white;
+      font-size: 26px;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+    }
+
+    .brand-copy span {
+      color: rgba(255,255,255,0.78);
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      margin-top: 7px;
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+      gap: 12px;
+    }
+
+    .nav-links a {
+      color: white;
+      font-weight: 700;
+      padding: 14px 20px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.08);
+      box-shadow: inset 0 1px 0 rgba(255,255,255,0.08);
+      transition: transform 0.18s ease, background 0.18s ease;
+    }
+
+    .nav-links a:hover {
+      transform: translateY(-1px);
+      background: rgba(255,255,255,0.14);
+    }
+
+    .room-banner {
+      position: sticky;
+      top: var(--header-height);
+      z-index: 55;
+      min-height: var(--banner-height);
+      padding: 8px 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      background: linear-gradient(180deg, #e4cb88 0%, #d7bb72 100%);
+      border-top: 1px solid rgba(255,255,255,0.3);
+      border-bottom: 1px solid rgba(7,23,56,0.08);
+      box-shadow: 0 8px 18px rgba(7,23,56,0.1);
+      color: #151515;
+      font-size: 14px;
+      font-weight: 800;
+      letter-spacing: 0.01em;
+      line-height: 1.2;
+    }
+
+    .room-banner a {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+    }
+
+    .hero {
+      padding: 48px 0 26px;
+      background:
+        radial-gradient(circle at left center, rgba(31,75,143,0.14) 0%, rgba(31,75,143,0) 32%),
+        linear-gradient(135deg, #0f2550 0%, #17386f 42%, #284f8f 100%);
+      color: white;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 1.1fr 0.9fr;
+      gap: 28px;
+      align-items: stretch;
+    }
+
+    .hero-shell,
+    .hero-card,
+    .availability-card,
+    .panel,
+    .quote-bar,
+    .trust-card,
+    .review-card,
+    .cta-panel,
+    .contact-shell,
+    .footer-shell,
+    .gallery-hero {
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-soft);
+    }
+
+    .hero-shell {
+      padding: 44px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.07) 100%);
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .eyebrow,
+    .section-kicker {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 10px 18px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.1);
+      border: 1px solid rgba(255,255,255,0.08);
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      font-size: 12px;
+      font-weight: 800;
+      color: rgba(255,255,255,0.84);
+    }
+
+    .hero h1,
+    .section-title {
+      margin: 22px 0 18px;
+      font-size: clamp(44px, 7vw, 86px);
+      line-height: 0.95;
+      letter-spacing: -0.05em;
+      font-weight: 900;
+    }
+
+    .lead {
+      margin: 0;
+      color: rgba(255,255,255,0.88);
+      font-size: 17px;
+      max-width: 720px;
+    }
+
+    .cta-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 26px;
+    }
+
+    .btn {
+      appearance: none;
+      border: none;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 56px;
+      padding: 0 22px;
+      border-radius: 18px;
+      font-size: 16px;
+      font-weight: 800;
+      transition: transform 0.18s ease, box-shadow 0.18s ease, background 0.18s ease;
+      text-align: center;
+    }
+
+    .btn:hover { transform: translateY(-1px); }
+    .btn-primary {
+      background: linear-gradient(180deg, #ead18b 0%, #d7b96d 100%);
+      color: #111;
+      box-shadow: 0 14px 30px rgba(204,176,111,0.22);
+    }
+    .btn-light {
+      background: rgba(255,255,255,0.96);
+      color: var(--navy);
+    }
+    .btn-secondary {
+      background: rgba(255,255,255,0.08);
+      color: white;
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+    .btn-whatsapp {
+      background: var(--green);
+      color: white;
+      box-shadow: 0 14px 28px rgba(37,211,102,0.24);
+    }
+
+    .hero-card {
+      overflow: hidden;
+      background: linear-gradient(180deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.07) 100%);
+      border: 1px solid rgba(255,255,255,0.08);
+      display: grid;
+      grid-template-rows: auto 1fr;
+    }
+
+    .hero-photo {
+      min-height: 340px;
+      background:
+        linear-gradient(180deg, rgba(7,23,56,0.08) 0%, rgba(7,23,56,0.34) 100%),
+        url('hero-bedroom-pink.jpg') center center / cover no-repeat;
+    }
+
+    .hero-note {
+      margin: 18px;
+      padding: 22px;
+      border-radius: 24px;
+      background: rgba(255,255,255,0.92);
+      color: var(--navy);
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+    }
+
+    .mini-pill {
+      min-height: 70px;
+      display: flex;
+      align-items: center;
+      padding: 0 20px;
+      border-radius: 18px;
+      background: #fff;
+      box-shadow: inset 0 0 0 1px #dbe4ef;
+      color: #5f7291;
+      font-weight: 700;
+    }
+
+    .section {
+      padding: 34px 0;
+    }
+
+    .section-surface {
+      background: transparent;
+    }
+
+    .two-col {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 26px;
+      align-items: start;
+    }
+
+    .panel {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      padding: 34px;
+    }
+
+    .panel h2 {
+      margin: 16px 0 18px;
+      font-size: clamp(36px, 6vw, 70px);
+      line-height: 0.98;
+      letter-spacing: -0.05em;
+      color: var(--navy);
+    }
+
+    .panel p,
+    .panel li,
+    .stat,
+    .review-card p,
+    .cta-panel p,
+    .contact-copy p,
+    .gallery-hero p,
+    .fancy-box p,
+    .availability-card p {
+      color: #50627f;
+      font-size: 17px;
+    }
+
+    .feature-grid,
+    .trust-grid,
+    .contact-grid,
+    .footer-grid,
+    .review-grid,
+    .dollis-gallery-grid,
+    .romford-grid {
+      display: grid;
+      gap: 22px;
+    }
+
+    .feature-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+
+    .feature-card,
+    .trust-card,
+    .review-card,
+    .fancy-box,
+    .contact-block,
+    .gallery-photo,
+    .romford-card,
+    .gallery-hero,
+    .availability-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+    }
+
+    .feature-card,
+    .trust-card,
+    .review-card,
+    .fancy-box,
+    .contact-block {
+      padding: 26px;
+    }
+
+    .feature-card h3,
+    .trust-card h3,
+    .review-card h3,
+    .fancy-box h3,
+    .availability-card h3,
+    .contact-copy h3,
+    .footer-grid h3 {
+      margin: 0 0 10px;
+      color: var(--navy);
+      font-size: 22px;
+      line-height: 1.2;
+    }
+
+    .media-section {
+      padding: 12px 0 22px;
+    }
+
+    .media-grid {
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 22px;
+      align-items: stretch;
+    }
+
+    .media-main,
+    .media-stack-card {
+      position: relative;
+      overflow: hidden;
+      border-radius: 28px;
+      min-height: 320px;
+      box-shadow: var(--shadow-soft);
+    }
+
+    .media-main {
+      background: url('master-bedroom-red.jpg') center center / cover no-repeat;
+    }
+
+    .media-stack {
+      display: grid;
+      gap: 22px;
+      grid-template-rows: 1fr 1fr;
+    }
+
+    .media-stack-top {
+      background: url('living-room.jpg') center center / cover no-repeat;
+      min-height: 150px;
+      background-position: center 54%;
+    }
+
+    .media-stack-bottom {
+      background: url('kitchen.jpg') center center / cover no-repeat;
+      min-height: 150px;
+      background-position: center center;
+      background-size: cover;
+    }
+
+    .media-overlay {
+      position: absolute;
+      left: 24px;
+      bottom: 24px;
+      max-width: 74%;
+      background: rgba(255,255,255,0.93);
+      color: var(--navy);
+      padding: 18px 22px;
+      border-radius: 22px;
+      box-shadow: 0 10px 28px rgba(7,23,56,0.14);
+    }
+
+    .media-overlay strong {
+      display: block;
+      font-size: 18px;
+      line-height: 1.2;
+      margin-bottom: 6px;
+    }
+
+    .gallery-cta-wrap {
+      padding: 6px 0 26px;
+    }
+
+    .gallery-hero {
+      background: linear-gradient(135deg, #14356d 0%, #12306a 100%);
+      border: 1px solid rgba(255,255,255,0.08);
+      padding: 28px 30px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 18px;
+      align-items: center;
+      color: white;
+    }
+
+    .gallery-hero .section-kicker,
+    .cta-panel .section-kicker,
+    .availability-card .section-kicker {
+      background: rgba(255,255,255,0.08);
+      color: rgba(255,255,255,0.78);
+      border-color: rgba(255,255,255,0.08);
+    }
+
+    .gallery-hero h3,
+    .cta-panel h3,
+    .availability-card h3 {
+      color: white;
+      font-size: 26px;
+      margin: 14px 0 8px;
+    }
+
+    .gallery-hero p,
+    .cta-panel p,
+    .availability-card p {
+      color: rgba(255,255,255,0.84);
+      margin: 0;
+    }
+
+    .gallery-anchor {
+      scroll-margin-top: 170px;
+    }
+
+    .gallery-section {
+      padding: 6px 0 10px;
+    }
+
+    .heading-panel {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-soft);
+      padding: 30px 34px;
+      margin-bottom: 22px;
+    }
+
+    .heading-panel .section-kicker {
+      background: var(--surface-tint);
+      color: #7082a0;
+      border: 1px solid var(--border);
+    }
+
+    .heading-panel h2 {
+      margin: 16px 0 12px;
+      font-size: clamp(36px, 5.2vw, 72px);
+      line-height: 0.95;
+      letter-spacing: -0.05em;
+      color: var(--navy);
+    }
+
+    .dollis-gallery-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .gallery-photo {
+      position: relative;
+      min-height: 300px;
+      background: linear-gradient(180deg, rgba(7,23,56,0.02) 0%, rgba(7,23,56,0.14) 100%);
+      background-size: cover;
+      background-position: center center;
+      cursor: pointer;
+    }
+
+    .gallery-photo span {
+      position: absolute;
+      left: 18px;
+      bottom: 18px;
+      padding: 14px 20px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.96);
+      color: var(--navy);
+      font-size: 19px;
+      font-weight: 800;
+      box-shadow: 0 10px 28px rgba(7,23,56,0.12);
+    }
+
+    .soft-accent {
+      background: linear-gradient(180deg, rgba(234,215,170,0.12) 0%, rgba(255,255,255,0.96) 100%);
+    }
+
+    .availability-card {
+      padding: 28px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.12) 0%, rgba(255,255,255,0.07) 100%);
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .availability-form {
+      margin-top: 20px;
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+      align-items: end;
+    }
+
+    .field {
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+
+    .field label {
+      color: rgba(255,255,255,0.78);
+      font-size: 13px;
+      letter-spacing: 0.16em;
+      font-weight: 800;
+      text-transform: uppercase;
+    }
+
+    .field input,
+    .field select {
+      min-height: 74px;
+      border-radius: 18px;
+      border: none;
+      outline: none;
+      font-size: 18px;
+      padding: 0 18px;
+      background: rgba(255,255,255,0.96);
+      color: var(--navy);
+      box-shadow: inset 0 0 0 1px #dbe5f0;
+    }
+
+    .field button {
+      width: 100%;
+      min-height: 74px;
+      border-radius: 18px;
+    }
+
+    .calendar-links {
+      margin-top: 18px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .calendar-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 46px;
+      padding: 0 16px;
+      border-radius: 14px;
+      background: rgba(255,255,255,0.08);
+      border: 1px solid rgba(255,255,255,0.08);
+      color: white;
+      font-weight: 700;
+      font-size: 14px;
+    }
+
+    .rooms-section .panel h2,
+    .reviews-section .heading-panel h2 {
+      font-size: clamp(34px, 5vw, 68px);
+    }
+
+    .rooms-section .panel p strong {
+      color: var(--navy);
+    }
+
+    .romford-grid {
+      grid-template-columns: repeat(3, 1fr);
+      margin-top: 24px;
+    }
+
+    .romford-card {
+      min-height: 260px;
+      background-size: cover;
+      background-position: center center;
+      position: relative;
+    }
+
+    .romford-card::after,
+    .gallery-photo::after,
+    .media-main::after,
+    .media-stack-card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(180deg, rgba(7,23,56,0.02) 0%, rgba(7,23,56,0.14) 100%);
+      pointer-events: none;
+    }
+
+    .romford-card span {
+      position: absolute;
+      left: 18px;
+      bottom: 18px;
+      z-index: 1;
+      padding: 14px 20px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.96);
+      color: var(--navy);
+      font-weight: 800;
+      font-size: 18px;
+      box-shadow: 0 10px 28px rgba(7,23,56,0.12);
+    }
+
+    .reviews-section {
+      padding-top: 18px;
+    }
+
+    .quote-bar {
+      margin-top: 24px;
+      padding: 20px 24px;
+      background: linear-gradient(180deg, #16356d 0%, #102a5e 100%);
+      color: rgba(255,255,255,0.92);
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .review-grid {
+      grid-template-columns: repeat(3, 1fr);
+      margin-top: 22px;
+    }
+
+    .review-card .stars {
+      color: #d7b96d;
+      font-size: 22px;
+      letter-spacing: 0.08em;
+      margin-bottom: 12px;
+    }
+
+    .cta-panel {
+      margin-top: 28px;
+      padding: 28px 30px;
+      background: linear-gradient(135deg, #0f2b5c 0%, #0c2452 100%);
+      color: white;
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .contact-section {
+      padding-top: 30px;
+    }
+
+    .contact-shell {
+      display: grid;
+      grid-template-columns: 1.05fr 0.95fr;
+      gap: 22px;
+      padding: 24px;
+      background: linear-gradient(180deg, rgba(255,255,255,0.82) 0%, rgba(255,255,255,0.94) 100%);
+      border: 1px solid var(--border);
+    }
+
+    .contact-copy {
+      padding: 18px 10px 18px 8px;
+    }
+
+    .contact-copy h2 {
+      margin: 0 0 14px;
+      font-size: clamp(40px, 6vw, 72px);
+      line-height: 0.96;
+      letter-spacing: -0.05em;
+      color: var(--navy);
+    }
+
+    .contact-grid {
+      grid-template-columns: 1fr;
+    }
+
+    .contact-block {
+      background: #fff;
+    }
+
+    .contact-label {
+      font-size: 15px;
+      font-weight: 800;
+      color: var(--navy);
+      margin-bottom: 8px;
+      letter-spacing: 0.02em;
+    }
+
+    .contact-value {
+      color: #50627f;
+      font-size: 16px;
+    }
+
+    .stat {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      padding: 16px 18px;
+      border-radius: 18px;
+      background: #fff;
+      border: 1px solid #dde6ef;
+      min-width: 170px;
+    }
+
+    .stat strong {
+      color: var(--navy);
+      font-size: 14px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .quick-actions {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+      margin-top: 18px;
+    }
+
+    .contact-detail-toggle {
+      display: none;
+      margin-top: 10px;
+      color: #4b5f7d;
+      font-weight: 700;
+      font-size: 16px;
+    }
+
+    .contact-detail-toggle.show {
+      display: block;
+    }
+
+    .footer {
+      padding: 34px 0 44px;
+    }
+
+    .footer-shell {
+      padding: 22px 22px 18px;
+      background: linear-gradient(180deg, #0f2b5c 0%, #09204a 100%);
+      color: white;
+      border: 1px solid rgba(255,255,255,0.08);
+    }
+
+    .footer-grid {
+      grid-template-columns: 1.2fr 1fr 1fr 1fr;
+      align-items: start;
+    }
+
+    .footer-grid p,
+    .footer-grid a,
+    .footer-grid div {
+      color: rgba(255,255,255,0.9);
+    }
+
+    .footer-grid .section-kicker {
+      margin-bottom: 12px;
+    }
+
+    .muted-link {
+      color: #d7e1ee;
+      text-decoration: underline;
+      text-decoration-thickness: 2px;
+      text-underline-offset: 3px;
+    }
+
+    .lightbox {
+      position: fixed;
+      inset: 0;
+      z-index: 100;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 22px;
+      background: rgba(5, 15, 33, 0.92);
+    }
+
+    .lightbox.show { display: flex; }
+
+    .lightbox-inner {
+      position: relative;
+      width: min(1120px, calc(100vw - 30px));
+      max-height: calc(100vh - 40px);
+      border-radius: 24px;
+      overflow: hidden;
+      background: #081a37;
+      box-shadow: 0 30px 90px rgba(0,0,0,0.38);
+    }
+
+    .lightbox img {
+      width: 100%;
+      max-height: calc(100vh - 40px);
+      object-fit: contain;
+      background: #081a37;
+    }
+
+    .lightbox-caption {
+      position: absolute;
+      left: 20px;
+      bottom: 20px;
+      padding: 12px 16px;
+      border-radius: 999px;
+      background: rgba(255,255,255,0.96);
+      color: var(--navy);
+      font-weight: 800;
+    }
+
+    .lightbox-close {
+      position: absolute;
+      right: 16px;
+      top: 16px;
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      border: none;
+      background: rgba(255,255,255,0.94);
+      color: var(--navy);
+      font-size: 26px;
+      font-weight: 900;
+      cursor: pointer;
+    }
+
+    @media (max-width: 1100px) {
+      :root {
+        --header-height: 146px;
+      }
+
+      .nav {
+        flex-direction: column;
+        align-items: stretch;
+      }
+
+      .nav-links {
+        justify-content: flex-start;
+      }
+
+      .hero-grid,
+      .two-col,
+      .media-grid,
+      .contact-shell,
+      .footer-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .review-grid,
+      .feature-grid,
+      .dollis-gallery-grid,
+      .romford-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .availability-form {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 760px) {
+      :root {
+        --header-height: 188px;
+      }
+
+      .room-banner {
+        top: var(--header-height);
+        padding: 8px 12px;
+        font-size: 12px;
+      }
+
+      section[id] { scroll-margin-top: 240px; }
+
+      .brand-copy strong { font-size: 18px; }
+      .brand-copy span { font-size: 10px; }
+      .hero-shell,
+      .panel,
+      .heading-panel,
+      .contact-shell,
+      .availability-card,
+      .gallery-hero,
+      .footer-shell { padding: 22px; }
+
+      .hero h1,
+      .section-title,
+      .panel h2,
+      .heading-panel h2,
+      .contact-copy h2 {
+        font-size: clamp(34px, 14vw, 54px);
+      }
+
+      .review-grid,
+      .feature-grid,
+      .dollis-gallery-grid,
+      .romford-grid,
+      .quick-actions,
+      .hero-note,
+      .availability-form {
+        grid-template-columns: 1fr;
+      }
+
+      .gallery-photo,
+      .romford-card,
+      .media-main,
+      .media-stack-card { min-height: 240px; }
+
+      .gallery-hero {
+        grid-template-columns: 1fr;
+      }
+
+      .media-overlay {
+        max-width: calc(100% - 40px);
+      }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="container nav">
+      <a href="#top" class="brand" aria-label="Simplex Stays home">
+        <span class="brand-logo-wrap">
+          <img src="simplex-logo.png.jpg" alt="Simplex Stays Ltd logo" width="60" height="60" />
+        </span>
+        <span class="brand-copy">
+          <strong>Simplex Stays Ltd</strong>
+          <span>Premium stays & room rentals</span>
+        </span>
+      </a>
+
+      <nav class="nav-links" aria-label="Primary">
+        <a href="#about">About</a>
+        <a href="#property">Dollis Hill</a>
+        <a href="#dollis-gallery-anchor">Dollis Gallery</a>
+        <a href="#rooms">Romford Rooms</a>
+        <a href="#reviews">Reviews</a>
+        <a href="#faq">FAQ</a>
+        <a href="#contact">Contact</a>
+      </nav>
+    </div>
+  </header>
+
+  <div class="room-banner">
+    <a href="#rooms">Looking for a room in Romford RM6? View available long-term double rooms here.</a>
+  </div>
+
+  <main id="top">
+    <section class="hero" id="property">
+      <div class="container hero-grid">
+        <div class="hero-shell">
+          <div class="eyebrow">Main stay • Dollis Hill serviced accommodation in North West London</div>
+          <h1>Luxury-standard Dollis Hill serviced stays</h1>
+          <div class="eyebrow" style="margin-top:8px; margin-bottom:18px;">7 verified 5-star Google reviews • Concierge Monday to Friday, 7am to 7pm</div>
+          <p class="lead">Simplex Stays Ltd is a growing family-run business with a strong focus on presentation, comfort and direct communication. Our Dollis Hill apartment is designed for professionals, company lets, corporate stays, relocation bookings, holiday accommodation and families who want more privacy, space and flexibility than a standard hotel.</p>
+
+          <div class="cta-row">
+            <a class="btn btn-primary" href="#property-media">Explore Dollis Hill</a>
+            <a class="btn btn-light" href="#contact">Enquire Direct</a>
+            <a class="btn btn-secondary" href="#dollis-gallery-anchor">View Dollis Hill Gallery</a>
+            <a class="btn btn-secondary" href="#rooms">View Romford Rooms</a>
+            <a class="btn btn-whatsapp" href="https://wa.me/447908389184?text=Hello,%20I%20am%20interested%20in%20checking%20availability%20for%20your%20Dollis%20Hill%20apartment%20or%20Romford%20rooms.%20Please%20could%20you%20let%20me%20know%20the%20next%20steps?" target="_blank" rel="noopener">WhatsApp Us</a>
+            <a class="btn btn-light" href="https://www.airbnb.co.uk/rooms/1645094170229913919" target="_blank" rel="noopener">Airbnb Listing</a>
+            <a class="btn btn-light" href="https://www.vrbo.com/en-gb/p12076179" target="_blank" rel="noopener">VRBO Listing</a>
+          </div>
+        </div>
+
+        <div class="hero-card">
+          <div class="hero-photo" aria-hidden="true"></div>
+          <div class="hero-note">
+            <div class="mini-pill">3 bedrooms</div>
+            <div class="mini-pill">2 bathrooms</div>
+            <div class="mini-pill">Lift access</div>
+            <div class="mini-pill">Long stays welcome</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-surface" id="about">
+      <div class="container two-col">
+        <div class="panel">
+          <h2>A growing family business built around comfort, trust and presentation</h2>
+          <p>Simplex Stays Ltd is a growing family-run business focused on clean, reliable and attractive accommodation across different stay types.</p>
+          <p>Dollis Hill works especially well for corporate stays, relocation bookings and longer London visits because the apartment combines privacy, multiple bedrooms and a practical layout with easy access to transport links into the rest of the city. Romford RM6 gives visitors a second option if they are specifically looking for professionally presented longer-term room rental rather than short-stay serviced accommodation.</p>
+          <p>Guests often choose Simplex Stays because they want a more personal, direct and flexible booking experience, with clear communication before arrival and a stay that feels ready from day one.</p>
+        </div>
+
+        <div class="feature-grid">
+          <div class="feature-card">
+            <h3>Professionally presented accommodation</h3>
+            <p>Clean, guest-ready spaces that feel polished from arrival.</p>
+          </div>
+          <div class="feature-card">
+            <h3>Clear communication and direct contact</h3>
+            <p>Quick answers by WhatsApp or email when guests need them.</p>
+          </div>
+          <div class="feature-card">
+            <h3>Serviced apartment and room-rental options</h3>
+            <p>Two offers shown clearly so visitors can choose the right stay type.</p>
+          </div>
+          <div class="feature-card">
+            <h3>More personal family-run service</h3>
+            <p>A warmer, more hands-on experience than a faceless operator.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="media-section" id="property-media">
+      <div class="container media-grid">
+        <div class="media-main">
+          <div class="media-overlay">
+            <strong>Bright, spacious and guest-ready</strong>
+            A premium 3-bedroom setup designed for comfort and longer stays.
+          </div>
+        </div>
+
+        <div class="media-stack">
+          <div class="media-stack-card media-stack-top">
+            <div class="media-overlay">
+              <strong>Modern living space</strong>
+              Comfortable seating and dining space with natural light.
+            </div>
+          </div>
+          <div class="media-stack-card media-stack-bottom">
+            <div class="media-overlay">
+              <strong>Fully equipped kitchen</strong>
+              A complete kitchen layout shown clearly for guest use.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="gallery-cta-wrap">
+      <div class="container">
+        <div class="gallery-hero">
+          <div>
+            <div class="section-kicker">Dollis Hill picture page</div>
+            <h3>View the full Dollis Hill gallery</h3>
+            <p>Browse more of the apartment before you enquire or book.</p>
+          </div>
+          <a class="btn btn-primary" href="#dollis-gallery-anchor">View full Dollis Hill gallery</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="gallery-section" id="dollis-gallery-anchor">
+      <div class="container">
+        <div class="heading-panel">
+          <div class="section-kicker" style="background:var(--surface-tint); color:#7082a0; border-color:var(--border);">Dollis Hill gallery</div>
+          <h2>Browse more Dollis Hill apartment photos before you book</h2>
+          <p>This gallery section lets visitors explore more of your Dollis Hill apartment in one place. Click any image to open it larger.</p>
+        </div>
+
+        <div class="dollis-gallery-grid" id="dollis-gallery-grid">
+          <div class="gallery-photo" data-full="master-bedroom-red.jpg" style="background-image:url('master-bedroom-red.jpg');"><span>Bedroom 1</span></div>
+          <div class="gallery-photo" data-full="bedroom-2-green.jpg" style="background-image:url('bedroom-2-green.jpg');"><span>Bedroom 2</span></div>
+          <div class="gallery-photo" data-full="bedroom-3.jpg" style="background-image:url('bedroom-3.jpg');"><span>Bedroom 3</span></div>
+          <div class="gallery-photo" data-full="living-room.jpg" style="background-image:url('living-room.jpg');"><span>Living area</span></div>
+          <div class="gallery-photo" data-full="kitchen.jpg" style="background-image:url('kitchen.jpg');"><span>Kitchen</span></div>
+          <div class="gallery-photo" data-full="building-front.jpg" style="background-image:url('building-front.jpg');"><span>Outside property</span></div>
+          <div class="gallery-photo" data-full="building-approach.jpg" style="background-image:url('building-approach.jpg');"><span>Entrance</span></div>
+          <div class="gallery-photo" data-full="balcony-view.jpg" style="background-image:url('balcony-view.jpg');"><span>Balcony / view</span></div>
+          <div class="gallery-photo" data-full="hallway-2.jpg" style="background-image:url('hallway-2.jpg');"><span>Hallway</span></div>
+          <div class="gallery-photo" data-full="ensuite-master.jpg" style="background-image:url('ensuite-master.jpg');"><span>En-suite shower & toilet</span></div>
+          <div class="gallery-photo" data-full="shared-bathroom.jpg" style="background-image:url('shared-bathroom.jpg');"><span>Shared bathroom</span></div>
+          <div class="gallery-photo" data-full="view-city.jpg" style="background-image:url('view-city.jpg');"><span>Additional view</span></div>
+        </div>
+
+        <div class="fancy-box soft-accent" style="margin-top:24px;">
+          <div class="section-kicker" style="background:var(--surface-tint); color:#7082a0; border:1px solid var(--border);">Add more Dollis Hill photos</div>
+          <h3 style="margin-top:10px;">Code slots ready for more images</h3>
+          <p>Add one more picture for each room, hallway, entrance, en-suite and shared bathroom by replacing the file names below after uploading them to GitHub.</p>
+          <pre style="white-space:pre-wrap; margin:0; font-family:Arial, Helvetica, sans-serif; color:var(--navy); line-height:1.8; font-size:15px;">Extra Dollis Hill gallery file names to upload and use:
+
+bedroom-1-extra.jpg
+bedroom-2-extra.jpg
+bedroom-3-extra.jpg
+hallway-extra.jpg
+entrance-extra.jpg
+ensuite-extra.jpg
+shared-bathroom-extra.jpg
+balcony-extra.jpg
+view-extra.jpg</pre>
+        </div>
+      </div>
+    </section>
+
+    <section class="section rooms-section" id="rooms">
+      <div class="container two-col">
+        <div class="panel">
+          <div class="section-kicker" style="background:var(--surface-tint); color:#7082a0; border:1px solid var(--border);">Long-term room rentals</div>
+          <h2>Romford RM6 HMO rooms available for long-term tenants</h2>
+          <p><strong>Available rooms for working tenants and longer-term renters looking for a clean, managed home in Romford RM6.</strong></p>
+          <p>These rooms suit tenants who want a practical long-term setup with shared kitchen and communal space, straightforward arrangements and direct communication for viewings and next steps.</p>
+
+          <div class="fancy-box soft-accent" style="margin-top:24px;">
+            <h3>Why these rooms appeal</h3>
+            <ul style="margin:0; padding-left:22px; color:#50627f; font-size:17px; line-height:1.85;">
+              <li>Double rooms suited to individual long-term tenants</li>
+              <li>Large shared kitchen and dining space</li>
+              <li>Shared communal areas across a practical 3-floor layout</li>
+              <li>Bathroom access on every floor</li>
+              <li>Presented by a growing family-run business</li>
+              <li>Good for working tenants seeking ready-to-move accommodation</li>
+            </ul>
+          </div>
+        </div>
+
+        <div>
+          <div class="availability-card">
+            <div class="section-kicker">Check availability</div>
+            <h3>Pick your dates and send a booking request</h3>
+            <p>Choose your check-in date, check-out date and guest count, then send a booking request.</p>
+
+            <form class="availability-form" action="mailto:simplexstaysproperties@gmail.com" method="post" enctype="text/plain">
+              <div class="field">
+                <label for="checkin">Check-in</label>
+                <input id="checkin" name="Check-in" type="date" />
+              </div>
+              <div class="field">
+                <label for="checkout">Check-out</label>
+                <input id="checkout" name="Check-out" type="date" />
+              </div>
+              <div class="field">
+                <label for="guests">Guests</label>
+                <select id="guests" name="Guests">
+                  <option value="1">1</option>
+                  <option value="2" selected>2</option>
+                  <option value="3">3</option>
+                  <option value="4">4</option>
+                  <option value="5">5</option>
+                  <option value="6">6</option>
+                </select>
+              </div>
+              <div class="field">
+                <label style="opacity:0;">Send</label>
+                <button class="btn btn-primary" type="submit">Request Availability</button>
+              </div>
+            </form>
+
+            <div class="calendar-links">
+              <a class="calendar-link" href="https://www.airbnb.co.uk/help/article/99" target="_blank" rel="noopener">Connect Airbnb calendar</a>
+              <a class="calendar-link" href="https://help.vrbo.com/articles/How-do-I-import-or-export-my-calendar" target="_blank" rel="noopener">Connect VRBO calendar</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section reviews-section" id="reviews">
+      <div class="container">
+        <div class="heading-panel">
+          <div class="section-kicker" style="background:var(--surface-tint); color:#7082a0; border:1px solid var(--border);">Guest reviews</div>
+          <h2>Trusted by guests with 7 verified 5-star Google reviews</h2>
+          <p>Visitors can see real feedback focused on comfort, cleanliness and direct communication.</p>
+        </div>
+
+        <div class="trust-grid" style="grid-template-columns: repeat(3, 1fr);">
+          <div class="trust-card" style="background:linear-gradient(135deg,#17386f 0%,#0f2a5c 100%); color:white;">
+            <h3 style="color:white; font-size:54px; line-height:1; margin-bottom:8px;">5.0★</h3>
+            <p style="color:rgba(255,255,255,0.82);">Average Google rating from 7 guest reviews.</p>
+          </div>
+          <div class="trust-card">
+            <h3>What guests mention most</h3>
+            <p>Cleanliness, comfortable beds, spacious layout, easy communication and a smooth overall stay.</p>
+          </div>
+          <div class="trust-card">
+            <h3>Why it matters</h3>
+            <p>Strong social proof helps convert website visitors who do not know your brand yet.</p>
+          </div>
+        </div>
+
+        <div class="review-grid">
+          <div class="review-card">
+            <h3>Lucy Beacham</h3>
+            <div class="stars">★★★★★</div>
+            <p>Praised the host for being accommodating from start to finish and highlighted the space, comfort and overall experience for a group stay.</p>
+          </div>
+          <div class="review-card">
+            <h3>Naquita</h3>
+            <div class="stars">★★★★★</div>
+            <p>Described the flat as spotless on arrival, especially the kitchen, bathroom and bedrooms.</p>
+          </div>
+          <div class="review-card">
+            <h3>Cacharel Houston</h3>
+            <div class="stars">★★★★★</div>
+            <p>Said the full process felt smooth from start to finish, with clear communication and a comfortable stay.</p>
+          </div>
+        </div>
+
+        <div class="fancy-box" style="margin-top:22px;">
+          <h3>Read more on Google</h3>
+          <p>Visitors can also view your Google review profile for broader trust and more recent guest feedback.</p>
+          <a class="btn btn-primary" href="https://www.google.com/search?q=Simplex+Stays+Ltd+google+reviews" target="_blank" rel="noopener">View Google Reviews</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="contact-section" id="contact">
+      <div class="container contact-shell">
+        <div class="contact-copy">
+          <h2>Enquire directly for the fastest response</h2>
+          <p>Contact us for serviced accommodation in Dollis Hill or for long-term room rental in Romford RM6. Full booking or viewing details can be shared directly once we know what you are looking for.</p>
+          <p>Airbnb and VRBO remain useful for the Dollis Hill apartment because they support trust and additional booking options. The Romford HMO section is better handled through direct enquiry.</p>
+        </div>
+
+        <div>
+          <div class="contact-grid">
+            <div class="contact-block"><div class="contact-label">Business</div><div class="contact-value">Simplex Stays Ltd</div></div>
+            <div class="contact-block"><div class="contact-label">Email</div><div class="contact-value">simplexstaysproperties@gmail.com</div></div>
+            <div class="contact-block"><div class="contact-label">WhatsApp</div><div class="contact-value">07908 389184</div></div>
+            <div class="contact-block"><div class="contact-label">Call</div><div class="contact-value">07946 649402</div></div>
+            <div class="contact-block"><div class="contact-label">Main stay</div><div class="contact-value">Dollis Hill, North West London</div></div>
+            <div class="contact-block"><div class="contact-label">Room rentals</div><div class="contact-value">Romford RM6</div></div>
+            <div class="contact-block"><div class="contact-label">Current Romford availability</div><div class="contact-value">3 double rooms at £1,000 pcm per person</div></div>
+            <div class="contact-block"><div class="contact-label">Romford viewings</div><div class="contact-value">Arrange directly by email or WhatsApp</div></div>
+          </div>
+
+          <div class="quick-actions">
+            <a class="btn btn-primary" href="mailto:simplexstaysproperties@gmail.com?subject=Simplex%20Stays%20Enquiry">Send an Enquiry</a>
+            <a class="btn btn-whatsapp" href="https://wa.me/447908389184?text=Hello,%20I%20would%20like%20to%20enquire%20about%20your%20Dollis%20Hill%20apartment%20or%20Romford%20rooms." target="_blank" rel="noopener">Message on WhatsApp</a>
+            <button class="btn btn-light" type="button" id="toggleCallBtn">Call Now</button>
+            <a class="btn btn-light" href="https://www.airbnb.co.uk/rooms/1645094170229913919" target="_blank" rel="noopener">Book on Airbnb</a>
+            <div id="toggleCallDetail" class="contact-detail-toggle">07946 649402</div>
+            <a class="btn btn-light" href="https://www.vrbo.com/en-gb/p12076179" target="_blank" rel="noopener">View on VRBO</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="footer">
+      <div class="container footer-shell">
+        <div class="quote-bar">Book Dollis Hill securely through Airbnb or VRBO today, or enquire directly for availability and longer stays.</div>
+        <div class="footer-grid" style="margin-top:22px;">
+          <div>
+            <div class="section-kicker">Book Dollis Hill</div>
+            <h3>Flexible stays from short visits to longer bookings</h3>
+          </div>
+          <div>
+            <div class="section-kicker">Enquire direct</div>
+            <a class="muted-link" href="mailto:simplexstaysproperties@gmail.com?subject=Simplex%20Stays%20Enquiry">simplexstaysproperties@gmail.com</a>
+          </div>
+          <div>
+            <div class="section-kicker">WhatsApp</div>
+            <a class="muted-link" href="https://wa.me/447908389184?text=Hello,%20I%20would%20like%20to%20enquire%20about%20your%20Dollis%20Hill%20apartment%20or%20Romford%20rooms." target="_blank" rel="noopener">07908 389184</a>
+          </div>
+          <div>
+            <div class="section-kicker">Call</div>
+            <a class="muted-link" href="tel:+447946649402">07946 649402</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <div class="lightbox" id="lightbox" aria-hidden="true">
+    <div class="lightbox-inner">
+      <button class="lightbox-close" type="button" id="lightboxClose" aria-label="Close image">×</button>
+      <img id="lightboxImage" src="" alt="Gallery preview" />
+      <div class="lightbox-caption" id="lightboxCaption"></div>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      const photos = document.querySelectorAll('.gallery-photo');
+      const lightbox = document.getElementById('lightbox');
+      const lightboxImage = document.getElementById('lightboxImage');
+      const lightboxCaption = document.getElementById('lightboxCaption');
+      const lightboxClose = document.getElementById('lightboxClose');
+
+      photos.forEach((photo) => {
+        photo.addEventListener('click', () => {
+          const full = photo.getAttribute('data-full');
+          const caption = photo.querySelector('span') ? photo.querySelector('span').textContent : '';
+          lightboxImage.src = full;
+          lightboxCaption.textContent = caption;
+          lightbox.classList.add('show');
+          lightbox.setAttribute('aria-hidden', 'false');
+        });
+      });
+
+      function closeLightbox() {
+        lightbox.classList.remove('show');
+        lightbox.setAttribute('aria-hidden', 'true');
+        lightboxImage.src = '';
+      }
+
+      lightboxClose.addEventListener('click', closeLightbox);
+      lightbox.addEventListener('click', (event) => {
+        if (event.target === lightbox) closeLightbox();
+      });
+      document.addEventListener('keydown', (event) => {
+        if (event.key === 'Escape') closeLightbox();
+      });
+
+      const toggleBtn = document.getElementById('toggleCallBtn');
+      const toggleDetail = document.getElementById('toggleCallDetail');
+      if (toggleBtn && toggleDetail) {
+        toggleBtn.addEventListener('click', () => {
+          toggleDetail.classList.toggle('show');
+        });
+      }
+    })();
+  </script>
+</body>
+</html>
