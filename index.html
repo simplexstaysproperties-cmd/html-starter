@@ -179,6 +179,9 @@
   padding: 4px 10px;
   white-space: normal;
 }
+    .top-banner.banner-text-hidden .banner-inner {
+  opacity: 0;
+}
 
     .hero {
       position: relative;
@@ -1427,6 +1430,15 @@ view-extra.jpg</pre>
     function revealTopCall() {
       alert('07946 649402');
     }
+    const topBanner = document.querySelector('.top-banner');
+
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 30) {
+    topBanner.classList.add('banner-text-hidden');
+  } else {
+    topBanner.classList.remove('banner-text-hidden');
+  }
+});
   </script>
 </body>
 </html>
