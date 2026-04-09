@@ -3,36 +3,49 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Simplex Stays</title>
+<title>Simplex Stays Ltd</title>
 
 <style>
 :root {
-  --header-height: 100px;
+  --header-height: 108px;
   --header-height-scrolled: 70px;
+  --gold: #ccb06f;
+  --navy: #0c2148;
 }
 
-body { margin:0; font-family:Arial; }
+body {
+  margin:0;
+  font-family: Arial, sans-serif;
+  background:#f5f7fb;
+}
 
 /* HEADER */
 .topbar {
   position: sticky;
   top: 0;
   z-index: 1000;
-  background: #1e3a6d;
+  background: linear-gradient(90deg,#0c2148,#214c88);
 }
 
 .nav {
   min-height: var(--header-height);
   display:flex;
-  justify-content:space-between;
   align-items:center;
-  padding:0 20px;
+  justify-content:space-between;
+  padding: 0 40px;
   color:white;
   transition: all 0.3s ease;
 }
 
 .topbar.scrolled .nav {
   min-height: var(--header-height-scrolled);
+}
+
+.nav a {
+  color:white;
+  margin-left:20px;
+  text-decoration:none;
+  font-weight:600;
 }
 
 /* BANNER */
@@ -67,9 +80,57 @@ body { margin:0; font-family:Arial; }
   transform: translateY(-10px);
 }
 
-.content {
-  height:2000px;
-  padding:20px;
+/* HERO */
+.hero {
+  padding:100px 40px;
+  background: linear-gradient(135deg,#071738,#1f4b8f);
+  color:white;
+}
+
+.hero h1 {
+  font-size:52px;
+  max-width:700px;
+  line-height:1.1;
+}
+
+.hero p {
+  max-width:600px;
+  margin-top:15px;
+  opacity:0.9;
+}
+
+.btn {
+  display:inline-block;
+  margin-top:25px;
+  padding:14px 22px;
+  background: linear-gradient(135deg,#ccb06f,#ead7aa);
+  color:#1d160a;
+  font-weight:700;
+  border-radius:10px;
+  text-decoration:none;
+}
+
+/* SECTIONS */
+.section {
+  padding:80px 40px;
+}
+
+.card {
+  background:white;
+  padding:30px;
+  border-radius:16px;
+  box-shadow:0 10px 30px rgba(0,0,0,0.08);
+  margin-bottom:20px;
+}
+
+h2 {
+  margin-top:0;
+}
+
+footer {
+  padding:30px;
+  text-align:center;
+  background:white;
 }
 
 </style>
@@ -77,18 +138,49 @@ body { margin:0; font-family:Arial; }
 
 <body>
 
+<!-- HEADER -->
 <div class="topbar">
   <div class="nav">
-    <div>Simplex Stays</div>
-    <div>Home Rooms Contact</div>
+    <div style="font-weight:800; font-size:24px;">Simplex Stays Ltd</div>
+    <div>
+      <a href="#">Home</a>
+      <a href="#">Apartments</a>
+      <a href="#">Rooms</a>
+      <a href="#">Contact</a>
+    </div>
   </div>
 </div>
 
+<!-- GOLD BANNER -->
 <div class="top-banner">
-  <div class="banner-inner">Looking for a room in Romford? View available rooms here.</div>
+  <div class="banner-inner">
+    Looking for a room in Romford RM6? View available long-term double rooms here.
+  </div>
 </div>
 
-<div class="content">Scroll down</div>
+<!-- HERO -->
+<section class="hero">
+  <h1>Luxury serviced accommodation in London for professionals, families and long stays</h1>
+  <p>Premium stays in Dollis Hill and long-term rooms in Romford RM6 with direct booking options.</p>
+  <a class="btn" href="#">Check Availability</a>
+</section>
+
+<!-- PROPERTY SECTION -->
+<section class="section">
+  <div class="card">
+    <h2>Dollis Hill Apartment</h2>
+    <p>High-end serviced accommodation perfect for short stays, relocation and corporate bookings.</p>
+  </div>
+
+  <div class="card">
+    <h2>Romford Rooms</h2>
+    <p>Affordable long-term double rooms in RM6 for working tenants.</p>
+  </div>
+</section>
+
+<footer>
+  © 2026 Simplex Stays Ltd
+</footer>
 
 <script>
 const banner = document.querySelector('.top-banner');
