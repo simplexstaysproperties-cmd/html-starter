@@ -1,111 +1,81 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Simplex Stays Ltd</title>
+<!-- ONLY CHANGES APPLIED TO YOUR ORIGINAL FILE -->
 
-  <style>
-    :root {
-      --header-height: 108px;
-      --header-height-scrolled: 64px; /* NEW */
-      --banner-height: 34px;
-    }
+<style>
+:root {
+  --header-height: 108px;
+  --header-height-scrolled: 64px; /* NEW */
+  --banner-height: 34px;
+}
 
-    body { margin:0; font-family:Arial, sans-serif; }
+.nav {
+  min-height: var(--header-height);
+  transition: all 0.3s ease; /* NEW */
+}
 
-    /* TOPBAR */
-    .topbar {
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      background: linear-gradient(90deg, #0c2148, #214c88);
-      transition: all 0.3s ease;
-    }
+/* HEADER SHRINK */
+.topbar.scrolled .nav {
+  min-height: var(--header-height-scrolled);
+}
 
-    .nav {
-      min-height: var(--header-height);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      padding: 10px 20px;
-      transition: all 0.3s ease; /* IMPORTANT */
-    }
+/* BANNER BASE */
+.top-banner {
+  position: sticky;
+  top: var(--header-height);
+  z-index: 59;
+  width: 100%;
+  height: 34px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(180deg, #e6cf94 0%, #d9bc73 100%);
+  transition: all 0.3s ease;
+  overflow: hidden;
+}
 
-    /* SHRINK HEADER */
-    .topbar.scrolled .nav {
-      min-height: var(--header-height-scrolled);
-    }
+/* MOVE WITH HEADER */
+.topbar.scrolled + .top-banner {
+  top: var(--header-height-scrolled);
+}
 
-    .brand { color:white; font-weight:bold; font-size:22px; }
+/* SHRINK BANNER */
+.top-banner.banner-text-hidden {
+  height: 16px;
+}
 
-    .nav a {
-      color:white;
-      margin-left:15px;
-      text-decoration:none;
-      font-weight:600;
-    }
+/* TEXT STYLE */
+.banner-inner {
+  font-weight: 800;
+  font-size: 13px;
+  line-height: 1;
+  padding: 4px 10px;
+  transition: all 0.3s ease;
+}
 
-    /* GOLD BANNER */
-    .top-banner {
-      position: sticky;
-      top: var(--header-height);
-      height: var(--banner-height);
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      background: linear-gradient(180deg, #e6cf94, #d9bc73);
-      transition: all 0.3s ease;
-    }
+/* HIDE TEXT COMPLETELY */
+.top-banner.banner-text-hidden .banner-inner {
+  opacity: 0;
+  transform: translateY(-10px);
+  pointer-events: none;
+}
+</style>
 
-    /* SHRINK BANNER */
-    .top-banner.banner-text-hidden {
-      height:18px;
-    }
+<script>
+const topBanner = document.querySelector('.top-banner');
+const topbar = document.querySelector('.topbar');
 
-    /* CONTENT */
-    .content {
-      height:2000px;
-      padding:20px;
-      background:#f5f5f5;
-    }
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 30) {
+    topBanner.classList.add('banner-text-hidden');
+    topbar.classList.add('scrolled');
+  } else {
+    topBanner.classList.remove('banner-text-hidden');
+    topbar.classList.remove('scrolled');
+  }
+});
+</script>
 
-  </style>
-</head>
-
-<body>
-
-  <div class="topbar">
-    <div class="nav">
-      <div class="brand">Simplex Stays</div>
-      <div>
-        <a href="#">Home</a>
-        <a href="#">Rooms</a>
-        <a href="#">Contact</a>
-      </div>
-    </div>
-  </div>
-
-  <div class="top-banner">
-    <div>Looking for a room in Romford? View available rooms here.</div>
-  </div>
-
-  <div class="content">Scroll to see effect</div>
-
-  <script>
-    const topBanner = document.querySelector('.top-banner');
-    const topbar = document.querySelector('.topbar');
-
-    window.addEventListener('scroll', () => {
-      if (window.scrollY > 30) {
-        topBanner.classList.add('banner-text-hidden');
-        topbar.classList.add('scrolled');
-      } else {
-        topBanner.classList.remove('banner-text-hidden');
-        topbar.classList.remove('scrolled');
-      }
-    });
-  </script>
-
-</body>
-</html>
+<!-- INSTRUCTIONS:
+1. Replace ONLY your existing banner + nav CSS with this
+2. Keep the rest of your site EXACTLY the same
+3. Commit and deploy
+-->
