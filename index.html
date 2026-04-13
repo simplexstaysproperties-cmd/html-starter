@@ -54,7 +54,7 @@
 
     .topbar {
       position: sticky;
-      top: 34px;
+      top: 0;
       z-index: 60;
       background: linear-gradient(90deg, rgba(12,33,72,0.97) 0%, rgba(33,76,136,0.95) 100%);
       border-bottom: 1px solid rgba(255,255,255,0.08);
@@ -139,24 +139,12 @@
       background: rgba(255,255,255,0.16);
     }
 
- .top-banner {
-    position: relative;
-    width: 100%;
-
-    height: var(--banner-height);
-    min-height: 12px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    background: linear-gradient(120deg,#e6cf94 0%,#f5e2a8 25%,#d4af37 50%,#f5e2a8 75%,#e6cf94 100%);
-    background-size: 200% auto;
-    animation: goldShimmer 6s linear infinite;
-}
-    
+   .top-banner {
+  position: sticky;
+  top: var(--header-height);
+  z-index: 59;
   width: 100%;
   height: var(--banner-height);
-  min-height: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -168,14 +156,14 @@
   box-shadow: 0 8px 18px rgba(0,0,0,0.10);
   border-top: 1px solid rgba(255,255,255,0.35);
   border-bottom: 1px solid rgba(0,0,0,0.08);
-  overflow: visible;
+  overflow: hidden;
   
   transition: all 0.3s ease;
 }
 
 /* SHRINK EFFECT */
 .top-banner.shrink {
-  height: 32px;
+  height: 20px;
 }
 
 .top-banner.shrink .banner-inner {
@@ -183,7 +171,7 @@
   padding: 2px 8px;
 }
 
-.top-banner.banner-text-hidden {
+.top-banner.banner-text-hidden .banner-inner {
     opacity: 0;
     transition: opacity 0.3s ease;
 }
@@ -1467,15 +1455,15 @@ view-extra.jpg</pre>
       alert('07946 649402');
     }
     const banner = document.querySelector('.top-banner');
-    
+
 window.addEventListener('scroll', () => {
-    if (window.scrollY > 50) {
-        banner.classList.add('shrink');
-        banner.classList.add('banner-text-hidden');
-    } else {
-        banner.classList.remove('shrink');
-        banner.classList.remove('banner-text-hidden');
-    }
+  if (window.scrollY > 50) {
+    banner.classList.add('shrink');
+    banner.classList.add('banner-text-hidden'); // hide text
+  } else {
+    banner.classList.remove('shrink');
+    banner.classList.remove('banner-text-hidden'); // show text
+  }
 });
     
   </script>
